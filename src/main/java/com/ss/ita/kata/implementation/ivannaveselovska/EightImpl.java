@@ -57,7 +57,9 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        if (str.charAt(0) == 45)
+            return -1 * numberSighIgnore(str, 1);
+        return numberSighIgnore(str, 0);
     }
 
     @Override
@@ -80,5 +82,14 @@ public class EightImpl implements Eight {
             if ( number / i == i)
                 return i;
         return -1;
+    }
+    private int numberSighIgnore(String str, int start){
+        int result = 0;
+        int degree = str.length() - 1;
+        for (int i = start; i < str.length(); i++){
+            int number = str.charAt(i) - 48;
+            result += number * Math.pow(10,degree - i);
+        }
+        return result;
     }
 }
