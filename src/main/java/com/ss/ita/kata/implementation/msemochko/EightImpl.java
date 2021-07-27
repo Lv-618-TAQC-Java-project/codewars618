@@ -7,7 +7,11 @@ public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
         double result = time / 2;
-        return (int) result;
+        if (time>0) {
+            return (int) result;
+        }else {
+            return 0;
+        }
     }
 
     @Override
