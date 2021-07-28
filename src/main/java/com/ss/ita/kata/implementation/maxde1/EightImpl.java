@@ -80,7 +80,8 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        int m = (int)n;
+        return m == 5 || m == 13 || m == 563;
     }
 
     @Override
