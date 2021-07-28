@@ -28,7 +28,7 @@ public class EightImpl implements Eight {
             for (int j = 1; j * j <= array[i]; j++) {
                 if ((j * j) == array[i]) {
                     result[i] = j;
-                } else result[i] = array[i]*array[i];
+                } else result[i] = array[i] * array[i];
             }
         }
         return result;
@@ -36,7 +36,17 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        int countPositive = 0;
+        int sumOfNegative = 0;
+        int[] result = new int[2];
+        for (int j : input) {
+            if (j > 0) {
+                countPositive++;
+            } else sumOfNegative += j;
+        }
+        result[0] = countPositive;
+        result[1] = sumOfNegative;
+        return result;
     }
 
     @Override
