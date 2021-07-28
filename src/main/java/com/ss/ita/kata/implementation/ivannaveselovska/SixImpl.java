@@ -5,7 +5,12 @@ import com.ss.ita.kata.Six;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        long cubeNumber = 0;
+        for ( long i = 1; m > 0 ; i++){
+            m -= i * i * i;
+            cubeNumber++;
+        }
+        return m == 0 ? cubeNumber : -1L;
     }
 
     @Override
