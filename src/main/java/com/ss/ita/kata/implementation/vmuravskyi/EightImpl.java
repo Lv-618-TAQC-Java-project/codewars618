@@ -5,14 +5,14 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        if (time < 0) throw new IllegalArgumentException;
+        if (time < 0) throw new IllegalArgumentException();
         return (int) (time * 0.5);
     }
 
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length * width * height;
     }
 
     @Override
