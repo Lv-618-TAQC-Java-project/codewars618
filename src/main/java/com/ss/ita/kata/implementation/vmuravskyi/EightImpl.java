@@ -56,18 +56,18 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return (factorial(n-1) + 1) % (n*n) == 0;
+        return ((fact(n - 1) + 1) % (n * n)) == 0;
     }
-    public static double factorial(double number) {
-        if (number <= 1) {
-            return 1;
-        } else {
-            return number * factorial(number - 1);
+
+    private double fact(double n) {
+        double sum = 1;
+        for (double i = 1; i <= n; i++) {
+            sum = sum * i;
         }
+        return sum;
     }
 
-
-        @Override
+    @Override
     public double twoDecimalPlaces(double number) {
         return 0;
     }
