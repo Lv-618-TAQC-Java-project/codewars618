@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.ivannaveselovska;
 
 import com.ss.ita.kata.Seven;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 public class SevenImpl implements Seven {
@@ -16,7 +18,16 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        return null;
+        if(n <= 0)
+            return "0.00";
+        double result = 0;
+        int denominator = 1;
+        while (n > 0){
+           result += 1.0 / denominator;
+           denominator += 3;
+           n--;
+        }
+        return BigDecimal.valueOf(result).setScale(2, RoundingMode.HALF_UP).toString();
     }
 
     @Override
