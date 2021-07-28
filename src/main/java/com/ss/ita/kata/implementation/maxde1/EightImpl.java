@@ -3,6 +3,11 @@ package com.ss.ita.kata.implementation.maxde1;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
+    public static void main(String[] args) {
+        EightImpl a = new EightImpl();
+
+        System.out.println(a.mpgToKPM(10));
+    }
     @Override
     public int liters(double time) {
         int result = (int)(time*0.5);
@@ -11,13 +16,22 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        double volumeOfCuboid = length * width * height;
+        //
+        double volumeOfCuboid=length * width * height;
         return volumeOfCuboid;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        if (mpg >= 0){
+            float kpl = (mpg*1.609344f)/4.54609188f;
+            float rounded =(float) (Math.round(kpl*100)/100D);
+            return rounded;
+
+        }
+        else {
+            return -1;
+        }
     }
 
     @Override
