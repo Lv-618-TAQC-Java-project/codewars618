@@ -2,6 +2,10 @@ package com.ss.ita.kata.implementation.maxde1;
 
 import com.ss.ita.kata.Eight;
 
+import static java.lang.Math.sqrt;
+import static java.lang.Math.ceil;
+
+
 public class EightImpl implements Eight {
 
     @Override
@@ -32,7 +36,20 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        int[] arr = new int[array.length];
+        double root;
+        for (int i = 0; i < array.length; i++){
+            root = sqrt(array[i]);
+            if (root == ceil(root)){
+                arr[i] = (int) root;
+            }
+            else{
+                arr[i] = array[i]*array[i];
+            }
+
+        }
+
+        return arr;
     }
 
     @Override
