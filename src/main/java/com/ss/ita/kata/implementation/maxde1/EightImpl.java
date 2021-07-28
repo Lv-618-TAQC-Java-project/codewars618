@@ -3,11 +3,7 @@ package com.ss.ita.kata.implementation.maxde1;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
-    public static void main(String[] args) {
-        EightImpl a = new EightImpl();
 
-        System.out.println(a.mpgToKPM(10));
-    }
     @Override
     public int liters(double time) {
         int result = (int)(time*0.5);
