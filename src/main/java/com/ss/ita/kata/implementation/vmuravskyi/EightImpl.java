@@ -69,7 +69,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 1;
+        return 0;
     }
 
     @Override
