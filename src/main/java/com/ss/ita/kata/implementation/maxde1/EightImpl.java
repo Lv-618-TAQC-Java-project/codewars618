@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.maxde1;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static java.lang.Math.sqrt;
 import static java.lang.Math.ceil;
 
@@ -91,6 +94,16 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> divisibleNumbers = new ArrayList<Integer>();
+        for (int i : numbers){
+            if (i % divider == 0){
+                divisibleNumbers.add(i);
+            }
+        }
+        int[] result = new int[divisibleNumbers.size()];
+        for (int i = 0; i < divisibleNumbers.size(); i++) {
+            result[i] = divisibleNumbers.get(i);
+        }
+        return result;
     }
 }
