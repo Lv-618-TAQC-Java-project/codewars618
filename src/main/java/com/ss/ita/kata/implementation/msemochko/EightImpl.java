@@ -9,9 +9,9 @@ public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
         double result = time / 2;
-        if (time>0) {
+        if (time > 0) {
             return (int) result;
-        }else {
+        } else {
             return 0;
         }
     }
