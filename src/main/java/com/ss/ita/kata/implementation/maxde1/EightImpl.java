@@ -8,6 +8,7 @@ import static java.lang.Math.ceil;
 
 public class EightImpl implements Eight {
 
+
     @Override
     public int liters(double time) {
         int result = (int)(time*0.5);
@@ -54,18 +55,22 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        int positiveElement = 0;
-        int negativeElement = 0;
+        if (input == null || input.length == 0){
+            return new int[0];
+        }
+        int positiveElementCount = 0;
+        int negativeElementSum = 0;
+
         for (int i = 0; i < input.length; i++){
             if (input[i] > 0){
-                positiveElement += 1;
+                positiveElementCount += 1;
             }
-            else if(input[i] < 0){
-                negativeElement += input[i];
+            if(input[i] < 0){
+                negativeElementSum += input[i];
             }
         }
 
-        return new int[] {positiveElement, negativeElement};
+        return new int[] {positiveElementCount, negativeElementSum};
     }
 
     @Override
