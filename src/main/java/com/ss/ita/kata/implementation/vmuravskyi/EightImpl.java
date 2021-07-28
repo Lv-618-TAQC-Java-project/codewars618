@@ -2,6 +2,7 @@ package com.ss.ita.kata.implementation.vmuravskyi;
 
 import com.ss.ita.kata.Eight;
 
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -69,7 +70,8 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        double temp = (Math.round(number * 100));
+        return temp / 100;
     }
 
     @Override
