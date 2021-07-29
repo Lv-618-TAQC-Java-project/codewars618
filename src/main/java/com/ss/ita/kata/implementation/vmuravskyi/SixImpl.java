@@ -5,7 +5,15 @@ import com.ss.ita.kata.Six;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        long count = 0;
+        long sumOfVolume = 0L;
+        for (int i = 1; sumOfVolume < m; i++) {
+            sumOfVolume += (long) i * i * i;
+            count++;
+        }
+        if (sumOfVolume == m) {
+            return count;
+        } else return -1;
     }
 
     @Override
