@@ -3,13 +3,25 @@ package com.ss.ita.kata.implementation.maxde1;
 import com.ss.ita.kata.Six;
 
 public class SixImpl implements Six {
+
     @Override
     public long findNb(long m) {
-        return 0;
+        long n=0;
+        long sum = 0;
+        while(sum < m){
+            n+=1;
+            sum += (n*n*n);
+        }
+
+        if (sum == m){
+            return n;
+        }
+        return -1;
     }
 
     @Override
     public String balance(String book) {
+
         return null;
     }
 
