@@ -2,26 +2,39 @@ package com.ss.ita.kata.implementation.msemochko;
 
 import com.ss.ita.kata.Eight;
 
+import java.math.BigDecimal;
+
 public class EightImpl implements Eight {
 
     @Override
     public int liters(double time) {
         double result = time / 2;
-        if (time>0) {
+        if (time > 0) {
             return (int) result;
-        }else {
+        } else {
             return 0;
         }
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        if (length > 0 && width > 0 && height > 0) {
+            return length * width * height;
+        } else {
+            return 0;
+        }
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        final float KM = 1.609344f;
+        final float LT = 4.54609188f;
+
+        if (mpg > 0) {
+            return BigDecimal.valueOf(mpg * KM / LT).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
+        } else {
+            return 0;
+        }
     }
 
     @Override
