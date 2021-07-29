@@ -46,7 +46,12 @@ int j = 1;
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        double[] values = getDoubleArrayFromData(town,strng);
+        if (values == null)
+            return -1.0;
+        return Arrays.stream(values).average().getAsDouble();
+
+
     }
 
     @Override
@@ -78,5 +83,22 @@ int j = 1;
             lines[i] = list.get(i);
         }
         return lines;
+    }
+    private double[] getDoubleArrayFromData(String town, String strng){
+        String[] lines = strng.split("\n");
+        String cityInfo = null;
+        for (String x:
+                lines) {
+            if(x.substring(0,town.length()).equals(town))
+                cityInfo = x.substring(town.length() + 1);
+        }
+        if(cityInfo == null)
+            return null;
+        String[] temp = cityInfo.split("[ ,]");
+        double[] values = new double[12];
+        for (int i = 1, j = 0; i < temp.length; i += 2, j ++) {
+            values[j] = Double.parseDouble(temp[i]);
+        }
+        return values;
     }
 }
