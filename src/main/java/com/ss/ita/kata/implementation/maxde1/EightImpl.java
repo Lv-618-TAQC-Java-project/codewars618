@@ -2,7 +2,15 @@ package com.ss.ita.kata.implementation.maxde1;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static java.lang.Math.sqrt;
+import static java.lang.Math.ceil;
+
+
 public class EightImpl implements Eight {
+
 
     @Override
     public int liters(double time) {
@@ -32,31 +40,70 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        int[] arr = new int[array.length];
+        double root;
+        for (int i = 0; i < array.length; i++){
+            root = sqrt(array[i]);
+            if (root == ceil(root)){
+                arr[i] = (int) root;
+            }
+            else{
+                arr[i] = array[i]*array[i];
+            }
+
+        }
+
+        return arr;
     }
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0){
+            return new int[0];
+        }
+        int positiveElementCount = 0;
+        int negativeElementSum = 0;
+
+        for (int i = 0; i < input.length; i++){
+            if (input[i] > 0){
+                positiveElementCount += 1;
+            }
+            if(input[i] < 0){
+                negativeElementSum += input[i];
+            }
+        }
+
+        return new int[] {positiveElementCount, negativeElementSum};
     }
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        int m = (int)n;
+        return m == 5 || m == 13 || m == 563;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.round(number*100D)/100D;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> divisibleNumbers = new ArrayList<Integer>();
+        for (int i : numbers){
+            if (i % divider == 0){
+                divisibleNumbers.add(i);
+            }
+        }
+        int[] result = new int[divisibleNumbers.size()];
+        for (int i = 0; i < divisibleNumbers.size(); i++) {
+            result[i] = divisibleNumbers.get(i);
+        }
+        return result;
     }
 }
