@@ -4,6 +4,9 @@ import com.ss.ita.kata.Eight;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class EightImpl implements Eight {
     @Override
@@ -27,7 +30,14 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        return Arrays.stream(array)
+                .map( x -> {
+                    int sqr = isSquare(x);
+                    if(sqr == -1)
+                        return x*x;
+                    return sqr;
+                })
+                .toArray();
     }
 
     @Override
@@ -53,5 +63,12 @@ public class EightImpl implements Eight {
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
         return new int[0];
+    }
+
+    private int isSquare(int number){
+        for( int i = 1; i <= number / 2; i ++)
+            if ( number / i == i)
+                return i;
+        return -1;
     }
 }
