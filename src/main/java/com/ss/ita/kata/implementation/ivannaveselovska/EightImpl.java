@@ -5,8 +5,6 @@ import com.ss.ita.kata.Eight;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class EightImpl implements Eight {
     @Override
@@ -42,16 +40,32 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if(input == null || input.length == 0)
+            return new int[0];
+        int[] result = new int[2];
+        Arrays.stream(input)
+                .forEach( x -> {
+                    if (x > 0)
+                        result[0]++;
+                    if(x < 0)
+                        result[1] += x;
+        });
+        return result;
     }
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        if (str.charAt(0) == 45)
+            return -1 * numberSighIgnore(str, 1);
+        return numberSighIgnore(str, 0);
     }
 
     @Override
     public boolean amIWilson(double n) {
+        double numerator = factorial(n - 1) + 1;
+        double denominator = n * n;
+        if (numerator % denominator == 0)
+            return true;
         return false;
     }
 
@@ -70,5 +84,23 @@ public class EightImpl implements Eight {
             if ( number / i == i)
                 return i;
         return -1;
+    }
+
+    private int numberSighIgnore(String str, int start){
+        int result = 0;
+        int degree = str.length() - 1;
+        for (int i = start; i < str.length(); i++){
+            int number = str.charAt(i) - 48;
+            result += number * Math.pow(10,degree - i);
+        }
+        return result;
+    }
+
+    private double factorial(double number){
+        double result = 1;
+        while(number > 0){
+            result += number--;
+        }
+        return result;
     }
 }
