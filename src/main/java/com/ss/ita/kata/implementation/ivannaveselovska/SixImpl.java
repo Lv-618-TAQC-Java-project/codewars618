@@ -56,7 +56,14 @@ int j = 1;
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        double[] values = getDoubleArrayFromData(town,strng);
+        if (values == null)
+            return -1.0;
+        double meanValue = mean(town, strng);
+
+        return Arrays.stream(values)
+                .map( x -> x = (x - meanValue) * (x - meanValue))
+                .sum() / values.length;
     }
 
     @Override
