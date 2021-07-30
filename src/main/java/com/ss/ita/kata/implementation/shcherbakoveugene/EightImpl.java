@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.shcherbakoveugene;
 
 import com.ss.ita.kata.Eight;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -40,7 +43,10 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        BigDecimal result = new BigDecimal(number);
+        result = result.setScale(2, RoundingMode.HALF_UP);
+
+        return result.doubleValue();
     }
 
     @Override
