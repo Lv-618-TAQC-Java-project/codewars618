@@ -33,8 +33,8 @@ public class SixImpl implements Six {
             sb.append(newLine);
             sb.append("_Balance_" + String.format( "%.2f", currentBalance) + "\n");
         }
-        sb.append("Total_expence_" + String.format( "%.2f", balance-currentBalance) + "\n");
-        sb.append("Average_expence_" + String.format( "%.2f", (balance-currentBalance) / (lines.length - 1)) );
+        sb.append("Total_expense_" + String.format( "%.2f", balance-currentBalance) + "\n");
+        sb.append("Average_expense_" + String.format( "%.2f", (balance-currentBalance) / (lines.length - 1)) );
         return sb.toString();
     }
 
