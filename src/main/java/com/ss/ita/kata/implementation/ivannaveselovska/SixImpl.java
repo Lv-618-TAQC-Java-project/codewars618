@@ -20,7 +20,6 @@ public class SixImpl implements Six {
     @Override
     public String balance(String book) {
         String[] lines = getCleanStringArray(book);
-int j = 1;
         double balance = Double.parseDouble(lines[0]);
         double currentBalance = balance;
         StringBuilder sb = new StringBuilder();
@@ -69,8 +68,8 @@ int j = 1;
         List<String> list = new ArrayList<>();
         for (String x : lines) {
             if (x.isEmpty() == false) {
-//                String s = x.replaceAll("(\\W)", "");
-                list.add(x);
+                String s = x.replaceAll("[^\\da-zA-Z .]", "");
+                list.add(s);
             }
         }
         lines = new String[list.size()];
