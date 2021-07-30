@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.shcherbakoveugene;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.Arrays;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -20,7 +22,23 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        if (array == null) {
+            return new int[0];
+        }
+        int[] resultArr = Arrays.copyOf(array, array.length);
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > 0) {
+                if (Math.sqrt(array[i]) % 1 == 0) {
+                    resultArr[i] = (int) Math.sqrt(array[i]);
+                } else {
+                    resultArr[i] = (int) Math.pow(array[i], 2);
+                }
+            } else {
+                resultArr[i] = 0;
+            }
+        }
+        return resultArr;
     }
 
     @Override
