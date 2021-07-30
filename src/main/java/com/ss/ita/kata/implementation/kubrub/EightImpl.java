@@ -56,7 +56,8 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        int i = Integer.parseInt(str);
+        return i;
     }
 
     @Override
