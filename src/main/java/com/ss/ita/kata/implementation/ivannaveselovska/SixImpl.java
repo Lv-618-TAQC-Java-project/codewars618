@@ -34,8 +34,8 @@ int j = 1;
             sb.append(newLine);
             sb.append("_Balance_" + String.format( "%.2f", currentBalance) + "\n");
         }
-        sb.append("Total_expence_" + String.format( "%.2f", balance-currentBalance) + "\n");
-        sb.append("Average_expence_" + String.format( "%.2f", (balance-currentBalance) / (lines.length - 1)) );
+        sb.append("Total_expense_" + String.format( "%.2f", balance-currentBalance) + "\n");
+        sb.append("Average_expense_" + String.format( "%.2f", (balance-currentBalance) / (lines.length - 1)) );
         return sb.toString();
     }
 
@@ -112,7 +112,20 @@ int j = 1;
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        int[] quality = new int[lstOf1stLetter.length];
+        for (int i = 0; i < lstOf1stLetter.length; i++) {
+            for (int j = 0; j < lstOfArt.length; j++) {
+                if(lstOfArt[j].charAt(0) == lstOf1stLetter[i].charAt(0)){
+                    String[] temp = lstOfArt[j].split(" ");
+                    quality[i] += Integer.parseInt(temp[1]);
+                }
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < quality.length - 1; i++)
+            sb.append("(" + lstOf1stLetter[i] + " : " + quality[i] + ") - ");
+        sb.append("(" + lstOf1stLetter[lstOf1stLetter.length - 1] + " : " + quality[quality.length - 1] + ")");
+        return sb.toString();
     }
 
     private String[] getCleanStringArray(String book){
@@ -120,8 +133,8 @@ int j = 1;
         List<String> list = new ArrayList<>();
         for (String x : lines) {
             if (x.isEmpty() == false) {
-//                String s = x.replaceAll("(\\W)", "");
-                list.add(x);
+                String s = x.replaceAll("[^\\da-zA-Z .]", "");
+                list.add(s);
             }
         }
         lines = new String[list.size()];
