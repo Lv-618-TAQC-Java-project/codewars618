@@ -67,13 +67,29 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        String result = String.format("%.2f", number);
-        double result1 = (double) result;
-        return result1;
+        //double res =("%.2f",number);
+        String value  = String.format("%.2f",number);
+        double res = Double.parseDouble(value );
+        return res;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+
+        int m = 0;
+        for (int i = 0; i < numbers.length; i++){
+            if (numbers[i] % divider == 0){
+                m++;
+            }
+        }
+        int[] res = new int[m];
+        m = 0;
+        for (int i = 0; i < numbers.length; i++){
+            if (numbers[i] % divider == 0){
+                res[m] = numbers[i];
+                m++;
+            }
+        }
+        return res;
     }
 }
