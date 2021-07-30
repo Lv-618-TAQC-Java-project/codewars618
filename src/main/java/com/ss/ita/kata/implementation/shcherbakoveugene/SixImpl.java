@@ -5,7 +5,19 @@ import com.ss.ita.kata.Six;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        long n = 1;
+        long sum = 1;
+
+        while (sum != m) {
+            n++;
+            sum += Math.pow(n, 3);
+            if ((m - sum) < sum) {
+                System.out.println("Maximum available Cubes: " + n);
+                return -1;
+            }
+        }
+
+        return n;
     }
 
     @Override
