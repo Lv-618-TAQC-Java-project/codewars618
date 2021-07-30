@@ -1,5 +1,6 @@
 package com.ss.ita.kata.implementation.kubrub;
 
+import java.util.ArrayList;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
@@ -21,7 +22,18 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for (int i = 0; i <  array.length; i++){
+            double n = Math.floor(Math.sqrt(array[i]));
+
+            if (n*n==array[i]){
+                array[i] = (int)n;
+            }
+            else{
+                array[i] *= array[i];
+            }
+        }
+
+        return array;
     }
 
     @Override
