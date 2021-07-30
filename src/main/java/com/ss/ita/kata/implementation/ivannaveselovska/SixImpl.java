@@ -96,7 +96,7 @@ int j = 1;
         String cityInfo = null;
         for (String x:
                 lines) {
-            if(x.substring(0,town.length()).equals(town))
+            if(x.startsWith(town))
                 cityInfo = x.substring(town.length() + 1);
         }
         if(cityInfo == null)
