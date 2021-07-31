@@ -2,9 +2,6 @@ package com.ss.ita.kata.implementation.msemochko;
 
 import com.ss.ita.kata.Six;
 
-import java.lang.reflect.Array;
-import java.text.DecimalFormat;
-
 public class SixImpl implements Six {
 
     @Override
