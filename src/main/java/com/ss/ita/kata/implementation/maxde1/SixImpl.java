@@ -116,8 +116,24 @@ public class SixImpl implements Six {
         return null;
     }
 
+
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        if (lstOfArt.length==0 | lstOf1stLetter.length==0){
+            return "";
+        }
+        StringBuilder result = new StringBuilder();
+        int sum =0;
+        String currentCategory="";
+        for (String s: lstOf1stLetter){
+            for (String j: lstOfArt){
+                if (j.startsWith(s)){
+                    sum +=  Integer.parseInt(j.split(" ")[1]);
+                }
+            }
+            result.append("("+s+" : "+sum+") - ");
+            sum=0;
+        }
+        return result.toString().substring(0, result.toString().length()-3);
     }
 }
