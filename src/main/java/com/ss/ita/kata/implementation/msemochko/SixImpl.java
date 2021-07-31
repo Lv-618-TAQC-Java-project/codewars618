@@ -6,10 +6,6 @@ import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 
 public class SixImpl implements Six {
-    public static void main(String[] args) {
-        SixImpl six = new SixImpl();
-        System.out.println(six.mean("",""));
-    }
 
     @Override
     public long findNb(long m) {
