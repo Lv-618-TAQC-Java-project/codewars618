@@ -59,7 +59,23 @@ public class SixImpl implements Six {
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        double average = mean(town, strng);
+        double variance = 0.0;
+        String[] cities = strng.split("\\n");
+        double sum = 0.0;
+        int counter = 0;
+        for (String city : cities) {
+            String[] data = city.split(":");
+            if (data[0].equals(town)) {
+                String[] months = data[1].split(",");
+                for (String month : months) {
+                    String[] values = month.split(" ");
+                    variance += Math.pow((average - Double.parseDouble(values[1])), 2);
+                    counter++;
+                }
+            }
+        }
+        return (variance == 0) ? -1 : (variance / (double) counter);
     }
 
     @Override
