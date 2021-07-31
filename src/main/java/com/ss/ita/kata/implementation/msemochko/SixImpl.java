@@ -2,7 +2,14 @@ package com.ss.ita.kata.implementation.msemochko;
 
 import com.ss.ita.kata.Six;
 
+import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+
 public class SixImpl implements Six {
+    public static void main(String[] args) {
+        SixImpl six = new SixImpl();
+        System.out.println(six.mean("",""));
+    }
 
     @Override
     public long findNb(long m) {
@@ -39,7 +46,22 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        String[] lines = strng.split("[\\n]");
+        int counter = 0;
+        double sumOfRain = 0;
+        for (String city : lines) {
+            String[] data = city.split(",");
+            if (data[0].equals(town)) {
+                String[] months = data[1].split(",");
+                for (String month : months) {
+                    String[] values = month.split(" ");
+                    sumOfRain += Double.parseDouble(values[1]);
+                    counter++;
+                }
+            }
+
+        }
+        return (sumOfRain == 0) ? -1 : (sumOfRain / (double) counter);
     }
 
     @Override
