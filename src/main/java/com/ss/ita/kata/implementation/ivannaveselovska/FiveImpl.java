@@ -3,6 +3,8 @@ package com.ss.ita.kata.implementation.ivannaveselovska;
 import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
+import java.util.LinkedList;
+import java.util.List;
 
 public class FiveImpl implements Five {
     @Override
@@ -51,7 +53,10 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        List<Integer> multipliers = new LinkedList<>();
+        for(int i = 1; i <= n; i++)
+            multipliers.add(i);
+        return findZeros(multipliers);
     }
 
     @Override
@@ -75,5 +80,36 @@ public class FiveImpl implements Five {
                 return false;
         }
         return true;
+    }
+
+    private int divideByTen(int divider){
+        int times = 0;
+        while (divider % 10 == 0){
+            divider /= 10;
+            times++;
+        }
+        return times;
+    }
+    private int findZeros(List<Integer> multipliers){
+        int zeros = 0;
+        for(int i = 0; i < multipliers.size(); i++){
+            if(multipliers.get(i) % 10 == 0) {
+                zeros += divideByTen(multipliers.get(i));
+                multipliers.remove(i);
+                continue;
+            }
+            if(i == multipliers.size() - 1)
+                break;
+            for (int j = i + 1; j < multipliers.size(); j++) {
+                if(multipliers.get(i) * multipliers.get(j) % 10 == 0){
+                    zeros += divideByTen(multipliers.get(i) * multipliers.get(j));
+                    multipliers.remove(i);
+                    multipliers.remove(j-1);
+                }
+            }
+        }
+        if (zeros == 0)
+            return 0;
+        return zeros + findZeros(multipliers);
     }
 }
