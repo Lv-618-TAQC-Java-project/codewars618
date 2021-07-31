@@ -34,7 +34,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x / (1 + Math.sqrt(x + 1));
     }
 
     @Override
