@@ -17,7 +17,19 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        long f = factorial(n);
+        String[] str = String.valueOf(f).split("");
+        int count = 0;
+
+        for (int i = str.length - 1; i >= 0; i --) {
+            if (str[i].equals("0")) {
+                count ++;
+            } else {
+                break;
+            }
+        }
+
+        return count;
     }
 
     @Override
@@ -33,5 +45,14 @@ public class FiveImpl implements Five {
     @Override
     public long[] smallest(long n) {
         return new long[0];
+    }
+
+    private long factorial(int n) {
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result = result * i;
+        }
+
+        return result;
     }
 }
