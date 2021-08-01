@@ -12,12 +12,31 @@ public class FiveImpl implements Five {
         return 0;
     }
 
+
     @Override
     public long[] gap(int g, long m, long n) {
-
-        return new long[0];
+        long previousPrimeNumber = -1;
+        for(long i = m; i <= n; i++) {
+            if(primeNumber(i)) {
+                if((i - previousPrimeNumber) == g) {
+                    System.out.println(i - previousPrimeNumber);
+                    long[] pairOfPrime = {previousPrimeNumber, i};
+                    return pairOfPrime;
+                }
+                previousPrimeNumber = i;
+            }
+        }
+        return null;
     }
 
+    public static boolean primeNumber(long num) {
+        for(int i = 2; i < num; i++) {
+            if((double)num / i == Math.floor((double)num / i)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     @Override
     public int zeros(int n) {
@@ -47,8 +66,10 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
+
         return 0;
     }
+
 
     @Override
     public long[] smallest(long n) {
