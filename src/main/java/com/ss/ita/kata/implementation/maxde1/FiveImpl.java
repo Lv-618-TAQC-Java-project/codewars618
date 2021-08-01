@@ -3,8 +3,7 @@ package com.ss.ita.kata.implementation.maxde1;
 import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class FiveImpl implements Five {
 
@@ -32,10 +31,6 @@ public class FiveImpl implements Five {
         return sum;
     }
 
-    public static void main(String[] args) {
-        FiveImpl a = new FiveImpl();
-        System.out.println( a.perimeter(BigInteger.valueOf(7000)));;
-    }
     @Override
     public BigInteger perimeter(BigInteger n) {
         BigInteger last = BigInteger.valueOf(0);
