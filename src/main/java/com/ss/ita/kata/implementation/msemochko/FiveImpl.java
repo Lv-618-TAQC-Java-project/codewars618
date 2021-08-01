@@ -4,6 +4,7 @@ import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.BitSet;
 
 public class FiveImpl implements Five {
     @Override
@@ -62,10 +63,27 @@ public class FiveImpl implements Five {
     public int zeros(int n) {
         return 0;
     }
+    public static int[] fibArr(int n){
+        int[] arr = new int[n+2];
+        arr[0] = 0;
+        arr[1] = 1;
 
+        for (int i = 2; i <= n+1; i++) {
+            arr[i] = arr[i-1] + arr[i-2];
+        }
+        return arr;
+    }
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        if (n.intValue()<=0){
+            return BigInteger.valueOf(0);
+        }
+        int[] fibNum = fibArr(n.intValue());
+        int result = 0;
+        for (int i = 0; i < fibNum.length; i++) {
+            result += fibNum[i]*4;
+        }
+        return BigInteger.valueOf(result);
     }
 
     @Override
