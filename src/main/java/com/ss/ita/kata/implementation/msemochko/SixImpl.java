@@ -6,7 +6,13 @@ public class SixImpl implements Six {
 
     @Override
     public long findNb(long m) {
-        return 0;
+        long numOfCubes = 0;
+        long sum = 0;
+        while (sum < m){
+            numOfCubes++;
+            sum += Math.pow(numOfCubes,3);
+        }
+        return sum == m ? numOfCubes : -1;
     }
 
     @Override
