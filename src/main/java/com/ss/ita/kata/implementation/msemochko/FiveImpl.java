@@ -4,9 +4,6 @@ import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class FiveImpl implements Five {
     @Override
@@ -37,9 +34,28 @@ public class FiveImpl implements Five {
         }
         return maxNumber;
     }
+
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long[] result = new long[2];
+        ArrayList<Integer> primeNumbers = new ArrayList<>();
+        BigInteger number = new BigInteger(String.valueOf(m));
+
+        while (m <= n) {
+            number = BigInteger.valueOf(m);
+            if (number.isProbablePrime((int) m)) {
+                primeNumbers.add((int) m);
+            }
+            m++;
+        }
+        for (int i = 0; i < (primeNumbers.size() - 1); i++) {
+            if (primeNumbers.get(i + 1) - primeNumbers.get(i) == g) {
+                result[0] = primeNumbers.get(i);
+                result[1] = primeNumbers.get(i + 1);
+                break;
+            }
+        }
+        return result;
     }
 
     @Override
