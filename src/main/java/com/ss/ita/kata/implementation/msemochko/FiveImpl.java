@@ -58,10 +58,33 @@ public class FiveImpl implements Five {
         return result;
     }
 
+    public static int factorial(int num) {
+        int fact = 1;
+
+        for (int i = 1; i <= num; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
     @Override
     public int zeros(int n) {
-        return 0;
+        int count = 0;
+
+        n = factorial(n);
+        int numLength = String.valueOf(Math.abs(n)).length();
+
+        for (int i = 0; i < numLength; i++) {
+            if (n % 10 == 0) {
+                count++;
+                n = n / 10;
+            } else {
+                break;
+            }
+        }
+        return count;
     }
+
 
     public static int[] fibArr(int n){
         int[] arr = new int[n+2];
