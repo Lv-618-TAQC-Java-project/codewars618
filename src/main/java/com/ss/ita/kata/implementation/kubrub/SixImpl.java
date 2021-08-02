@@ -20,7 +20,29 @@ public class SixImpl implements Six {
 
     @Override
     public String balance(String book) {
-        return null;
+        String[] arr = book.split(" ");
+
+        double k = Integer.parseInt(arr[0]);
+        double res = k;
+        int n = 0;
+        String finalResult = "Original_Balance:_" + res + "\n";
+
+        for(int i = 1; i < arr.length; i+=3){
+            n+=1;
+            res-= Double.parseDouble(arr[i+2]);
+            System.out.print(arr[i] + "_" + arr[i+1] + "_" +arr[i+2] + "_Balance_" + String.format ("%.2f", res) + "\n");
+        }
+
+
+        k -= res;
+        String result = String.format("%.2f", res );
+
+        k /= n;
+        String result2 =  String.format("%.2f",k );
+
+        finalResult += "Total_expense__" + result + "\n" + "Average_expense__" + result2;
+
+        return finalResult;
     }
 
     @Override
