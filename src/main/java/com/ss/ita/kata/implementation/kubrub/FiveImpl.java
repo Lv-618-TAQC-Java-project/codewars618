@@ -36,7 +36,14 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int q = n;
+        int zeros = 0;
+
+        while (q != 0){
+            q /= 5;
+            zeros += q;
+        }
+        return zeros;
     }
 
     @Override
