@@ -48,7 +48,20 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        int res = 0;
+        int[] f = new int[n];
+        f[0] = 1;
+        f[1] = 1;
+        for (int i = 2; i < n; ++i) {
+            f[i] = f[i - 1] + f[i - 2];
+        }
+
+        for(int i = 0; i < f.length; i++){
+            res += f[i];
+        }
+
+        res *= 4;
+        return res;
     }
 
     @Override
