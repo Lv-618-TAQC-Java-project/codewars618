@@ -59,9 +59,31 @@ public class FiveImpl implements Five {
         return result;
     }
 
+    public static int factorial(int num) {
+        int fact = 1;
+
+        for (int i = 1; i <= num; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
     @Override
     public int zeros(int n) {
-        return 0;
+        int count = 0;
+
+        n = factorial(n);
+        int numLength = String.valueOf(Math.abs(n)).length();
+
+        for (int i = 0; i < numLength; i++) {
+            if (n % 10 == 0) {
+                count++;
+                n = n / 10;
+            } else {
+                break;
+            }
+        }
+        return count;
     }
     public static int[] fibArr(int n){
         int[] arr = new int[n+2];
@@ -88,11 +110,36 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        return -(-2*m + Math.sqrt(4*m + 1) - 1)/(2*m);
     }
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        long minNum = n;
+        long numberToCompare;
+        int indexOfTakenNum = 0;
+        int indexOfPlacedNum = 0;
+        char numToReplace;
+
+        char[] a = String.valueOf(n).toCharArray();
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length; j++) {
+                StringBuffer buff = new StringBuffer(String.valueOf(n));
+
+                numToReplace = buff.charAt(i);
+                buff.delete(i, i + 1);
+
+                buff.insert(j, numToReplace);
+
+                numberToCompare = Integer.parseInt(new String(buff));
+                if (numberToCompare < minNum) {
+                    minNum = numberToCompare;
+                    indexOfTakenNum = i;
+                    indexOfPlacedNum = j;
+
+                }
+            }
+        }
+        return new long[]{minNum, indexOfTakenNum, indexOfPlacedNum};
     }
 }
