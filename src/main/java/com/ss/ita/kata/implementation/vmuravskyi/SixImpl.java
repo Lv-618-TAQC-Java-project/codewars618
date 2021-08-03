@@ -35,8 +35,8 @@ public class SixImpl implements Six {
             totalExpense += spending[i];
         }
 
-        totalExpense = Double.parseDouble(String.format("%.2f",totalExpense));
-        double averageExpense = Double.parseDouble(String.format("%.2f",totalExpense / (bookArray.length - 1)));
+        totalExpense = Double.parseDouble(String.format("%3.2f",totalExpense));
+        double averageExpense = Double.parseDouble(String.format("%3.2f",totalExpense / (bookArray.length - 1)));
 
         String result = "".concat(bookArray[0] + "\n");
         String add = "Balance ";
