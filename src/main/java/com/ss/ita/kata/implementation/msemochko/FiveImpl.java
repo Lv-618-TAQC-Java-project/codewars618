@@ -4,6 +4,7 @@ import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.BitSet;
 
 public class FiveImpl implements Five {
     @Override
@@ -84,8 +85,6 @@ public class FiveImpl implements Five {
         }
         return count;
     }
-
-
     public static int[] fibArr(int n){
         int[] arr = new int[n+2];
         arr[0] = 0;
