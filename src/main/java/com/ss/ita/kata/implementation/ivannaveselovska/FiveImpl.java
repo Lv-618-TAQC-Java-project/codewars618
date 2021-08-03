@@ -61,7 +61,19 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger[] fibonacciPair = new BigInteger[2];
+        fibonacciPair[0] = BigInteger.valueOf(1);
+        fibonacciPair[1] = BigInteger.valueOf(1);
+        BigInteger result = BigInteger.valueOf(0);
+        for (int i = 1; i <= n.intValue() + 1; i++) {
+            result = result.add(BigInteger.valueOf(
+                    fibonacciPair[0].intValue())
+                    .multiply(BigInteger.valueOf(4)));
+            BigInteger buff = BigInteger.valueOf(fibonacciPair[1].intValue());
+            fibonacciPair[1] = fibonacciPair[1].add(fibonacciPair[0]);
+            fibonacciPair[0] = buff;
+        }
+        return result;
     }
 
     @Override
