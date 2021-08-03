@@ -68,7 +68,46 @@ int j = 1;
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return null;
+        String[] matchesOfTeam = getMatchesOfTeam(resultSheet, toFind + " ");
+        if (matchesOfTeam.length == 0)
+            return toFind + ":This team didn't play!";
+        int totalScore = 0;
+        int totalOpponents = 0;
+        int wins = 0;
+        int draws = 0;
+        int loses = 0;
+        for (String x:
+             matchesOfTeam) {
+            int[] scores = findNumbers(x);
+            if (x.startsWith(toFind)){
+                totalScore += scores[0];
+                totalOpponents += scores[1];
+                if(scores[0] > scores[1]) {
+                    wins++;
+                    continue;
+                }
+                if(scores[0] == scores[1]) {
+                    draws++;
+                    continue;
+                }
+                loses++;
+            }
+            else {
+                totalScore += scores[1];
+                totalOpponents += scores[0];
+                if(scores[1] > scores[0]) {
+                    wins++;
+                    continue;
+                }
+                if(scores[1] == scores[0]){
+                    draws++;
+                    continue;
+                }
+                loses++;
+            }
+        }
+        return toFind + ":W=" + wins + ";D=" + draws + ";L=" + loses + ";Scored=" + totalScore +
+                ";Conceded=" + totalOpponents +";Points=" + (wins * 3 + draws);
     }
 
     @Override
@@ -107,5 +146,44 @@ int j = 1;
             values[j] = Double.parseDouble(temp[i]);
         }
         return values;
+    }
+
+    private String[] getMatchesOfTeam(String resultSheet, String toFind){
+        String[] matches = resultSheet.split(",");
+        List<String> list = new ArrayList<>();
+        for (String x : matches) {
+            if (x.contains(toFind)) {
+                list.add(x);
+            }
+        }
+        String[] matchesOfTeam  = new String[list.size()];
+        for (int i = 0; i < matchesOfTeam.length; i++) {
+            matchesOfTeam[i] = list.get(i);
+        }
+        return matchesOfTeam;
+    }
+
+    private int[] findNumbers(String str){
+        int[] scores = new int[2];
+        int[] range = findNumberIndexes(str,0);
+        if(str.charAt(range[0] -1) != ' ' || str.charAt(range[1]) != ' ')
+            range = findNumberIndexes(str,range[1]);
+        scores[0] = Integer.parseInt(str.substring(range[0], range[1]));
+        range = findNumberIndexes(str,range[1]);
+        if(str.charAt(range[0] - 1) != ' ' || range[1] != str.length() -1 )
+            range = findNumberIndexes(str,range[1]);
+        scores[1] = Integer.parseInt(str.substring(range[0]));
+        return scores;
+    }
+
+    private int[] findNumberIndexes(String str, int start){
+        int[] range = new int[2];
+        range[0] = start;
+        while (!Character.isDigit(str.charAt(range[0])))
+            range[0]++;
+        range[1] = range[0];
+        while (range[1] < str.length() - 1 && Character.isDigit(str.charAt(range[1])))
+            range[1]++;
+        return range;
     }
 }
