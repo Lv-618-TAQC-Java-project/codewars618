@@ -12,7 +12,26 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        public static boolean isPrime(int num){
+            double squareNum = Math.pow(num, 0.5);
+            for (int i = 2; i < squareNum; i++){
+                if(num%i == 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+        List<Integer> list = new ArrayList<Integer>();
+        for(int number = m; number < n + 1; number++){
+            if (isPrime(number) && isPrime(number+g)){
+                list.add(number);
+                list.add(number);
+                break;
+            }
+        }
+        Long[] array = (Long[]) list.toArray(new Long[list.size()]);
+        return array;
+
     }
 
     @Override
