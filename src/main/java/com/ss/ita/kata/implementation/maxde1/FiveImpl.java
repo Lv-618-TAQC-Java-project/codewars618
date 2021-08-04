@@ -6,10 +6,9 @@ import java.math.BigInteger;
 
 
 public class FiveImpl implements Five {
-
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+      return 0;
     }
 
 

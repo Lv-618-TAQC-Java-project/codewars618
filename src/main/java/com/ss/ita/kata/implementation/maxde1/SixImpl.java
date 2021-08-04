@@ -52,7 +52,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x / (1.0 + Math.sqrt(1.0 + x));
     }
 
     @Override
@@ -111,10 +111,14 @@ public class SixImpl implements Six {
         return sum/arrOfLine.length;
     }
 
+
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-     return null;
+        return "";
+
     }
+
+
 
 
     @Override
