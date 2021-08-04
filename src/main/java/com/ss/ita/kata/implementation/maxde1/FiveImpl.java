@@ -8,7 +8,41 @@ import java.math.BigInteger;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-      return 0;
+        if (v.length == 0) {
+            return 0;
+        }
+        if (v.length == 1) {
+            return 1;
+        }
+        int max=0;
+        int n =v.length;
+        int[] arrayOne =new int[n];
+        int[] arrayTwo =new int[n];
+        arrayOne[0]=1;
+        for(int i=1;i<n;i++)
+        {
+            if(v[i]>=v[i-1])
+                arrayOne[i]= arrayOne[i-1]+1;
+            else
+                arrayOne[i]=1;
+        }
+        for(int i=0;i<n;i++){
+            arrayTwo[i]=1;
+        }
+        for(int i=n-2;i>=0;i--)
+        {
+            if(v[i]>=v[i+1])
+                arrayTwo[i]= arrayTwo[i+1]+1;
+            else
+                arrayTwo[i]=1;
+        }
+        for(int i=0;i<n;i++)
+        {
+            int temp = arrayOne[i]+ arrayTwo[i]-1;
+            if(temp >max)
+                max= temp;
+        }
+        return max;
     }
 
 
