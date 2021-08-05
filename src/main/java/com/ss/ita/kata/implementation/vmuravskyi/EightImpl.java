@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        if (time < 0) throw new IllegalArgumentException();
         return (int) (time * 0.5);
     }
 
