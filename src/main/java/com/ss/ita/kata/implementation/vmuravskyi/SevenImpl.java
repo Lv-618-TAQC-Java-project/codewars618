@@ -9,7 +9,7 @@ public class SevenImpl implements Seven {
         for (int i = 0; i < arr.length; i++) {
             sumaVsixDonations += arr[i];
         }
-        double result = Math.round((navg * (arr.length + 1)) - sumaVsixDonations);
+        double result = Math.ceil((navg * (arr.length + 1)) - sumaVsixDonations);
         if (result <= 0) throw new IllegalArgumentException();
         return (long) result;
     }
@@ -26,13 +26,18 @@ public class SevenImpl implements Seven {
             result = result + (multiplier / difference);
             difference = difference + 3;
         }
-        double temp = (Math.round(result * 100));
-        result = temp / 100;
-        return String.valueOf(result);
+
+        String res = String.format("%.2f",result);
+        return String.valueOf(res);
     }
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return p - bef;
+        if((p-bef)<= aft){
+            return p-bef;
+        }
+        else {
+            return aft+1;
+        }
     }
 }
