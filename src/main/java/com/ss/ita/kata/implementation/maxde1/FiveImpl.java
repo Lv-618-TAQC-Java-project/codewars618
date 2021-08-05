@@ -6,10 +6,43 @@ import java.math.BigInteger;
 
 
 public class FiveImpl implements Five {
-
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        if (v.length == 0) {
+            return 0;
+        }
+        if (v.length == 1) {
+            return 1;
+        }
+        int max=0;
+        int n =v.length;
+        int[] arrayOne =new int[n];
+        int[] arrayTwo =new int[n];
+        arrayOne[0]=1;
+        for(int i=1;i<n;i++)
+        {
+            if(v[i]>=v[i-1])
+                arrayOne[i]= arrayOne[i-1]+1;
+            else
+                arrayOne[i]=1;
+        }
+        for(int i=0;i<n;i++){
+            arrayTwo[i]=1;
+        }
+        for(int i=n-2;i>=0;i--)
+        {
+            if(v[i]>=v[i+1])
+                arrayTwo[i]= arrayTwo[i+1]+1;
+            else
+                arrayTwo[i]=1;
+        }
+        for(int i=0;i<n;i++)
+        {
+            int temp = arrayOne[i]+ arrayTwo[i]-1;
+            if(temp >max)
+                max= temp;
+        }
+        return max;
     }
 
 
@@ -66,13 +99,35 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-
-        return 0;
+        double s = Math.sqrt(4 * m + 1);
+        return (2 * m + 1 - s) / (2 * m);
     }
 
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+
+        assert n >= 0;
+        String str = "" + n;
+        final int numberDigits = str.length();
+
+        String smallest = str;
+        long smallestI = 0;
+        long smallestJ = 0;
+
+        for (int i = 0; i < numberDigits; i++) {
+            for (int j = 0; j < numberDigits; j++) {
+                if (i == j) continue;
+                String str2 = str.substring(0,i) + str.substring(i+1);
+                str2 = str2.substring(0,j) + str.charAt(i) + str2.substring(j);
+                if (smallest.compareTo(str2) > 0) {
+                    smallest = str2;
+                    smallestI = i;
+                    smallestJ = j;
+                }
+            }
+        }
+        return new long[]{Long.valueOf(smallest), smallestI, smallestJ};
+
     }
 }
