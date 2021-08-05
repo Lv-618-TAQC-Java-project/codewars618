@@ -83,7 +83,32 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        String number = Long.toString(n);
+        long minValue = n;
+        long first = 0;
+        long second = 0;
+        for (int j = 0; j < number.length(); j++) {
+            char smallestChar = number.charAt(j);
+            String numberCopy = number.substring(0, j) + number.substring(j + 1);
+            for (int i = 0; i < number.length(); i++) {
+                int k = 0;
+                char[] temp = new char[number.length()];
+                for ( ; k < i; k++)
+                    temp[k] = numberCopy.charAt(k);
+
+                temp [k++] = smallestChar;
+
+                for( ;k < number.length(); k++)
+                    temp[k] = numberCopy.charAt(k - 1);
+
+                if(Long.valueOf(String.valueOf(temp)) < minValue){
+                    minValue = Long.valueOf(String.valueOf(temp));
+                    first = j;
+                    second = i;
+                }
+            }
+        }
+        return new long[]{minValue, first, second};
     }
 
     private boolean isPrime(long number){
