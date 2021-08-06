@@ -62,12 +62,78 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+
+        String[] split = strng.split("\n");
+
+        String[] cities = new String[split.length];
+        String[] temp;
+        int cityIndex = 0;
+        for (int i = 0; i < split.length; i++) {
+            temp = split[i].split(":");
+            cities[i] = temp[0];
+            if (town.equals(cities[i])) {
+                cityIndex = i;
+            }
+        }
+
+        String[] rainfall = split[cityIndex].split("[^\\d{1,3}.\\d{1}]");
+        double suma = 0;
+        String ammount = "";
+        int count = 0;
+        for (String s : rainfall) {
+            ammount = s.replace(",", "");
+            if (ammount.isEmpty()) {
+                continue;
+            } else suma += Double.parseDouble(ammount);
+            count++;
+        }
+        if (suma == 0) {
+            return -1;
+        }
+
+        return suma / count;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        String[] split = strng.split("\n");
+        String[] cities = new String[split.length];
+        String[] temp;
+        int cityIndex = 0;
+        for (int i = 0; i < split.length; i++) {
+            temp = split[i].split(":");
+            cities[i] = temp[0];
+            if (town.equals(cities[i])) {
+                cityIndex = i;
+            }
+        }
+
+        String[] rainfall = split[cityIndex].split("[^\\d{1,3}.\\d{1}]");
+        double suma = 0;
+        String ammount = "";
+        int count = 0;
+        for (String s : rainfall) {
+            ammount = s.replace(",", "");
+            if (ammount.isEmpty()) {
+                continue;
+            } else suma += Double.parseDouble(ammount);
+            count++;
+        }
+
+        double avarage = suma / count;
+        double[] difference = new double[count];
+        double variance = 0;
+        int j = 0;
+        for (String s : rainfall) {
+            ammount = s.replace(",", "");
+            if (ammount.isEmpty()) {
+                continue;
+            } else difference[j++] = (Double.parseDouble(ammount) - avarage) * (Double.parseDouble(ammount) - avarage);
+        }
+        for (double v : difference) {
+            variance += v;
+        }
+        return variance / count;
     }
 
     @Override
