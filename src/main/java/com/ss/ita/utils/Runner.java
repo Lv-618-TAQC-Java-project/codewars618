@@ -5,6 +5,8 @@ import com.ss.ita.kata.Five;
 import com.ss.ita.kata.Seven;
 import com.ss.ita.kata.Six;
 
+import java.math.BigInteger;
+
 
 public class Runner {
     private Eight eight;
@@ -47,7 +49,7 @@ public class Runner {
                 eight = new com.ss.ita.kata.implementation.maxde1.EightImpl();
                 break;
             case ANASTASIIA:
-                five = new com.ss.ita.kata.implementation.kubrub.FiveImpl();
+//                five = new com.ss.ita.kata.implementation.kubrub.FiveImpl();
                 six = new com.ss.ita.kata.implementation.kubrub.SixImpl();
                 seven = new com.ss.ita.kata.implementation.kubrub.SevenImpl();
                 eight = new com.ss.ita.kata.implementation.kubrub.EightImpl();
@@ -73,5 +75,52 @@ public class Runner {
         }
     }
 
+    public int runTask5_3(){
+        System.out.println("Please, input positive integer number 'n'.");
+        int inputNumber = sc.readInt();
+        while(true){
+            if(inputNumber > 0)
+                break;
+            System.out.println("You have to input positive integer. Please, try again!");
+            inputNumber = sc.readInt();
+        }
+        return five.zeros(inputNumber);
+    }
+
+    public BigInteger runTask5_4(){
+        System.out.println("Please, input positive BigInteger 'n'.");
+        BigInteger inputNumber = sc.readBigInteger();
+        while(true){
+            if(inputNumber.intValue() > 0)
+                break;
+            System.out.println("You have to input positive BigInteger. Please, try again!");
+            inputNumber = sc.readBigInteger();
+        }
+        return five.perimeter(inputNumber);
+    }
+
+    public double runTask5_5(){
+        System.out.println("Please, input positive real 'n'.");
+        double inputNumber = sc.readDouble();
+        while(true){
+            if(inputNumber > 0.0)
+                break;
+            System.out.println("You have to input positive real number. Please, try again!");
+            inputNumber = sc.readDouble();
+        }
+        return five.solveSum(inputNumber);
+    }
+
+    public long[] runTask5_6() {
+        System.out.println("Please, input positive integer 'n'.");
+        long inputNumber = sc.readLong();
+        while (true) {
+            if (inputNumber > 0)
+                break;
+            System.out.println("You have to input positive integer number. Please, try again!");
+            inputNumber = sc.readLong();
+        }
+        return five.smallest(inputNumber);
+    }
 
 }
