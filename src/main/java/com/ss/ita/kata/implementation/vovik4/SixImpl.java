@@ -8,7 +8,11 @@ import java.util.regex.Pattern;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        double n = (double) ((-1 + Math.sqrt(1+8*Math.sqrt(m)))/2);
+        if(n % 1 != 0){
+            return -1;
+        }
+        return (long) n;
     }
 
     @Override
