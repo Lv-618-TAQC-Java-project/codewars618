@@ -271,7 +271,7 @@ public enum Tasks {
     private final String taskName;
     private final String description;
 
-    Tasks(double id, String taskName, String description) {
+    Tasks(int id, String taskName, String description) {
         this.id = id;
         this.taskName = taskName;
         this.description = description;
