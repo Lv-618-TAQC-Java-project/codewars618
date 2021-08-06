@@ -61,7 +61,14 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        if(n == 1){
+            return false;
+        }
+        else if (((factorial((n - 1)+1)/(n*n))%n) == 0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
@@ -72,5 +79,17 @@ public class EightImpl implements Eight {
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
         return new int[0];
+    }
+
+    private static double factorial(double fact){
+        if (fact != 0){
+            int result = 1;
+            for (int i = 0; i < fact; i++) {
+                result *= fact;
+            }
+            return result;
+        }else {
+            return 1;
+        }
     }
 }
