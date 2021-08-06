@@ -24,3 +24,5 @@ hs_err_pid*
 
 .idea/
 codewars618.iml
+
+.DS_store

@@ -16,37 +16,94 @@ public class ConsoleScanner implements Scanner{
 
     @Override
     public int readInt() {
-        return 0;
+        while(true){
+            if(sc.hasNextInt()){
+                return new Integer(sc.nextLine());
+            }
+            else {
+                System.out.println("ERROR");
+                sc.next();
+            }
+        }
     }
 
     @Override
     public long readLong() {
-        return 0;
+        while(true){
+            if(sc.hasNextLong()){
+                return new Long(sc.nextLine());
+            }
+            else {
+                System.out.println("ERROR");
+                sc.next();
+            }
+        }
     }
 
     @Override
     public float readFloat() {
-        return 0;
+        while(true){
+            if(sc.hasNextFloat()){
+                return new Float(sc.nextLine());
+            }
+            else {
+                System.out.println("ERROR");
+                sc.next();
+            }
+        }
     }
 
     @Override
     public double readDouble() {
-        return 0;
+        while(true){
+            if(sc.hasNextDouble()){
+                return new Double(sc.nextLine());
+            }
+            else {
+                System.out.println("ERROR");
+                sc.next();
+            }
+        }
     }
 
     @Override
     public String readString() {
-        return null;
+        while(true){
+            if(sc.hasNext()){
+                return new String(sc.nextLine());
+            }
+            else {
+                System.out.println("ERROR");
+                sc.next();
+            }
+        }
     }
 
     @Override
     public BigInteger readBigInteger() {
-        return null;
+        while(true){
+            if(sc.hasNextBigInteger()){
+                return new BigInteger(sc.nextLine());
+            }
+            else {
+                System.out.println("ERROR");
+                sc.next();
+            }
+        }
     }
 
     @Override
     public BigDecimal readBigDecimal() {
-        return null;
+        while(true){
+            if(sc.hasNextBigDecimal()){
+                return new BigDecimal(sc.nextLine());
+            }
+            else {
+                System.out.println("ERROR");
+                sc.next();
+            }
+        }
+
     }
 
     @Override
