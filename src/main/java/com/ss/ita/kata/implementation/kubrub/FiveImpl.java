@@ -7,9 +7,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FiveImpl implements Five {
+    static boolean canGoLeft(int[] v, int i) {
+        if (i == 0)
+            return false;
+        return v[i - 1] <= v[i];
+    }
+
+    static boolean canGoRight(int[] v, int i) {
+        if (v.length - 1 == i)
+            return false;
+        return v[i + 1] <= v[i];
+
+    }
+
+
+    static int[] calculateTheLeftSide(int[] v) {
+        int[] result = new int[v.length];
+
+        for (int i = 0; i < v.length; i++) {
+            if (canGoLeft(v, i)) {
+                result[i] = result[i - 1] + 1;
+            } else {
+                result[i] = 0;
+            }
+        }
+        return result;
+    }
+
+    static int[] calculateTheRightSide(int[] v) {
+        int[] result = new int[v.length];
+
+        for (int i = v.length - 1; i >= 0; i--) {
+            if (canGoRight(v, i)) {
+                result[i] = result[i + 1] + 1;
+            } else {
+                result[i] = 0;
+            }
+        }
+        return result;
+    }
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        int[] flowRight = calculateTheRightSide(v);
+        int[] flowLeft = calculateTheLeftSide(v);
+
+        int maxWateredPlains = 0;
+
+        for (int i = 0; i < flowLeft.length; i++) {
+            maxWateredPlains = Math.max(flowLeft[i] + flowRight[i] + 1, maxWateredPlains);
+        }
+        return maxWateredPlains;
     }
 
 
