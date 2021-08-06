@@ -3,6 +3,8 @@ package com.ss.ita.kata.implementation.kubrub;
 import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FiveImpl implements Five {
     @Override
@@ -10,7 +12,7 @@ public class FiveImpl implements Five {
         return 0;
     }
 
-    @Override
+
     public static boolean isPrime (int num){
         double squareNum = Math.pow(num, 0.5);
         for (int i = 2; i < squareNum; i++) {
@@ -20,8 +22,10 @@ public class FiveImpl implements Five {
         }
         return true;
     }
+    @Override
     public long[] gap(int g, long m, long n) {
         List<Integer> list = new ArrayList<Integer>();
+        long[] arr = new long[list.size()];
         for(int number = (int) m; number < n + 1; number++){
             if (isPrime(number) && isPrime(number+g)){
                 list.add(number);
@@ -29,8 +33,8 @@ public class FiveImpl implements Five {
                 break;
             }
         }
-
-        return list;
+        for(int i = 0; i < list.size(); i++) arr[i] = list.get(i);
+        return arr;
     }
 
     @Override
@@ -47,19 +51,21 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        int res = 0;
-        int[] f = new int[n];
+        int temp = 0;
+        int m = n.intValue();
+        int[] f = new int[m];
         f[0] = 1;
         f[1] = 1;
-        for (int i = 2; i < n; ++i) {
+        for (int i = 2; i < m; ++i) {
             f[i] = f[i - 1] + f[i - 2];
         }
 
         for(int i = 0; i < f.length; i++){
-            res += f[i];
+            temp += f[i];
         }
 
-        res *= 4;
+        temp *= 4;
+        BigInteger res = BigInteger.valueOf(temp);
         return res;
     }
 
@@ -70,6 +76,34 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        String number = Long.toString(n);
+        long minNumber = n;
+        long firstNumber = 0;
+        long secondNumber = 0;
+
+        for (int j = 0; j < number.length(); j++){
+            char theSmallestChar = number.charAt(j);
+            String numberCopy = number.substring(0,j) + number.substring(j+1);
+            for (int i = 0; i < number.length(); i++){
+                int k = 0;
+                char[] temp = new char[number.length()];
+                for(; k < i; k++){
+                    temp[k] = numberCopy.charAt(k);
+                }
+
+                temp[k++] = theSmallestChar;
+
+                for(; k < number.length(); k++){
+                    temp[k] = numberCopy.charAt(k - 1);
+                }
+
+                if(Long.valueOf(String.valueOf(temp)) < minNumber){
+                    minNumber = Long.valueOf(String.valueOf(temp));
+                    firstNumber = j;
+                    secondNumber = i;
+                }
+            }
+        }
+        return new long[]{minNumber, firstNumber,secondNumber};
     }
 }
