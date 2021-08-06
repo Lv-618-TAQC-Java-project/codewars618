@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        if (time < 0) throw new IllegalArgumentException();
         return (int) (time * 0.5);
     }
 
@@ -19,7 +18,7 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        float temp = Math.round(((float) (mpg * 1.609344 / 4.54609188) * 100));
+        float temp = Math.round(((mpg * 1.609344 / 4.54609188) * 100));
         return temp / 100;
     }
 
@@ -38,6 +37,9 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
+        if (input == null || input.length == 0) {
+            return new int[0];
+        }
         int countPositive = 0;
         int sumOfNegative = 0;
         int[] result = new int[2];

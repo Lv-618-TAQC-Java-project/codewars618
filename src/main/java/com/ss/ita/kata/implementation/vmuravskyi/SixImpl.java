@@ -87,10 +87,6 @@ public class SixImpl implements Six {
             } else suma += Double.parseDouble(ammount);
             count++;
         }
-        if (suma == 0) {
-            return -1;
-        }
-
         return suma / count;
     }
 
