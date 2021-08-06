@@ -31,12 +31,12 @@ public class SixImpl implements Six {
         double[] spending = new double[bookArray.length];
         for (int i = 1; i < bookArray.length; i++) {
             String[] temp = bookArray[i].split(" ");
-            spending[i] = Double.parseDouble(temp[temp.length-1]);
+            spending[i] = Double.parseDouble(temp[temp.length - 1]);
             totalExpense += spending[i];
         }
 
-        totalExpense = Double.parseDouble(String.format("%3.2f",totalExpense));
-        double averageExpense = Double.parseDouble(String.format("%3.2f",totalExpense / (bookArray.length - 1)));
+        totalExpense = Double.parseDouble(String.format("%3.2f", totalExpense));
+        double averageExpense = Double.parseDouble(String.format("%3.2f", totalExpense / (bookArray.length - 1)));
 
         String result = "".concat(bookArray[0] + "\n");
         String add = "Balance ";
@@ -57,18 +57,82 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return x/(1.0 + Math.sqrt(1.0 + x));
+        return x / (1.0 + Math.sqrt(1.0 + x));
     }
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+
+        String[] split = strng.split("\n");
+
+        String[] cities = new String[split.length];
+        String[] temp;
+        int cityIndex = 0;
+        for (int i = 0; i < split.length; i++) {
+            temp = split[i].split(":");
+            cities[i] = temp[0];
+            if (town.equals(cities[i])) {
+                cityIndex = i;
+            }
+        }
+
+        String[] rainfall = split[cityIndex].split("[^\\d{1,3}.\\d{1}]");
+        double suma = 0;
+        String ammount = "";
+        int count = 0;
+        for (String s : rainfall) {
+            ammount = s.replace(",", "");
+            if (ammount.isEmpty()) {
+                continue;
+            } else suma += Double.parseDouble(ammount);
+            count++;
+        }
+
+        return suma / count;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        String[] split = strng.split("\n");
+        String[] cities = new String[split.length];
+        String[] temp;
+        int cityIndex = 0;
+        for (int i = 0; i < split.length; i++) {
+            temp = split[i].split(":");
+            cities[i] = temp[0];
+            if (town.equals(cities[i])) {
+                cityIndex = i;
+            }
+        }
+
+        String[] rainfall = split[cityIndex].split("[^\\d{1,3}.\\d{1}]");
+        double suma = 0;
+        String ammount = "";
+        int count = 0;
+        for (String s : rainfall) {
+            ammount = s.replace(",", "");
+            if (ammount.isEmpty()) {
+                continue;
+            } else suma += Double.parseDouble(ammount);
+            count++;
+        }
+
+        double avarage = suma / count;
+        double[] difference = new double[count];
+        double variance = 0;
+        int j = 0;
+        for (String s : rainfall) {
+            ammount = s.replace(",", "");
+            if (ammount.isEmpty()) {
+                continue;
+            } else difference[j++] = (Double.parseDouble(ammount) - avarage) * (Double.parseDouble(ammount) - avarage);
+        }
+        for (double v : difference) {
+            variance += v;
+        }
+        return variance / count;
     }
+
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
