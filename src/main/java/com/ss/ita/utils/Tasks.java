@@ -266,7 +266,8 @@ public enum Tasks {
                     "1. the smallest number you got\n" +
                     "2. the index i of the digit d you took, i as small as possible\n" +
                     "3. the index j (as small as possible) where you insert this digit d to have the smallest number.");
-    private final double id;
+
+    private final int id;
     private final String taskName;
     private final String description;
 
