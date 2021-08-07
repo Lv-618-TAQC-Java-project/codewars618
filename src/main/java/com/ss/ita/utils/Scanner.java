@@ -13,4 +13,6 @@ public interface Scanner {
     BigDecimal readBigDecimal();
     double[] readDoubleArray();
     int[] readIntArray();
+    String[] onlyForStockSummaryMethod();
+    String[] readStringArray();
 }

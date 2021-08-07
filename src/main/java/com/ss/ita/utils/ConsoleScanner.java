@@ -18,10 +18,10 @@ public class ConsoleScanner implements Scanner{
     public int readInt() {
         while(true){
             if(sc.hasNextInt()){
-                return new Integer(sc.nextLine());
+                return sc.nextInt();
             }
             else {
-                System.out.println("ERROR");
+                System.out.println("Value is not 'Integer', please try again.");
                 sc.next();
             }
         }
@@ -31,10 +31,10 @@ public class ConsoleScanner implements Scanner{
     public long readLong() {
         while(true){
             if(sc.hasNextLong()){
-                return new Long(sc.nextLine());
+                return sc.nextLong();
             }
             else {
-                System.out.println("ERROR");
+                System.out.println("Value is not 'long', please try again.");
                 sc.next();
             }
         }
@@ -44,10 +44,10 @@ public class ConsoleScanner implements Scanner{
     public float readFloat() {
         while(true){
             if(sc.hasNextFloat()){
-                return new Float(sc.nextLine());
+                return sc.nextFloat();
             }
             else {
-                System.out.println("ERROR");
+                System.out.println("Value is not 'float', please try again.");
                 sc.next();
             }
         }
@@ -57,10 +57,10 @@ public class ConsoleScanner implements Scanner{
     public double readDouble() {
         while(true){
             if(sc.hasNextDouble()){
-                return new Double(sc.nextLine());
+                return sc.nextDouble();
             }
             else {
-                System.out.println("ERROR");
+                System.out.println("Value is not 'double', please try again.");
                 sc.next();
             }
         }
@@ -70,10 +70,10 @@ public class ConsoleScanner implements Scanner{
     public String readString() {
         while(true){
             if(sc.hasNext()){
-                return new String(sc.nextLine());
+                return sc.nextLine();
             }
             else {
-                System.out.println("ERROR");
+                System.out.println("Value is not 'String', please try again.");
                 sc.next();
             }
         }
@@ -86,7 +86,7 @@ public class ConsoleScanner implements Scanner{
                 return new BigInteger(sc.nextLine());
             }
             else {
-                System.out.println("ERROR");
+                System.out.println("Value is not 'BigInteger', please try again.");
                 sc.next();
             }
         }
@@ -99,7 +99,7 @@ public class ConsoleScanner implements Scanner{
                 return new BigDecimal(sc.nextLine());
             }
             else {
-                System.out.println("ERROR");
+                System.out.println("Value is not 'BigDecimal', please try again.");
                 sc.next();
             }
         }
@@ -118,7 +118,7 @@ public class ConsoleScanner implements Scanner{
                 result[size] = Double.parseDouble(resultList.get(size));
                 size++;
             } else {
-                System.out.println("Value " + resultList.get(size) + " is not Integer, please try again.");
+                System.out.println("Value " + resultList.get(size) + " is not Double, please try again.");
                 resultList.set(size, sc.next());
             }
         }
@@ -145,4 +145,31 @@ public class ConsoleScanner implements Scanner{
 
         return result;
     }
+
+    @Override
+    public String[] onlyForStockSummaryMethod() {
+        String input = sc.nextLine();
+        String[] chars = input.split("");
+        String temp = "";
+
+        for (int i = 0; i < chars.length; i++) {
+            if (i != chars.length - 1) {
+                if (new java.util.Scanner(chars[i]).hasNextInt() && chars[i + 1].equals(" ")) {
+                    chars[i + 1] = "!";
+                }
+            }
+        }
+        for (String aChar : chars) {
+            temp = temp.concat(aChar);
+        }
+
+        return temp.split("!");
+    }
+
+    @Override
+    public String[] readStringArray() {
+        return sc.nextLine().split(" ");
+    }
+
+
 }
