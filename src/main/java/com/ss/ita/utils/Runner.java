@@ -79,7 +79,7 @@ public class Runner {
     public void TASK_8_1() {
         System.out.println("Enter the time in hours: ");
         double liters = doublePositive(sc.readDouble());
-        System.out.println(eight.liters(liters));
+        System.out.println("Result: "+eight.liters(liters));
     }
     public void TASK_8_2() {
         System.out.println("Enter length: ");
@@ -88,56 +88,56 @@ public class Runner {
         double width = doublePositive(sc.readDouble());
         System.out.println("Enter height: ");
         double height = doublePositive(sc.readDouble());
-        System.out.println(eight.getVolumeOfCuboid(length,width,height));
+        System.out.println("Result: "+eight.getVolumeOfCuboid(length,width,height));
     }
     public void TASK_8_3() {
         System.out.println("Enter the number of Imperial Gallon: ");
         float mpg = floatPositive(sc.readFloat());
-        System.out.println(eight.mpgToKPM(mpg));
+        System.out.println("Result: "+eight.mpgToKPM(mpg));
     }
     public void TASK_8_4() {
         System.out.println("Enter the array: ");
         int[] arr = intArrayPositive(sc.readIntArray());
-        System.out.println(Arrays.toString(eight.squareOrSquareRoot(arr)));
+        System.out.println("Result: "+Arrays.toString(eight.squareOrSquareRoot(arr)));
     }
     public void TASK_8_5() {
         System.out.println("Enter the size of array: ");
         int[] array = sc.readIntArray();
-        System.out.println(Arrays.toString(eight.countPositivesSumNegatives(array)));
+        System.out.println("Result: "+Arrays.toString(eight.countPositivesSumNegatives(array)));
     }
     public void TASK_8_6() {
         System.out.println("Enter a string : ");
         String str = sc.readString();
-        System.out.println(eight.stringToNumber(str));
+        System.out.println("Result: "+eight.stringToNumber(str));
     }
     public void TASK_8_7(){
         System.out.println("Enter the number: ");
         double digit = sc.readDouble();
-        System.out.println(eight.amIWilson(digit));
+        System.out.println("Result: "+eight.amIWilson(digit));
     }
     public void TASK_8_8(){
         System.out.println("Enter the number: ");
         double digit = sc.readDouble();
-        System.out.println(eight.twoDecimalPlaces(digit));
+        System.out.println("Result: "+eight.twoDecimalPlaces(digit));
     }
     public void TASK_8_9(){
         System.out.println("Enter the size of array: ");
         int[] array = intArrayPositive(sc.readIntArray());
         System.out.println("Enter the divisor: ");
         int divider = intNotZero(sc.readInt());
-        System.out.println(Arrays.toString(eight.divisibleBy(array,divider)));
+        System.out.println("Result: "+Arrays.toString(eight.divisibleBy(array,divider)));
     }
     public void TASK_7_1(){
         System.out.println("Enter the array: ");
         double[] array = doubleArrayPositive(sc.readDoubleArray());
         System.out.println("Enter navg");
         double navg = doublePositive(sc.readDouble());
-        System.out.println(seven.newAvg(array,navg));
+        System.out.println("Result: "+seven.newAvg(array,navg));
     }
     public void TASK_7_2(){
         System.out.println("Enter the number: ");
         int parameter = intPositive(sc.readInt());
-        System.out.println(seven.seriesSum(parameter));
+        System.out.println("Result: "+seven.seriesSum(parameter));
     }
     public void TASK_7_3(){
         System.out.println("Enter the Total amount: ");
@@ -146,48 +146,48 @@ public class Runner {
         int bef = intPositive(sc.readInt());
         System.out.println("Enter the Number of people standing behind him: ");
         int afr = intPositive(sc.readInt());
-        System.out.println(seven.whereIsHe(p,bef,afr));
+        System.out.println("Result: "+seven.whereIsHe(p,bef,afr));
     }
     public void TASK_6_1(){
         System.out.println("Enter volume: ");
         long volume = longPositive(sc.readLong());
-        System.out.println(six.findNb(volume));
+        System.out.println("Result: "+six.findNb(volume));
     }
     public void TASK_6_2(){
         System.out.println("Enter balance: ");
         String book = sc.readString();
-        System.out.println(six.balance(book));
+        System.out.println("Result: "+six.balance(book));
     }
     public void TASK_6_3(){
         System.out.println("Enter the number: ");
         double number = doublePositiveOrNull(sc.readDouble());
-        System.out.println(six.f(number));
+        System.out.println("Result: "+six.f(number));
     }
     public void TASK_6_4(){
         System.out.println("Enter the town: ");
         String town = sc.readString();
         System.out.println("Enter the date: ");
         String strng = sc.readString();
-        System.out.println(six.mean(town,strng));
+        System.out.println("Result: "+six.mean(town,strng));
     }
     public void TASK_6_5(){
         System.out.println("Enter a string of results: ");
         String results = sc.readString();
         System.out.println("Enter the name of team: ");
         String name = sc.readString();
-        System.out.println(six.nbaCup(results,name));
+        System.out.println("Result: "+six.nbaCup(results,name));
     }
     public void TASK_6_6(){
         System.out.println("Enter stocklist: ");
         String [] lstOfArt = sc.readStringArray();
         System.out.println("Enter a list of first letters: ");
         String [] lstOf1stLetter  = sc.readStringArray();
-        System.out.println(six.stockSummary(lstOfArt,lstOf1stLetter));
+        System.out.println("Result: "+six.stockSummary(lstOfArt,lstOf1stLetter));
     }
     public void TASK_5_1(){
         System.out.println("Enter the array: ");
         int[] array = intArrayPositive(sc.readIntArray());
-        System.out.println(five.artificialRain(array));
+        System.out.println("Result: "+five.artificialRain(array));
     }
     public void TASK_5_2(){
         System.out.println("Enter the gap we are looking for: ");
@@ -204,7 +204,7 @@ public class Runner {
             System.out.println("Enter the end of the search: ");
             n = sc.readInt();
         }
-        System.out.println(Arrays.toString(five.gap(g,m,n)));
+        System.out.println("Result: "+Arrays.toString(five.gap(g,m,n)));
     }
 
     private int intPositive(int num){
@@ -269,4 +269,82 @@ public class Runner {
     }
 
 
+    public void setTasks(int number){
+        switch (number){
+            case 1:
+                TASK_8_1();
+                break;
+            case 2:
+                TASK_8_2();
+                break;
+            case 3:
+                TASK_8_3();
+                break;
+            case 4:
+                TASK_8_4();
+                break;
+            case 5:
+                TASK_8_5();
+                break;
+            case 6:
+                TASK_8_6();
+                break;
+            case 7:
+                TASK_8_7();
+                break;
+            case 8:
+                TASK_8_8();
+                break;
+            case 9:
+                TASK_8_9();
+                break;
+            case 10:
+                TASK_7_1();
+                break;
+            case 11:
+                TASK_7_2();
+                break;
+            case 12:
+                TASK_7_3();
+                break;
+            case 13:
+                TASK_6_1();
+                break;
+            case 14:
+                TASK_6_2();
+                break;
+            case 15:
+                TASK_6_3();
+                break;
+            case 16:
+                TASK_6_4();
+                break;
+            case 17:
+                TASK_6_5();
+                break;
+            case 18:
+                TASK_6_6();
+                break;
+            case 19:
+                TASK_5_1();
+                break;
+            case 20:
+                TASK_5_2();
+                break;
+            case 21:
+
+                break;
+            case 22:
+
+                break;
+            case 23:
+
+                break;
+            case 24:
+
+                break;
+
+
+        }
+    }
 }
