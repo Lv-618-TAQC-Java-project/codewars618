@@ -71,6 +71,60 @@ public class Runner {
 //                eight = new com.ss.ita.kata.implementation..EightImpl();
                 break;
         }
+        public void TASK_8_1() {
+            System.out.println("Enter the time in hours: ");
+            double liters = sc.readDouble();
+            System.out.println(eight.liters(liters));
+        }
+        public void TASK_8_3() {
+            System.out.println("Enter the number of Imperial Gallon: ");
+            float mpg = sc.readFloat();
+            System.out.println(eight.mpgToKPM(mpg));
+        }
+        public void TASK_8_5() {
+            System.out.println("Enter the size of array: ");
+            int[] array = sc.readIntArray();
+            System.out.println(Arrays.toString(eight.countPositivesSumNegatives(array)));
+        }
+        public void TASK_8_7(){
+            System.out.println("Enter the number: ");
+            double digit = sc.readDouble();
+            System.out.println(eight.amIWilson(digit));
+        }
+        public void TASK_8_9(){
+            System.out.println("Enter the size of array: ");
+            int[] array = sc.readIntArray();
+            System.out.println("Enter the divisor: ");
+            int divider = sc.readInt();
+            System.out.println(Arrays.toString(eight.divisibleBy(array,divider)));
+        }
+        public void TASK_7_2(){
+            System.out.println("Enter the number: ");
+            int parameter = sc.readInt();
+            System.out.println(seven.seriesSum(parameter));
+        }
+        public void TASK_6_1(){
+            System.out.println("Enter volume: ");
+            long volume = sc.readLong();
+            System.out.println(six.findNb(volume));
+        }
+        public void TASK_6_3(){
+            System.out.println("Enter the number: ");
+            double number = sc.readDouble();
+            System.out.println(six.f(number));
+        }
+        public void TASK_6_5(){
+            System.out.println("Enter a string of results: ");
+            String results = sc.readString();
+            System.out.println("Enter the name of team: ");
+            String name = sc.readString();
+            System.out.println(six.nbaCup(results,name));
+        }
+        public void TASK_5_1(){
+            System.out.println("Enter the array: ");
+            int[] array = sc.readIntArray();
+            System.out.println(five.artificialRain(array));
+        }
     }
 
 
