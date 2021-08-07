@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ConsoleScanner implements Scanner{
+public class ConsoleScanner implements Scanner {
 
     private java.util.Scanner sc;
 
@@ -16,11 +16,10 @@ public class ConsoleScanner implements Scanner{
 
     @Override
     public int readInt() {
-        while(true){
-            if(sc.hasNextInt()){
+        while (true) {
+            if (sc.hasNextInt()) {
                 return sc.nextInt();
-            }
-            else {
+            } else {
                 System.out.println("Value is not 'Integer', please try again.");
                 sc.next();
             }
@@ -29,11 +28,10 @@ public class ConsoleScanner implements Scanner{
 
     @Override
     public long readLong() {
-        while(true){
-            if(sc.hasNextLong()){
+        while (true) {
+            if (sc.hasNextLong()) {
                 return sc.nextLong();
-            }
-            else {
+            } else {
                 System.out.println("Value is not 'long', please try again.");
                 sc.next();
             }
@@ -42,11 +40,10 @@ public class ConsoleScanner implements Scanner{
 
     @Override
     public float readFloat() {
-        while(true){
-            if(sc.hasNextFloat()){
+        while (true) {
+            if (sc.hasNextFloat()) {
                 return sc.nextFloat();
-            }
-            else {
+            } else {
                 System.out.println("Value is not 'float', please try again.");
                 sc.next();
             }
@@ -55,11 +52,10 @@ public class ConsoleScanner implements Scanner{
 
     @Override
     public double readDouble() {
-        while(true){
-            if(sc.hasNextDouble()){
+        while (true) {
+            if (sc.hasNextDouble()) {
                 return sc.nextDouble();
-            }
-            else {
+            } else {
                 System.out.println("Value is not 'double', please try again.");
                 sc.next();
             }
@@ -68,11 +64,10 @@ public class ConsoleScanner implements Scanner{
 
     @Override
     public String readString() {
-        while(true){
-            if(sc.hasNext()){
+        while (true) {
+            if (sc.hasNext()) {
                 return sc.nextLine();
-            }
-            else {
+            } else {
                 System.out.println("Value is not 'String', please try again.");
                 sc.next();
             }
@@ -81,11 +76,10 @@ public class ConsoleScanner implements Scanner{
 
     @Override
     public BigInteger readBigInteger() {
-        while(true){
-            if(sc.hasNextBigInteger()){
+        while (true) {
+            if (sc.hasNextBigInteger()) {
                 return new BigInteger(sc.nextLine());
-            }
-            else {
+            } else {
                 System.out.println("Value is not 'BigInteger', please try again.");
                 sc.next();
             }
@@ -94,11 +88,10 @@ public class ConsoleScanner implements Scanner{
 
     @Override
     public BigDecimal readBigDecimal() {
-        while(true){
-            if(sc.hasNextBigDecimal()){
+        while (true) {
+            if (sc.hasNextBigDecimal()) {
                 return new BigDecimal(sc.nextLine());
-            }
-            else {
+            } else {
                 System.out.println("Value is not 'BigDecimal', please try again.");
                 sc.next();
             }
