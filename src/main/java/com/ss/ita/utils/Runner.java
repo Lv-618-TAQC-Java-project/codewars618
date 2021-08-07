@@ -5,6 +5,7 @@ import com.ss.ita.kata.Five;
 import com.ss.ita.kata.Seven;
 import com.ss.ita.kata.Six;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 
@@ -77,26 +78,26 @@ public class Runner {
     }
     public void TASK_8_1() {
         System.out.println("Enter the time in hours: ");
-        double liters = sc.readDouble();
+        double liters = doublePositive(sc.readDouble());
         System.out.println(eight.liters(liters));
     }
     public void TASK_8_2() {
         System.out.println("Enter length: ");
-        double length = sc.readDouble();
+        double length = doublePositive(sc.readDouble());
         System.out.println("Enter width: ");
-        double width = sc.readDouble();
+        double width = doublePositive(sc.readDouble());
         System.out.println("Enter height: ");
-        double height = sc.readDouble();
+        double height = doublePositive(sc.readDouble());
         System.out.println(eight.getVolumeOfCuboid(length,width,height);
     }
     public void TASK_8_3() {
         System.out.println("Enter the number of Imperial Gallon: ");
-        float mpg = sc.readFloat();
+        float mpg = floatPositive(sc.readFloat());
         System.out.println(eight.mpgToKPM(mpg));
     }
     public void TASK_8_4() {
         System.out.println("Enter the array: ");
-        int[] arr = sc.readIntArray();
+        int[] arr = intArrayPositive(sc.readIntArray());
         System.out.println(Arrays.toString(eight.squareOrSquareRoot(arr)));
     }
     public void TASK_8_5() {
@@ -121,35 +122,35 @@ public class Runner {
     }
     public void TASK_8_9(){
         System.out.println("Enter the size of array: ");
-        int[] array = sc.readIntArray();
+        int[] array = intArrayPositive(sc.readIntArray());
         System.out.println("Enter the divisor: ");
-        int divider = sc.readInt();
+        int divider = intNotZero(sc.readInt());
         System.out.println(Arrays.toString(eight.divisibleBy(array,divider)));
     }
     public void TASK_7_1(){
         System.out.println("Enter the array: ");
-        double[] array = sc.readDoubleArray();
+        double[] array = doubleArrayPositive(sc.readDoubleArray());
         System.out.println("Enter navg");
-        double navg = sc.readDouble();
+        double navg = doublePositive(sc.readDouble());
         System.out.println(seven.newAvg(array,navg));
     }
     public void TASK_7_2(){
         System.out.println("Enter the number: ");
-        int parameter = sc.readInt();
+        int parameter = intPositive(sc.readInt());
         System.out.println(seven.seriesSum(parameter));
     }
     public void TASK_7_3(){
         System.out.println("Enter the Total amount: ");
-        int p = sc.readInt();
+        int p = intPositive(sc.readInt());
         System.out.println("Enter the Number of people standing in front of him: ");
-        int bef = sc.readInt();
+        int bef = intPositive(sc.readInt());
         System.out.println("Enter the Number of people standing behind him: ");
-        int afr = sc.readInt();
+        int afr = intPositive(sc.readInt());
         System.out.println(seven.whereIsHe(p,bef,afr));
     }
     public void TASK_6_1(){
         System.out.println("Enter volume: ");
-        long volume = sc.readLong();
+        long volume = longPositive(sc.readLong());
         System.out.println(six.findNb(volume));
     }
     public void TASK_6_2(){
@@ -159,7 +160,7 @@ public class Runner {
     }
     public void TASK_6_3(){
         System.out.println("Enter the number: ");
-        double number = sc.readDouble();
+        double number = doublePositiveOrNull(sc.readDouble());
         System.out.println(six.f(number));
     }
     public void TASK_6_4(){
@@ -185,7 +186,7 @@ public class Runner {
     }
     public void TASK_5_1(){
         System.out.println("Enter the array: ");
-        int[] array = sc.readIntArray();
+        int[] array = intArrayPositive(sc.readIntArray());
         System.out.println(five.artificialRain(array));
     }
     public void TASK_5_2(){
@@ -195,7 +196,76 @@ public class Runner {
         int m = sc.readInt();
         System.out.println("Enter the end of the search: ");
         int n = sc.readInt();
+        while (g < 2 || m <= 2 || n < m){
+            System.out.println("Enter the gap we are looking for: ");
+            g = sc.readInt();
+            System.out.println("Enter the start of the search: ");
+            m = sc.readInt();
+            System.out.println("Enter the end of the search: ");
+            n = sc.readInt();
+        }
         System.out.println(Arrays.toString(five.gap(g,m,n)));
+    }
+
+    private int intPositive(int num){
+        while (num <= 0){
+            System.out.println("Please enter number > 0");
+            num = sc.readInt();
+        }
+        return num;
+    }
+    private double doublePositive(double number) {
+        while (number <= 0) {
+            System.out.println("Please enter number >= 0");
+            number = sc.readDouble();
+        }
+        return number;
+    }
+    private float floatPositive(float number) {
+        while (number <= 0) {
+            System.out.println("Please enter number >= 0");
+            number = sc.readFloat();
+        }
+        return number;
+    }
+    private int[] intArrayPositive(int [] number) {
+        for (int i = 0; i < number.length; i++) {
+            while (number[i]<=0){
+                System.out.println("Please enter all numbers >= 0");
+                number = sc.readIntArray();
+            }
+        }
+        return number;
+    }
+    private int intNotZero(int number){
+        while(number==0){
+            System.out.println("Please enter number >= 0");
+            number = sc.readInt();
+        }
+        return number;
+    }
+    private long longPositive(long number){
+        while(number<=0){
+            System.out.println("Please enter number > 0");
+            number = sc.readLong();
+        }
+        return number;
+    }
+    double doublePositiveOrNull(double number){
+        while(number<0){
+            System.out.println("Please enter number >= 0");
+            number = sc.readDouble();
+        }
+        return number;
+    }
+    private double[] doubleArrayPositive(double [] number) {
+        for (int i = 0; i < number.length; i++) {
+            while (number[i]<=0){
+                System.out.println("Please enter all numbers >= 0");
+                number = sc.readDoubleArray();
+            }
+        }
+        return number;
     }
 
 
