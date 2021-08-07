@@ -178,9 +178,9 @@ public class Runner {
     }
     public void TASK_6_6(){
         System.out.println("Enter stocklist: ");
-        String lstOfArt = sc.readString();
+        String [] lstOfArt = sc.readStringArray();
         System.out.println("Enter a list of first letters: ");
-        String lstOf1stLetter  = sc.readString();
+        String [] lstOf1stLetter  = sc.readStringArray();
         System.out.println(six.stockSummary(lstOfArt,lstOf1stLetter));
     }
     public void TASK_5_1(){
