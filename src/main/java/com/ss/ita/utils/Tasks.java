@@ -286,7 +286,7 @@ public enum Tasks {
         return null;
     }
 
-    public double getId() {
+    public int getId() {
         return id;
     }
 
