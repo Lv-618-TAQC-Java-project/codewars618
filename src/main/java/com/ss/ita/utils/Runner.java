@@ -50,7 +50,7 @@ public class Runner {
                 eight = new com.ss.ita.kata.implementation.maxde1.EightImpl();
                 break;
             case ANASTASIIA:
-                five = new com.ss.ita.kata.implementation.kubrub.FiveImpl();
+//                five = new com.ss.ita.kata.implementation.kubrub.FiveImpl();
                 six = new com.ss.ita.kata.implementation.kubrub.SixImpl();
                 seven = new com.ss.ita.kata.implementation.kubrub.SevenImpl();
                 eight = new com.ss.ita.kata.implementation.kubrub.EightImpl();
@@ -108,7 +108,7 @@ public class Runner {
     public void TASK_8_6() {
         System.out.println("Enter a string : ");
         String str = sc.readString();
-        System.out.println(stringToNumber(str));
+        System.out.println(eight.stringToNumber(str));
     }
     public void TASK_8_7(){
         System.out.println("Enter the number: ");
@@ -269,4 +269,82 @@ public class Runner {
     }
 
 
+    public void setTasks(int number){
+        switch (number){
+            case 1:
+                TASK_8_1();
+                break;
+            case 2:
+                TASK_8_2();
+                break;
+            case 3:
+                TASK_8_3();
+                break;
+            case 4:
+                TASK_8_4();
+                break;
+            case 5:
+                TASK_8_5();
+                break;
+            case 6:
+                TASK_8_6();
+                break;
+            case 7:
+                TASK_8_7();
+                break;
+            case 8:
+                TASK_8_8();
+                break;
+            case 9:
+                TASK_8_9();
+                break;
+            case 10:
+                TASK_7_1();
+                break;
+            case 11:
+                TASK_7_2();
+                break;
+            case 12:
+                TASK_7_3();
+                break;
+            case 13:
+                TASK_6_1();
+                break;
+            case 14:
+                TASK_6_2();
+                break;
+            case 15:
+                TASK_6_3();
+                break;
+            case 16:
+                TASK_6_4();
+                break;
+            case 17:
+                TASK_6_5();
+                break;
+            case 18:
+                TASK_6_6();
+                break;
+            case 19:
+                TASK_5_1();
+                break;
+            case 20:
+                TASK_5_2();
+                break;
+            case 21:
+
+                break;
+            case 22:
+
+                break;
+            case 23:
+
+                break;
+            case 24:
+
+                break;
+
+
+        }
+    }
 }

@@ -4,13 +4,14 @@ import com.ss.ita.kata.implementation.vmuravskyi.EightImpl;
 import com.ss.ita.utils.Tasks;
 
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
     ConsoleScanner sc = new ConsoleScanner();
     Users user;
-    Scanner scanner = new Scanner();
-    Runner runner = new Runner();
+    Scanner scanner = new Scanner(System.in);
+//    Runner runner = new Runner();
 
     public void menu() {
 
@@ -59,7 +60,7 @@ public class Menu {
 
     public void showTaskDetails() {
         System.out.println("Enter number of task");
-        System.out.println(Tasks.getTaskById(sc.readInt());
+        System.out.println(Tasks.getTaskById(sc.readInt()));
     }
 
     public void run() {
@@ -76,6 +77,4 @@ public class Menu {
     public void setImplementationByUser() {
 
     }
-
-
 }
