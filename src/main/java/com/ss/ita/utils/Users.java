@@ -3,7 +3,7 @@ package com.ss.ita.utils;
 public enum Users {
     IVANKA(1, "Ivanna Veselovska","IvannaVeselovska"),
     VOLODYMYR_MUR(2, "Volodymyr Muravskyi","vmuravskyi"),
-    Yurii(3,"Yurii Nesterovych","yranest"),
+    YURII(3,"Yurii Nesterovych","yranest"),
     MAKSYM_DEN(4,"Maksym Denysenko","Maxde1"),
     ANASTASIIA(5,"Anastasiia Kovalchuk","kubrub"),
     IEVGENII(6,"Ievgenii Shcherbakov","shcherbakoveugene"),
