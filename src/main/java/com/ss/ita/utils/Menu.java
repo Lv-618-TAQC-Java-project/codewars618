@@ -3,17 +3,21 @@ import com.ss.ita.kata.Eight;
 import com.ss.ita.kata.implementation.vmuravskyi.EightImpl;
 import com.ss.ita.utils.Tasks;
 
+
 import java.util.Scanner;
 
 public class Menu {
-    Scanner sc = new Scanner(System.in);
+    ConsoleScanner sc = new ConsoleScanner();
+    Users user;
+    Scanner scanner = new Scanner();
+    Runner runner = new Runner();
 
     public void menu() {
 
         int choice;
         do {
             showMenu();
-            choice = sc.nextInt();
+            choice = sc.readInt();
             switch (choice) {
                 case 1:
                     run();
@@ -40,7 +44,7 @@ public class Menu {
 
     public void taskList() {
         for (Tasks task : Tasks.values()) {
-            System.out.println(Tasks.getTaskName());
+//            System.out.println(Tasks.getTaskName());
         }
     }
 
@@ -54,17 +58,18 @@ public class Menu {
     }
 
     public void showTaskDetails() {
-        System.out.println("Enter inx of method");
-        System.out.println(Tasks.getTaskById(sc.nextInt()));
+        System.out.println("Enter number of task");
+        System.out.println(Tasks.getTaskById(sc.readInt());
     }
 
     public void run() {
-        EightImpl e = new EightImpl();
-        System.out.println("Enter n: ");
-        System.out.println(e.liters(123));
+        System.out.println("Enter number of task");
     }
 
     public void usersList() {
+        for (Users user: Users.values()) {
+            System.out.println(user.getFullName());
+        }
         System.out.println();
     }
 
