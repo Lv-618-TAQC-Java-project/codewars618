@@ -37,7 +37,15 @@ public class Menu {
     private void constructorRunner() {
         System.out.println("Hello!\nTo continue, please, choose someone's implementation: ");
         usersList();
-        runner = new Runner(Users.getUserById(cs.readInt()));
+        int choose;
+        do {
+            choose = cs.readInt();
+            if (choose < 1 || choose > 9) {
+                System.out.println("Don't forget to choose someone's implementation.\nEnter a user:");
+            }
+        } while (choose < 1 || choose > 9);
+        runner = new Runner(Users.getUserById(choose));
+        System.out.println();
     }
 
     public void taskList() {
@@ -50,9 +58,9 @@ public class Menu {
 
     public void showMenu() {
         System.out.println("1 - Run task");
-        System.out.println("2 - Show task List");
-        System.out.println("3 - Show Task Details");
-        System.out.println("4 - Show users List");
+        System.out.println("2 - Show task list");
+        System.out.println("3 - Show task details");
+        System.out.println("4 - Show users list");
         System.out.println("5 - Change implementation");
         System.out.println("0 - Exit");
         System.out.println();
@@ -60,14 +68,15 @@ public class Menu {
     }
 
     public void showTaskDetails() {
-        System.out.println("Enter inx of method");
+        System.out.println("Enter number of method from 1 to 24");
         System.out.println(Tasks.getDescription(cs.readInt()));
         System.out.println();
     }
 
     public void run() {
         System.out.println();
-        System.out.println("Enter index of task");
+        System.out.println("First you need to choose a task.");
+        System.out.println("Enter number of task:");
         int choose = cs.readInt();
         while (choose > 24 || choose < 1) {
             System.out.println("Enter from 1 to 24");
