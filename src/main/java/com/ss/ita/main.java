@@ -1,5 +1,4 @@
 package com.ss.ita;
-
 import com.ss.ita.utils.Menu;
 
 public class main {
