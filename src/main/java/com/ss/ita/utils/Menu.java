@@ -35,13 +35,13 @@ public class Menu {
     }
 
     private void constructorRunner() {
-        System.out.println("Hello!\nTo continue, please, choose someone's implementation: ");
+        System.out.println("Hello!\nTo continue, please, choose someone's implementation:");
         usersList();
         int choose;
         do {
             choose = cs.readInt();
             if (choose < 1 || choose > 9) {
-                System.out.println("Don't forget to choose someone's implementation.\nEnter a user:");
+                System.out.println("Please, enter a number from 1 to 9.");
             }
         } while (choose < 1 || choose > 9);
         runner = new Runner(Users.getUserById(choose));
