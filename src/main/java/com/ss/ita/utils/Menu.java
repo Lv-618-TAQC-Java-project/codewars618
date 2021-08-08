@@ -36,7 +36,6 @@ public class Menu {
 
     private void constructorRunner() {
         System.out.println("Hello!\nTo continue, please, choose someone's implementation: ");
-        System.out.println();
         usersList();
         runner = new Runner(Users.getUserById(cs.readInt()));
     }
@@ -82,7 +81,7 @@ public class Menu {
         System.out.println();
         System.out.println("List of users:");
         for (Users user : Users.values()) {
-            System.out.println(user.getId() + " " + user.getFullName()+" "+user.getGitName());
+            System.out.println(user.getId() + " " + user.getFullName() + " " + user.getGitName());
         }
         System.out.println();
     }
@@ -91,9 +90,6 @@ public class Menu {
         usersList();
         System.out.println("Make your choice:");
         int choose;
-//        while (choose > 1 || choose < 9) {
-//            choose = cs.readInt();
-//        }
         do {
             choose = cs.readInt();
         } while (choose < 1 || choose > 9);

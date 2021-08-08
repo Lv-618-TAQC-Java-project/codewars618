@@ -8,7 +8,7 @@ public enum Users {
     ANASTASIIA(5, "Anastasiia Kovalchuk", "kubrub"),
     IEVGENII(6, "Ievgenii Shcherbakov", "shcherbakoveugene"),
     MAKSYM_SEM(7, "Max Semochko", "msemochko"),
-    VOLODYMYR_SHO(8, "VOLODYMYR_SHOVKOPLYAS", "2vovik4"),
+    VOLODYMYR_SHO(8, "Volodymyr Shovkoplyas", "2vovik4"),
     VIKTOR(9, "Viktor Yashchyshyn", "viktor7469");
 
     private final int id;
