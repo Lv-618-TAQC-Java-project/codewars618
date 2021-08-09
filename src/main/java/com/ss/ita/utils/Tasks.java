@@ -5,19 +5,19 @@ public enum Tasks {
             "You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value."),
     TASK_8_2(2, "Volume of a cuboid",
             "Bob needs a fast way to calculate the volume of a cuboid with three values: length, width and the height of the cuboid.\n" +
-            "Write a function to help Bob with this calculation."),
+                    "Write a function to help Bob with this calculation."),
     TASK_8_3(3, "Miles per gallon to kilometers per liter",
             "Create an application that will display the number of kilometers per liter (output) based on the number of miles per imperial gallon (input)."),
     TASK_8_4(4, "To square root or no to square",
             "Write a method, that will get an integer array as parameter and will process every number from this array.\n" +
-            "Return a new array with processing every number of the input-array like this:\n" +
-            "If the number has an integer square root, take this, otherwise square the number."),
+                    "Return a new array with processing every number of the input-array like this:\n" +
+                    "If the number has an integer square root, take this, otherwise square the number."),
     TASK_8_5(5, "Count of positives / sum of negatives",
             "Given an array of integers." +
-            "\n" +
-            "Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers." +
-            "\n" +
-            "If the input array is empty or null, return an empty array."),
+                    "\n" +
+                    "Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers." +
+                    "\n" +
+                    "If the input array is empty or null, return an empty array."),
     TASK_8_6(6, "Convert a String to a Number!",
             "We need a function that can transform a string into a number. What ways of achieving this do you know?"),
     TASK_8_7(7, "Willson primes",
@@ -277,24 +277,30 @@ public enum Tasks {
         this.description = description;
     }
 
-    public static Tasks getTaskById(int id){
-        for (Tasks task:values()) {
-            if (task.id == id){
+    public static Tasks getTaskById(int id) {
+        for (Tasks task : values()) {
+            if (task.id == id) {
                 return task;
             }
         }
         return null;
     }
 
-    public double getId() {
+    public static String getDescription(int id) {
+        for (Tasks task : values()) {
+            if (task.id == id) {
+                return task.description;
+            }
+        }
+        return " ";
+    }
+
+    public int getId() {
         return id;
     }
 
     public String getTaskName() {
         return taskName;
     }
-
-    public String getDescription() {
-        return description;
-    }
 }
+
