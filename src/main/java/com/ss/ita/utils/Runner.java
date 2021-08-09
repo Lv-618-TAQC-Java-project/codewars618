@@ -5,6 +5,7 @@ import com.ss.ita.kata.Five;
 import com.ss.ita.kata.Seven;
 import com.ss.ita.kata.Six;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 
@@ -49,7 +50,7 @@ public class Runner {
                 eight = new com.ss.ita.kata.implementation.maxde1.EightImpl();
                 break;
             case ANASTASIIA:
-                //five = new com.ss.ita.kata.implementation.kubrub.FiveImpl();
+                five = new com.ss.ita.kata.implementation.kubrub.FiveImpl();
                 six = new com.ss.ita.kata.implementation.kubrub.SixImpl();
                 seven = new com.ss.ita.kata.implementation.kubrub.SevenImpl();
                 eight = new com.ss.ita.kata.implementation.kubrub.EightImpl();
