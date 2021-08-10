@@ -41,8 +41,9 @@ public class EightTest extends EightDataProvider {
     public void testStringToNumber() {
     }
 
-    @Test
-    public void testAmIWilson() {
+    @Test(dataProvider = "wilsonPrimeDataProvider")
+    public void testAmIWilson(Eight impl, double n, boolean expected) {
+        Assert.assertEquals(impl.amIWilson(n), expected);
     }
 
     @Test

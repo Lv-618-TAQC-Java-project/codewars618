@@ -24,6 +24,15 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "wilsonPrimeDataProvider")
+    public static Object[][] wilsonPrimeDataProvider() {
+        Object[][] param = new Object[][]{
+                {5, true},
+                {9, false},
+                {6, false}
+        };
+        return combine(eightImplPackageProvider(), param);
+    }
 
 
 
