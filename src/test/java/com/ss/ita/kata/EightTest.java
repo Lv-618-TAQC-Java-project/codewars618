@@ -1,22 +1,55 @@
 package com.ss.ita.kata;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class EightTest {
+public class EightTest extends EightDataProvider {
 
-    @BeforeMethod
-    public void setUp() {
+    @Test
+    public void testLiters() {
     }
 
-    @AfterMethod
-    public void tearDown() {
+    @Test(dataProvider = "validVolumeOfCuboidDataProvider")
+    public void TestGetVolumeOfCuboid(Eight imp, int a, long b, long c, long expected) {
+        Assert.assertEquals(imp.getVolumeOfCuboid(a,b,c), expected);
+    }
+
+    @Test(dataProvider = "invalidVolumeOfCuboidDataProvider")
+    public void NegativeTestGetVolumeOfCuboid(Eight imp, int a, long b, long c, long expected) {
+        Assert.assertEquals(imp.getVolumeOfCuboid(a,b,c), expected);
+    }
+
+    @Test(dataProvider = "eightImplPackageProvider")
+    public void negativeTestGetVolumeOfCuboid() {
     }
 
     @Test
-    public void testGetVolumeOfCuboid() {
+    public void testMpgToKPM() {
+    }
+
+    @Test
+    public void testSquareOrSquareRoot() {
+    }
+
+    @Test
+    public void testCountPositivesSumNegatives() {
+    }
+
+    @Test
+    public void testStringToNumber() {
+    }
+
+    @Test
+    public void testAmIWilson() {
+    }
+
+    @Test
+    public void testTwoDecimalPlaces() {
+    }
+
+    @Test
+    public void testDivisibleBy() {
     }
 }
