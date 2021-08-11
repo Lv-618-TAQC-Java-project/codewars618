@@ -23,6 +23,28 @@ public class EightDataProvider extends DataProviderClass {
         };
         return combine(eightImplPackageProvider(), param);
     }
+    @DataProvider(name = "positiveKeepHydrated")
+    public static Object[][] positiveKeepHydrated(){
+        Object[][] testData = new Object[][]{
+                {4.0, 2},
+                {11.0, 5},
+                {200.0, 100},
+                {25355354.0, 12677677},
+                {0,0},
+                {1,0},
+                {0.5,0},
+                {199.8, 99}
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
+    @DataProvider(name = "negativeKeepHydrated")
+    public static Object[][] negativeKeepHydrated(){
+        Object[][] testData = new Object[][]{
+                {-50, -25},
+                {-400000, -200000}
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
 
 
 
