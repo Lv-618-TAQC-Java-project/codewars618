@@ -1,17 +1,22 @@
 package com.ss.ita.kata;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
-public class SevenTest {
+public class SevenTest extends SevenDataProvider {
 
     @Test
     public void testNewAvg() {
     }
 
-    @Test
-    public void testSeriesSum() {
+    @Test(dataProvider = "validSeriesSum")
+    public void validTestSeriesSum(Seven imp, int n, String expected) {
+        Assert.assertEquals(imp.seriesSum(n), expected);
+    }
+
+    @Test(dataProvider = "invalidSeriesSum")
+    public void invalidTestSeriesSum(Seven imp, int n, String expected) {
+        Assert.assertEquals(imp.seriesSum(n), expected);
     }
 
     @Test

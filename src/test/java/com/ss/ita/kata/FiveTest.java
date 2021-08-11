@@ -1,17 +1,22 @@
 package com.ss.ita.kata;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
-public class FiveTest {
+public class FiveTest extends FiveDataProvider {
 
     @Test
     public void testArtificialRain() {
     }
 
-    @Test
-    public void testGap() {
+    @Test(dataProvider = "validGap")
+    public void testValidGap(Five imp, int g, long m, long n, long[] expected) {
+        Assert.assertEquals(imp.gap(g, m, n), expected);
+    }
+
+    @Test(dataProvider = "invalidGap")
+    public void testInvalidGap(Five imp, int g, long m, long n, long[] expected) {
+        Assert.assertEquals(imp.gap(g, m, n), expected);
     }
 
     @Test
