@@ -59,7 +59,7 @@ public class EightTest extends EightDataProvider {
     public void testDivisibleBy(Eight imp,int[] numbers,int divider,int[] expected) {
         Assert.assertEquals(imp.divisibleBy(numbers,divider), expected);
     }
-    @Test(dataProvider = "InvalidDivisibleByDataProvider")
+    @Test(dataProvider = "invalidDivisibleByDataProvider")
     public void testDivisibleByInvalid(Eight imp,int[] numbers,int divider,int[] expected) {
         Assert.assertEquals(imp.divisibleBy(numbers,divider), expected);
     }
