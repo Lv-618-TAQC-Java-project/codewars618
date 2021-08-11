@@ -5,8 +5,14 @@ import org.testng.annotations.Test;
 
 public class EightTest extends EightDataProvider {
 
-    @Test
-    public void testLiters() {
+    @Test(dataProvider = "positiveKeepHydrated")
+    public void PositiveTestKeepHydrated(Eight imp, double time, int expected) {
+        Assert.assertEquals(imp.liters(time), expected);
+    }
+
+    @Test(dataProvider = "negativeKeepHydrated")
+    public void NegativeTestKeepHydrated(Eight imp, double time, int expected) {
+        Assert.assertNotEquals(imp.liters(time), expected);
     }
 
     @Test(dataProvider = "validVolumeOfCuboidDataProvider")

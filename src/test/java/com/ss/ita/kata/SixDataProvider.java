@@ -1,4 +1,4 @@
 package com.ss.ita.kata;
 
-public class SixDataProvider extends DataProviderClass{
+public class SixDataProvider extends DataProviderClass {
 }
