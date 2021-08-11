@@ -1,10 +1,11 @@
 package com.ss.ita.kata;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class SixTest {
+public class SixTest extends SixDataProvider{
 
     @Test
     public void testFindNb() {
@@ -14,8 +15,9 @@ public class SixTest {
     public void testBalance() {
     }
 
-    @Test
-    public void testF() {
+    @Test(dataProvider = "validFloatingPointApproximation")
+    public void testF(Six imp, double x, double expected) {
+        Assert.assertEquals(imp.f(x),expected);
     }
 
     @Test
