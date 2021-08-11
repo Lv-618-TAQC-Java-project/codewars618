@@ -46,8 +46,8 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), testData);
     }
 
-    @DataProvider(name = "positiveMphToKph")
-    public static Object[][] positiveMphToKph(){
+    @DataProvider(name = "positiveMpgToKPM")
+    public static Object[][] positiveMpgToKPM(){
         Object[][] testData = new Object[][]{
                 {10f, 3.54f},
                 {20f, 7.08f},
@@ -56,8 +56,8 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), testData);
     }
 
-    @DataProvider(name = "negativeMphToKph")
-    public static Object[][] negativeMphToKph(){
+    @DataProvider(name = "negativeMpgToKPM")
+    public static Object[][] negativeMpgToKPM(){
         Object[][] testData = new Object[][]{
                 {-5f, 0},
                 {-9879.324f, 0}
