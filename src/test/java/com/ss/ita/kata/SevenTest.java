@@ -15,13 +15,13 @@ public class SevenTest extends SevenDataProvider{
     public void testSeriesSum() {
     }
 
-    @Test(dataProvider = "positiveWhereIsVasya")
+    @Test(dataProvider = "positiveWhereIsHe")
     public void positiveTestWhereIsHe(Seven imp, int a, int b, int c, int expected) {
         Assert.assertEquals(imp.whereIsHe(a, b, c), expected);
     }
 
-    @Test(dataProvider = "negativeWhereIsVasya")
-    public void negativeWhereIsVasya(Seven imp, int a, int b, int c, int expected){
+    @Test(dataProvider = "negativeWhereIsHe")
+    public void negativeTestWhereIsHe(Seven imp, int a, int b, int c, int expected){
         Assert.assertEquals(imp.whereIsHe(a, b, c), expected);
     }
 }

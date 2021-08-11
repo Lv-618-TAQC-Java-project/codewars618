@@ -3,8 +3,8 @@ package com.ss.ita.kata;
 import org.testng.annotations.DataProvider;
 
 public class SevenDataProvider extends DataProviderClass{
-    @DataProvider(name = "positiveWhereIsVasya")
-    public static Object[][] positiveWhereIsVasya(){
+    @DataProvider(name = "positiveWhereIsHe")
+    public static Object[][] positiveWhereIsHe(){
         Object[][] testData = new Object[][]{
                 {3, 1, 1, 2},
                 {5, 2, 3, 3},
@@ -12,8 +12,8 @@ public class SevenDataProvider extends DataProviderClass{
         };
         return combine(sevenImplPackageProvider(), testData);
     }
-    @DataProvider(name = "negativeWhereIsVasya")
-    public static Object[][] negativeWhereIsVasya(){
+    @DataProvider(name = "negativeWhereIsHe")
+    public static Object[][] negativeWhereIsHe(){
         Object[][] testData = new Object[][]{
                 {-5, -1, 0, 0},
                 {2, 5, 3, 0},
