@@ -55,7 +55,8 @@ public class EightTest extends EightDataProvider {
     public void testTwoDecimalPlaces() {
     }
 
-    @Test
-    public void testDivisibleBy() {
+    @Test(dataProvider = "validDivisibleByDataProvider")
+    public void testDivisibleBy(Eight imp,int[] numbers,int divider,int[] expected) {
+        Assert.assertEquals(imp.divisibleBy(numbers,divider), expected);
     }
 }

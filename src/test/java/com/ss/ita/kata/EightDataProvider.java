@@ -45,6 +45,15 @@ public class EightDataProvider extends DataProviderClass {
         };
         return combine(eightImplPackageProvider(), testData);
     }
+    @DataProvider(name = "validDivisibleByDataProvider")
+    public static Object[][] validDivisibleByDataProvider(){
+        Object[][] testData = new Object[][]{
+                {new int[]{1,2,3,4,5,6},2,new int[]{2,4,6}},
+                {new int[]{1,2,3,4,5,6},3,new int[]{3,6}},
+                {new int[]{0,1,2,3,4,5,6},4,new int[]{0,4}},
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
 
 
 
