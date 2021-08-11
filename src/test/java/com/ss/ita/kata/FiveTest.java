@@ -9,14 +9,12 @@ public class FiveTest extends FiveDataProvider {
     public void testArtificialRain() {
     }
 
-    @Test(dataProvider = "validGap")
-    public void testValidGap(Five imp, int g, long m, long n, long[] expected) {
-        Assert.assertEquals(imp.gap(g, m, n), expected);
+    @Test
+    public void testValidGap() {
     }
 
-    @Test(dataProvider = "invalidGap")
-    public void testInvalidGap(Five imp, int g, long m, long n, long[] expected) {
-        Assert.assertEquals(imp.gap(g, m, n), expected);
+    @Test
+    public void testInvalidGap() {
     }
 
     @Test

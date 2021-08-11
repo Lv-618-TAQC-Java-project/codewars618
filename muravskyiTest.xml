@@ -9,18 +9,6 @@
                     <include name="NegativeTestGetVolumeOfCuboid"/>
                 </methods>
             </class>
-            <class name="com.ss.ita.kata.SevenTest">
-                <methods>
-                    <include name="validTestSeriesSum"/>
-                    <include name="invalidTestSeriesSum"/>
-                </methods>
-            </class>
-            <class name="com.ss.ita.kata.FiveTest">
-                <methods>
-                    <include name="validGap"/>
-                    <include name="invalidGap"/>
-                </methods>
-            </class>
         </classes>
     </test>
 </suite>

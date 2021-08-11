@@ -63,12 +63,6 @@ public class DataProviderClass {
         };
     }
 
-    @DataProvider(name = "ConsoleScannerProvider")
-    public static Object[][] ConsoleScannerProvider() {
-        return new Object[][]{
-                {new com.ss.ita.utils.ConsoleScanner()},
-        };
-    }
 
     public static Object[][] combine(Object[][] impls, Object[][] data) {
         List<Object[]> matrix = new LinkedList<Object[]>();

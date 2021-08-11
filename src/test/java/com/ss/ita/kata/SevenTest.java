@@ -9,14 +9,12 @@ public class SevenTest extends SevenDataProvider {
     public void testNewAvg() {
     }
 
-    @Test(dataProvider = "validSeriesSum")
-    public void validTestSeriesSum(Seven imp, int n, String expected) {
-        Assert.assertEquals(imp.seriesSum(n), expected);
+    @Test
+    public void validTestSeriesSum() {
     }
 
-    @Test(dataProvider = "invalidSeriesSum")
-    public void invalidTestSeriesSum(Seven imp, int n, String expected) {
-        Assert.assertEquals(imp.seriesSum(n), expected);
+    @Test
+    public void invalidTestSeriesSum() {
     }
 
     @Test
