@@ -1,5 +1,6 @@
 package com.ss.ita.kata;
 
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 
 public class SevenDataProvider extends DataProviderClass{
@@ -23,4 +24,5 @@ public class SevenDataProvider extends DataProviderClass{
         };
         return combine(sevenImplPackageProvider(), testData);
     }
+
 }
