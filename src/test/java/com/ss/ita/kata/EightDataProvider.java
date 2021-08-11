@@ -24,20 +24,15 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "convertAStringToaNumber")
+    public static Object[][]convertAStringToANumber(){
+        Object[][] param = new Object[][]{
+                {"1234", 1234},
+                {"605", 605},
+                {"1405", 1405},
+                {"-7", -7}
+        };
+        return combine(eightImplPackageProvider(), param);
+    }
 
-
-
-
-
-//    @DataProvider(name = "validVolumeOfCuboidDataProviderTemp")
-//    public static Object[][] validVolumeOfCuboidDataProviderTemp() {
-//        return new Object[][]{
-//                {new com.ss.ita.kata.implementation.ivannaveselovska.EightImpl(), 5, 5, 5, 125},
-//                {new com.ss.ita.kata.implementation.ivannaveselovska.EightImpl(), 555, 555, 555, 170953875},
-//                {new com.ss.ita.kata.implementation.ivannaveselovska.EightImpl(), 99, 99, 99, 970299},
-//                {new com.ss.ita.kata.implementation.kubrub.EightImpl(), 5, 5, 5, 125},
-//                {new com.ss.ita.kata.implementation.maxde1.EightImpl(), 555, 555, 555, 170953875},
-//                {new com.ss.ita.kata.implementation.msemochko.EightImpl(), 99, 99, 99, 970299}
-//        };
-//    }
 }
