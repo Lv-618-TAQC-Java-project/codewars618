@@ -1,10 +1,11 @@
 package com.ss.ita.kata;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class SixTest {
+public class SixTest extends SixDataProvider{
 
     @Test
     public void testFindNb() {
@@ -26,8 +27,13 @@ public class SixTest {
     public void testVariance() {
     }
 
-    @Test
-    public void testNbaCup() {
+    @Test(dataProvider = "validNbaCupDataProvider")
+    public void testNbaCup(Six imp,String resultSheet,String toFind,String expected) {
+        Assert.assertEquals(imp.nbaCup(resultSheet,toFind), expected);
+    }
+    @Test(dataProvider = "inValidNbaCupDataProvider")
+    public void NegativeTestNbaCup(Six imp,String resultSheet,String toFind,String expected) {
+        Assert.assertEquals(imp.nbaCup(resultSheet,toFind), expected);
     }
 
     @Test
