@@ -1,5 +1,6 @@
 package com.ss.ita.kata;
 
+import com.ss.ita.kata.implementation.vmuravskyi.EightImpl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
