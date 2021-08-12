@@ -51,8 +51,13 @@ public class EightTest extends EightDataProvider {
     public void testAmIWilson() {
     }
 
-    @Test
-    public void testTwoDecimalPlaces() {
+    @Test(dataProvider = "positiveTwoDecimalPlaces")
+    public void positiveTestTwoDecimalPlaces(Eight imp,double number,double expected) {
+        Assert.assertEquals(imp.twoDecimalPlaces(number), expected);
+    }
+    @Test(dataProvider = "negativeTwoDecimalPlaces")
+    public void negativeTestTwoDecimalPlaces(Eight imp,double number,double expected) {
+        Assert.assertEquals(imp.twoDecimalPlaces(number), expected);
     }
 
     @Test

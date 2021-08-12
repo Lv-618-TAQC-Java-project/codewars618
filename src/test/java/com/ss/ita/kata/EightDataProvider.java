@@ -46,6 +46,24 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), testData);
     }
 
+    @DataProvider(name = "positiveTwoDecimalPlaces")
+    public static Object[][] positiveTwoDecimalPlaces(){
+        Object[][] testData = new Object[][]{
+                {4.659725356, 4.66},
+                {173735326.3783732637948948, 173735326.38},
+                {0, 0.00},
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
+    @DataProvider(name = "negativeTwoDecimalPlaces")
+    public static Object[][] negativeTwoDecimalPlaces(){
+        Object[][] testData = new Object[][]{
+                {-4.659725356, -4.66},
+                {-173735326.3783732637948948, -173735326.38},
+                {-1124124.254623626, -1124124.25},
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
 
 
 
