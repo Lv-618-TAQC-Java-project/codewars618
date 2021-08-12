@@ -23,22 +23,24 @@ public class EightDataProvider extends DataProviderClass {
         };
         return combine(eightImplPackageProvider(), param);
     }
+
     @DataProvider(name = "positiveKeepHydrated")
-    public static Object[][] positiveKeepHydrated(){
+    public static Object[][] positiveKeepHydrated() {
         Object[][] testData = new Object[][]{
                 {4.0, 2},
                 {11.0, 5},
                 {200.0, 100},
                 {25355354.0, 12677677},
-                {0,0},
-                {1,0},
-                {0.5,0},
+                {0, 0},
+                {1, 0},
+                {0.5, 0},
                 {199.8, 99}
         };
         return combine(eightImplPackageProvider(), testData);
     }
+
     @DataProvider(name = "negativeKeepHydrated")
-    public static Object[][] negativeKeepHydrated(){
+    public static Object[][] negativeKeepHydrated() {
         Object[][] testData = new Object[][]{
                 {-50, -25},
                 {-400000, -200000}
@@ -108,18 +110,4 @@ public class EightDataProvider extends DataProviderClass {
         };
         return combine(eightImplPackageProvider(), testData);
     }
-
-
-
-//    @DataProvider(name = "validVolumeOfCuboidDataProviderTemp")
-//    public static Object[][] validVolumeOfCuboidDataProviderTemp() {
-//        return new Object[][]{
-//                {new com.ss.ita.kata.implementation.ivannaveselovska.EightImpl(), 5, 5, 5, 125},
-//                {new com.ss.ita.kata.implementation.ivannaveselovska.EightImpl(), 555, 555, 555, 170953875},
-//                {new com.ss.ita.kata.implementation.ivannaveselovska.EightImpl(), 99, 99, 99, 970299},
-//                {new com.ss.ita.kata.implementation.kubrub.EightImpl(), 5, 5, 5, 125},
-//                {new com.ss.ita.kata.implementation.maxde1.EightImpl(), 555, 555, 555, 170953875},
-//                {new com.ss.ita.kata.implementation.msemochko.EightImpl(), 99, 99, 99, 970299}
-//        };
-//    }
 }

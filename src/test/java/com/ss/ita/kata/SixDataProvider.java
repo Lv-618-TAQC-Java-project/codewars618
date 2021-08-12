@@ -2,7 +2,7 @@ package com.ss.ita.kata;
 
 import org.testng.annotations.DataProvider;
 
-public class SixDataProvider extends DataProviderClass{
+public class SixDataProvider extends DataProviderClass {
 
     @DataProvider(name = "validHelpBooksellerDataProvider")
     public static Object[][] validHelpBooksellerDataProvider(){
