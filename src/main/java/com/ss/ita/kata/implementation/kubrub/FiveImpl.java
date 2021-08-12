@@ -123,6 +123,9 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
+        if(n <= 0){
+            return new long[]{};
+        }
         String number = Long.toString(n);
         long minNumber = n;
         long firstNumber = 0;
