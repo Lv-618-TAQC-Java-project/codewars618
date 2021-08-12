@@ -2,6 +2,7 @@ package com.ss.ita.kata;
 
 import org.testng.annotations.DataProvider;
 
+
 public class SevenDataProvider extends DataProviderClass {
 
     @DataProvider(name = "validSeriesSum")
@@ -39,6 +40,25 @@ public class SevenDataProvider extends DataProviderClass {
         Object[][] testData = new Object[][]{
                 {new double[]{1000000000000002442.0, 24225522252552.0, 245242552252525.0, 2425224532532532.0}, 0},
                 {new double[]{12.0, 25.0, 60.0}, -1}
+        };
+        return combine(sevenImplPackageProvider(), testData);
+    }
+
+    @DataProvider(name = "positiveWhereIsHe")
+    public static Object[][] positiveWhereIsHe(){
+        Object[][] testData = new Object[][]{
+                {3, 1, 1, 2},
+                {5, 2, 3, 3},
+                {6, 2, 3, 4}
+        };
+        return combine(sevenImplPackageProvider(), testData);
+    }
+    @DataProvider(name = "negativeWhereIsHe")
+    public static Object[][] negativeWhereIsHe(){
+        Object[][] testData = new Object[][]{
+                {-5, -1, 0, 0},
+                {2, 5, 3, 0},
+                {-111, 50, 50, 0}
         };
         return combine(sevenImplPackageProvider(), testData);
     }

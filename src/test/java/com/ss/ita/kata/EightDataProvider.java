@@ -65,6 +65,15 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), testData);
     }
 
+    @DataProvider(name = "positiveMpgToKPM")
+    public static Object[][] positiveMpgToKPM(){
+        Object[][] testData = new Object[][]{
+                {10f, 3.54f},
+                {20f, 7.08f},
+                {0f, 0f}
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
     @DataProvider(name = "negativeDivisibleByDataProvider")
     public static Object[][] negativeDivisibleByDataProvider(){
         Object[][] testData = new Object[][]{
@@ -93,15 +102,12 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), testData);
     }
 
-//    @DataProvider(name = "validVolumeOfCuboidDataProviderTemp")
-//    public static Object[][] validVolumeOfCuboidDataProviderTemp() {
-//        return new Object[][]{
-//                {new com.ss.ita.kata.implementation.ivannaveselovska.EightImpl(), 5, 5, 5, 125},
-//                {new com.ss.ita.kata.implementation.ivannaveselovska.EightImpl(), 555, 555, 555, 170953875},
-//                {new com.ss.ita.kata.implementation.ivannaveselovska.EightImpl(), 99, 99, 99, 970299},
-//                {new com.ss.ita.kata.implementation.kubrub.EightImpl(), 5, 5, 5, 125},
-//                {new com.ss.ita.kata.implementation.maxde1.EightImpl(), 555, 555, 555, 170953875},
-//                {new com.ss.ita.kata.implementation.msemochko.EightImpl(), 99, 99, 99, 970299}
-//        };
-//    }
+    @DataProvider(name = "negativeMpgToKPM")
+    public static Object[][] negativeMpgToKPM(){
+        Object[][] testData = new Object[][]{
+                {-5f, 0},
+                {-9879.324f, 0}
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
 }

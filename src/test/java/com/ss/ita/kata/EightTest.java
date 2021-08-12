@@ -27,8 +27,14 @@ public class EightTest extends EightDataProvider {
     }
 
 
-    @Test
-    public void testMpgToKPM() {
+    @Test(dataProvider = "positiveMphToKph")
+    public void positiveTestMpgToKPM(Eight imp, float a, float expected) {
+        Assert.assertEquals(imp.mpgToKPM(a), expected);
+    }
+
+    @Test(dataProvider = "negativeMphToKph")
+    public void negativeTestMpgToKPM(Eight imp, float a, float expected) {
+        Assert.assertEquals(imp.mpgToKPM(a), expected);
     }
 
     @Test
