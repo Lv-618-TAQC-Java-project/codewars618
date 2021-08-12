@@ -63,6 +63,15 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), testData);
     }
 
+    @DataProvider(name = "positiveMphToKph")
+    public static Object[][] positiveMphToKph(){
+        Object[][] testData = new Object[][]{
+                {10f, 3.54f},
+                {20f, 7.08f},
+                {0f, 0f}
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
     @DataProvider(name = "negativeDivisibleByDataProvider")
     public static Object[][] negativeDivisibleByDataProvider(){
         Object[][] testData = new Object[][]{
@@ -91,7 +100,14 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), testData);
     }
 
-
+    @DataProvider(name = "negativeMphToKph")
+    public static Object[][] negativeMphToKph(){
+        Object[][] testData = new Object[][]{
+                {-5f, 0},
+                {-9879.324f, 0}
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
 
 
 

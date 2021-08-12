@@ -31,8 +31,14 @@ public class EightTest extends EightDataProvider {
     public void negativeTestGetVolumeOfCuboid() {
     }
 
-    @Test
-    public void testMpgToKPM() {
+    @Test(dataProvider = "positiveMphToKph")
+    public void positiveTestMpgToKPM(Eight imp, float a, float expected) {
+        Assert.assertEquals(imp.mpgToKPM(a), expected);
+    }
+
+    @Test(dataProvider = "negativeMphToKph")
+    public void negativeMphToKph(Eight imp, float a, float expected) {
+        Assert.assertEquals(imp.mpgToKPM(a), expected);
     }
 
     @Test
