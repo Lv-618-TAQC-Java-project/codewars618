@@ -8,11 +8,11 @@ import static org.testng.Assert.*;
 public class EightTest extends EightDataProvider {
 
     @Test(dataProvider = "positiveKeepHydrated")
-    public void PositiveTestKeepHydrated(Eight imp, double time, int expected) {
+    public void positiveTestKeepHydrated(Eight imp, double time, int expected) {
         Assert.assertEquals(imp.liters(time), expected);
     }
     @Test(dataProvider = "negativeKeepHydrated")
-    public void NegativeTestKeepHydrated(Eight imp, double time, int expected) {
+    public void negativeTestKeepHydrated(Eight imp, double time, int expected) {
         Assert.assertNotEquals(imp.liters(time), expected);
     }
 
