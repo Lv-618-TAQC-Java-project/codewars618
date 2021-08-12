@@ -5,8 +5,9 @@ import org.testng.annotations.Test;
 
 public class FiveTest extends FiveDataProvider {
 
-    @Test
-    public void testArtificialRain() {
+    @Test(dataProvider = "positiveArtificialRain")
+    public void positiveTestArtificialRain(Five imp, final int[] arr, int expected) {
+        Assert.assertEquals(imp.artificialRain(arr), expected);
     }
 
     @Test(dataProvider = "validGap")

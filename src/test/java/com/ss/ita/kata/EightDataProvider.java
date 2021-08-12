@@ -47,7 +47,51 @@ public class EightDataProvider extends DataProviderClass {
         };
         return combine(eightImplPackageProvider(), testData);
     }
+    @DataProvider(name = "validDivisibleByDataProvider")
+    public static Object[][] validDivisibleByDataProvider(){
+        Object[][] testData = new Object[][]{
+                {new int[]{1,2,3,4,5,6},2,new int[]{2,4,6}},
+                {new int[]{1,2,3,4,5,6},3,new int[]{3,6}},
+                {new int[]{0,1,2,3,4,5,6},4,new int[]{0,4}},
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
+    @DataProvider(name = "invalidDivisibleByDataProvider")
+    public static Object[][] InvalidDivisibleByDataProvider(){
+        Object[][] testData = new Object[][]{
+                {new int[]{1,2,3,4,5,6},2,new int[]{1,3,2}},
+                {new int[]{1,2,3,4,5,6},3,new int[]{1,6}},
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
 
+    @DataProvider(name = "negativeDivisibleByDataProvider")
+    public static Object[][] negativeDivisibleByDataProvider(){
+        Object[][] testData = new Object[][]{
+                {new int[]{-1,-2,-3,-4,5,6},2,new int[]{-2,-4,6}},
+                {new int[]{1,-2,-3,4,5,6},-3,new int[]{-3,6}},
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
+
+    @DataProvider(name = "positiveTwoDecimalPlaces")
+    public static Object[][] positiveTwoDecimalPlaces(){
+        Object[][] testData = new Object[][]{
+                {4.659725356, 4.66},
+                {173735326.3783732637948948, 173735326.38},
+                {0, 0.00},
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
+    @DataProvider(name = "negativeTwoDecimalPlaces")
+    public static Object[][] negativeTwoDecimalPlaces(){
+        Object[][] testData = new Object[][]{
+                {-4.659725356, -4.66},
+                {-173735326.3783732637948948, -173735326.38},
+                {-1124124.254623626, -1124124.25},
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
 
 //    @DataProvider(name = "validVolumeOfCuboidDataProviderTemp")
 //    public static Object[][] validVolumeOfCuboidDataProviderTemp() {

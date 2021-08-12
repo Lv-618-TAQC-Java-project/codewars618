@@ -46,6 +46,7 @@ public class SixImpl implements Six {
     @Override
     public double mean(String town, String strng) {
         double[] values = getDoubleArrayFromData(town,strng);
+
         if (values == null)
             return -1.0;
         return Arrays.stream(values).average().getAsDouble();
