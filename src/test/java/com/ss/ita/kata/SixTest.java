@@ -27,8 +27,13 @@ public class SixTest extends SixDataProvider{
     public void testVariance() {
     }
 
-    @Test
-    public void testNbaCup() {
+    @Test(dataProvider = "validNbaCupDataProvider")
+    public void testNbaCup(Six imp,String resultSheet,String toFind,String expected) {
+        Assert.assertEquals(imp.nbaCup(resultSheet,toFind), expected);
+    }
+    @Test(dataProvider = "inValidNbaCupDataProvider")
+    public void NegativeTestNbaCup(Six imp,String resultSheet,String toFind,String expected) {
+        Assert.assertEquals(imp.nbaCup(resultSheet,toFind), expected);
     }
 
     @Test(dataProvider = "validHelpBooksellerDataProvider")

@@ -8,11 +8,11 @@ import static org.testng.Assert.*;
 public class EightTest extends EightDataProvider {
 
     @Test(dataProvider = "positiveKeepHydrated")
-    public void PositiveTestKeepHydrated(Eight imp, double time, int expected) {
+    public void positiveTestKeepHydrated(Eight imp, double time, int expected) {
         Assert.assertEquals(imp.liters(time), expected);
     }
     @Test(dataProvider = "negativeKeepHydrated")
-    public void NegativeTestKeepHydrated(Eight imp, double time, int expected) {
+    public void negativeTestKeepHydrated(Eight imp, double time, int expected) {
         Assert.assertNotEquals(imp.liters(time), expected);
     }
 
@@ -51,11 +51,25 @@ public class EightTest extends EightDataProvider {
     public void testAmIWilson() {
     }
 
-    @Test
-    public void testTwoDecimalPlaces() {
+    @Test(dataProvider = "positiveTwoDecimalPlaces")
+    public void positiveTestTwoDecimalPlaces(Eight imp,double number,double expected) {
+        Assert.assertEquals(imp.twoDecimalPlaces(number), expected);
+    }
+    @Test(dataProvider = "negativeTwoDecimalPlaces")
+    public void negativeTestTwoDecimalPlaces(Eight imp,double number,double expected) {
+        Assert.assertEquals(imp.twoDecimalPlaces(number), expected);
     }
 
-    @Test
-    public void testDivisibleBy() {
+    @Test(dataProvider = "validDivisibleByDataProvider")
+    public void testDivisibleBy(Eight imp,int[] numbers,int divider,int[] expected) {
+        Assert.assertEquals(imp.divisibleBy(numbers,divider), expected);
+    }
+    @Test(dataProvider = "invalidDivisibleByDataProvider")
+    public void testDivisibleByInvalid(Eight imp,int[] numbers,int divider,int[] expected) {
+        Assert.assertNotEquals(imp.divisibleBy(numbers,divider), expected);
+    }
+    @Test(dataProvider = "negativeDivisibleByDataProvider")
+    public void testDivisibleByNegative(Eight imp,int[] numbers,int divider,int[] expected) {
+        Assert.assertEquals(imp.divisibleBy(numbers,divider), expected);
     }
 }
