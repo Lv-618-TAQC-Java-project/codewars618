@@ -79,7 +79,6 @@ public class FiveImpl implements Five {
         for (int k =1; k <= findKmax; k++){
             sum+=n/Math.pow(5, k);
         }
-
         return sum;
     }
 
