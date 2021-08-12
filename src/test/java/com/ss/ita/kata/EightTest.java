@@ -3,14 +3,13 @@ package com.ss.ita.kata;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 public class EightTest extends EightDataProvider {
 
     @Test(dataProvider = "positiveKeepHydrated")
     public void positiveTestKeepHydrated(Eight imp, double time, int expected) {
         Assert.assertEquals(imp.liters(time), expected);
     }
+
     @Test(dataProvider = "negativeKeepHydrated")
     public void negativeTestKeepHydrated(Eight imp, double time, int expected) {
         Assert.assertNotEquals(imp.liters(time), expected);
@@ -18,17 +17,13 @@ public class EightTest extends EightDataProvider {
 
     @Test(dataProvider = "validVolumeOfCuboidDataProvider")
     public void TestGetVolumeOfCuboid(Eight imp, int a, long b, long c, long expected) {
-        Assert.assertEquals(imp.getVolumeOfCuboid(a,b,c), expected);
+        Assert.assertEquals(imp.getVolumeOfCuboid(a, b, c), expected);
 
     }
 
     @Test(dataProvider = "invalidVolumeOfCuboidDataProvider")
     public void NegativeTestGetVolumeOfCuboid(Eight imp, int a, long b, long c, long expected) {
-        Assert.assertEquals(imp.getVolumeOfCuboid(a,b,c), expected);
-    }
-
-    @Test(dataProvider = "eightImplPackageProvider")
-    public void negativeTestGetVolumeOfCuboid() {
+        Assert.assertEquals(imp.getVolumeOfCuboid(a, b, c), expected);
     }
 
     @Test
@@ -52,24 +47,27 @@ public class EightTest extends EightDataProvider {
     }
 
     @Test(dataProvider = "positiveTwoDecimalPlaces")
-    public void positiveTestTwoDecimalPlaces(Eight imp,double number,double expected) {
+    public void positiveTestTwoDecimalPlaces(Eight imp, double number, double expected) {
         Assert.assertEquals(imp.twoDecimalPlaces(number), expected);
     }
+
     @Test(dataProvider = "negativeTwoDecimalPlaces")
-    public void negativeTestTwoDecimalPlaces(Eight imp,double number,double expected) {
+    public void negativeTestTwoDecimalPlaces(Eight imp, double number, double expected) {
         Assert.assertEquals(imp.twoDecimalPlaces(number), expected);
     }
 
     @Test(dataProvider = "validDivisibleByDataProvider")
-    public void testDivisibleBy(Eight imp,int[] numbers,int divider,int[] expected) {
-        Assert.assertEquals(imp.divisibleBy(numbers,divider), expected);
+    public void testDivisibleBy(Eight imp, int[] numbers, int divider, int[] expected) {
+        Assert.assertEquals(imp.divisibleBy(numbers, divider), expected);
     }
+
     @Test(dataProvider = "invalidDivisibleByDataProvider")
-    public void testDivisibleByInvalid(Eight imp,int[] numbers,int divider,int[] expected) {
-        Assert.assertNotEquals(imp.divisibleBy(numbers,divider), expected);
+    public void testDivisibleByInvalid(Eight imp, int[] numbers, int divider, int[] expected) {
+        Assert.assertNotEquals(imp.divisibleBy(numbers, divider), expected);
     }
+
     @Test(dataProvider = "negativeDivisibleByDataProvider")
-    public void testDivisibleByNegative(Eight imp,int[] numbers,int divider,int[] expected) {
-        Assert.assertEquals(imp.divisibleBy(numbers,divider), expected);
+    public void testDivisibleByNegative(Eight imp, int[] numbers, int divider, int[] expected) {
+        Assert.assertEquals(imp.divisibleBy(numbers, divider), expected);
     }
 }
