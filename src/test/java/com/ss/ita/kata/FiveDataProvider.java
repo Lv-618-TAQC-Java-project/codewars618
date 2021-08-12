@@ -14,8 +14,6 @@ public class FiveDataProvider extends DataProviderClass {
         };
         return combine(fiveImplPackageProvider(), param);
     }
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 
     @DataProvider(name = "positiveArtificialRain")
     public static Object[][] positiveArtificialRain(){

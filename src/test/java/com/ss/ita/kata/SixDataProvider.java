@@ -1,9 +1,8 @@
 package com.ss.ita.kata;
 
-public class SixDataProvider extends DataProviderClass {
 import org.testng.annotations.DataProvider;
 
-public class SixDataProvider extends DataProviderClass{
+public class SixDataProvider extends DataProviderClass {
 
     @DataProvider(name = "validNbaCupDataProvider")
     public static Object[][] validNbaCupDataProvider() {
