@@ -82,7 +82,18 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        int a = n.intValue();
+        BigInteger num1 = BigInteger.valueOf(0);
+        BigInteger num2 = BigInteger.valueOf(1);
+        BigInteger res = BigInteger.valueOf(1);
+
+        for (int i = 1; i <= a; i ++) {
+            num2 = num2.add(num1);
+            num1 = num2.subtract(num1);
+            res = res.add(num2);
+        }
+
+        return res.multiply(BigInteger.valueOf(4));
     }
 
     @Override
