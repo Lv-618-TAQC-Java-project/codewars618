@@ -59,8 +59,8 @@ public class FiveImpl implements Five {
         return result;
     }
 
-    public static int factorial(int num) {
-        int fact = 1;
+    public static long factorial(int num) {
+        long fact = 1;
 
         for (int i = 1; i <= num; i++) {
             fact *= i;
@@ -72,13 +72,13 @@ public class FiveImpl implements Five {
     public int zeros(int n) {
         int count = 0;
 
-        n = factorial(n);
-        int numLength = String.valueOf(Math.abs(n)).length();
+        long number = factorial(n);
+        int numLength = String.valueOf(Math.abs(number)).length();
 
         for (int i = 0; i < numLength; i++) {
-            if (n % 10 == 0) {
+            if (number % 10 == 0) {
                 count++;
-                n = n / 10;
+                number = number / 10;
             } else {
                 break;
             }
