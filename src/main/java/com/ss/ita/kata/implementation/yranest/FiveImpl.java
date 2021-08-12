@@ -12,7 +12,29 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long max = 0;
+        long[] array = new long[2];
+        for (long i = m; i < n; i++) {
+            if (primeNumber(i)) {
+                array[0] = i;
+            }
+
+            for (long j = array[0] + 1; j < n; j++) {
+                if (primeNumber(j)) {
+                    array[1] = j;
+                }
+                if (array[1] - array[0] == g && max == 0) {
+                    max = array[0];
+                }
+
+            }
+        }
+        array[0] = max;
+        array[1] = array[0] + g;
+        if (max != 0)
+            return array;
+        else
+            return null;
     }
 
     @Override
@@ -33,5 +55,15 @@ public class FiveImpl implements Five {
     @Override
     public long[] smallest(long n) {
         return new long[0];
+    }
+
+    private  boolean primeNumber(long number) {
+        for (int mod = 2; mod < Math.sqrt(number); ++mod) {
+            if (number % mod == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
