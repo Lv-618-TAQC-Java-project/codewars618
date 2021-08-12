@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.shcherbakoveugene;
 
 import com.ss.ita.kata.Eight;
 
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -100,7 +102,14 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> resultList = new ArrayList<>();
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                resultList.add(number);
+            }
+        }
+
+        return resultList.stream().mapToInt(i -> i).toArray();
     }
 
     public boolean isPrime(double n) {
