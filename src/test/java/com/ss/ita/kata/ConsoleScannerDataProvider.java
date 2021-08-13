@@ -21,4 +21,23 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         };
         return combine(ConsoleScannerProvider(), param);
     }
+
+    @DataProvider(name = "validOnlyForStockSummaryMethodConsoleScannerDataProvider")
+    public static Object[][] validOnlyForStockSummaryMethodConsoleScannerDataProvider() {
+        Object[][] param = {
+                {new String("ABAR 200 CDXE 500 BKWR 250 BTSQ 890 DRTY 600"),new String[]{"ABAR", "200", "CDXE" ,"500", "BKWR", "250", "BTSQ", "890", "DRTY", "600"}},
+                {new String("132 200 13 500 212 250 123 890 23 600"),new String[]{"132", "200", "13" ,"500", "212", "250", "123", "890", "23", "600"}},
+                {new String("ABAR CDXE BKWR BTSQ DRTY"),new String[]{"ABAR", "CDXE", "BKWR" ,"BTSQ", "DRTY"}},
+        };
+        return param;
+    }
+
+    @DataProvider(name = "invalidOnlyForStockSummaryMethodConsoleScannerDataProvider")
+    public static Object[][] invalidOnlyForStockSummaryMethodConsoleScannerDataProvider() {
+        Object[][] param = {
+                {new String(""),new String("No line found")},
+        };
+        return param;
+    }
+
 }
