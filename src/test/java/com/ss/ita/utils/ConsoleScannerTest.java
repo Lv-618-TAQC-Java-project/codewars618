@@ -32,11 +32,4 @@ public class ConsoleScannerTest {
 //        sc.readDoubleArray();
 
     }
-
-    @Test
-    public void testReadFloat() {
-        ConsoleScanner sc = new ConsoleScanner();
-        float expected = 4.66f;
-        Assert.assertEquals(sc.readFloat(), expected);
-    }
 }
