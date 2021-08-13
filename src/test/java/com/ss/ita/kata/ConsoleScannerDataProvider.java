@@ -21,4 +21,12 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         };
         return combine(ConsoleScannerProvider(), param);
     }
+    @DataProvider(name = "validReadStringArray")
+    public static Object[][] validReadStringArray() {
+        Object[][] testData = new Object[][]{
+                {"something", new String[]{"something"}},
+                {"one two three four five", new String[]{"one", "two", "three", "four", "five"}},
+        };
+        return testData;
+    }
 }
