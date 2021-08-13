@@ -3,8 +3,7 @@ package com.ss.ita.utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.*;
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
 
@@ -15,11 +14,16 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         ConsoleScanner scanner = new ConsoleScanner();
         Assert.assertEquals(scanner.readDoubleArray(), expected);
     }
+
     @Test(dataProvider = "invalidConsoleScanner")
     public void invalidTestReadDoubleArray(String param, String expected) {
         InputStream input = new ByteArrayInputStream(param.getBytes());
         System.setIn(input);
         ConsoleScanner scanner = new ConsoleScanner();
-        Assert.assertEquals(scanner.readDoubleArray(), expected);
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        scanner.readDoubleArray();
+        String actual = String.valueOf(output).replaceAll("\r", "");
+        Assert.assertEquals(actual, expected);
     }
 }

@@ -17,8 +17,9 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
     @DataProvider(name = "invalidConsoleScanner")
     public static Object[][] invalidConsoleScanner() {
         Object[][] param = {
-                {new String("1 2 qwe 4 5"), new String("Value qwe is not Double, please try again.")},
-                {new String("123 234 a 567"), new String("Value a is not Double, please try again.")}
+                {new String("1 2 qwe 4 5\n3"), new String("Value qwe is not Double, please try again.\n")},
+                {new String("123 234 a 567 c\n3\n4"), new String("Value a is not Double, please try again.\n" +
+                        "Value c is not Double, please try again.\n")}
         };
         return param;
     }

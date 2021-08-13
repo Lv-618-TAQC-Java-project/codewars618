@@ -13,7 +13,7 @@ public class SixImpl implements Six {
         }
         if (sumOfVolume == m) {
             return count;
-        } else return -1;
+        } else return 0;
     }
 
     @Override
