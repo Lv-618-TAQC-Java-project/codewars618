@@ -34,6 +34,15 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "invalidWilsonPrimeDataProvider")
+    public static Object[][] invalidWilsonPrimeDataProvider() {
+        Object[][] param = new Object[][]{
+                {-4, false},
+                {0, false}
+        };
+        return combine(eightImplPackageProvider(), param);
+    }
+
 
 
 

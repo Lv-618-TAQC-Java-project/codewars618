@@ -46,6 +46,11 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(impl.amIWilson(n), expected);
     }
 
+    @Test(dataProvider = "invalidWilsonPrimeDataProvider")
+    public void invalidTestAmIWilson(Eight impl, double n, boolean expected) {
+        Assert.assertEquals(impl.amIWilson(n), expected);
+    }
+
     @Test
     public void testTwoDecimalPlaces() {
     }
