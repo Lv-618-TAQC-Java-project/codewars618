@@ -21,4 +21,24 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         };
         return combine(ConsoleScannerProvider(), param);
     }
+
+    @DataProvider(name = "validInputIntConsoleScanner")
+    public static Object[][] validInputIntConsoleScanner() {
+        Object[][] param = new Object[][]{
+                {"3", 3},
+                {"0", 0},
+                {"-6",-6},
+                {"100",100},
+        };
+        return param;
+    }
+
+    @DataProvider(name = "invalidInputIntConsoleScanner")
+    public static Object[][] invalidInputIntConsoleScanner() {
+        Object[][] param = new Object[][]{
+                {"feef", new String("Value is not 'Integer', please try again.")},
+                {"2.42", new String("Value is not 'Integer', please try again.")},
+        };
+        return param;
+    }
 }
