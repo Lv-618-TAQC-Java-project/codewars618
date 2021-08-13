@@ -21,4 +21,23 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         };
         return combine(ConsoleScannerProvider(), param);
     }
+    @DataProvider(name = "validReadLong")
+    public static Object[][] validReadLong(){
+        Object[][] testData = new Object[][]{
+                {"43124",43124},
+                {"151215215",151215215},
+                {"0",0},
+                {"-15214",-15214},
+        };
+        return testData;
+    }
+    @DataProvider(name = "invalidReadLong")
+    public static Object[][] invalidReadLong(){
+        Object[][] testData = new Object[][]{
+                {"something",new String("Value is not 'long', please try again")},
+                {"1.2525",new String("Value is not 'long', please try again")},
+                {"-125.125124",new String("Value is not 'long', please try again")},
+        };
+        return testData;
+    }
 }
