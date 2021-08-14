@@ -90,7 +90,6 @@ public class FiveImpl implements Five {
                     result[1] =i;
                     result[2] = j;
                 }
-                }
             }
         }
         return result;
