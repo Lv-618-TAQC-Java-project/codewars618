@@ -2,6 +2,8 @@ package com.ss.ita.kata;
 
 import org.testng.annotations.DataProvider;
 
+import java.math.BigDecimal;
+
 public class ConsoleScannerDataProvider extends DataProviderClass {
 
     @DataProvider(name = "validConsoleScanner")
@@ -20,5 +22,14 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
                 {123, "a", 345, 456, new String("Value a is not Double, please try again.")}
         };
         return combine(ConsoleScannerProvider(), param);
+    }
+
+    @DataProvider(name = "validInputBigDecimalConsoleScanner")
+    public static Object[][] validInputBigDecimalConsoleScanner() {
+        Object[][] testData = {
+                {"32", new BigDecimal ("32")},
+                {"13.333333333333333333333", new BigDecimal("13.333333333333333333333")}
+        };
+        return testData;
     }
 }
