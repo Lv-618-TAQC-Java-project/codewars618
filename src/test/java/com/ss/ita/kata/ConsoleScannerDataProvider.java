@@ -4,21 +4,23 @@ import org.testng.annotations.DataProvider;
 
 public class ConsoleScannerDataProvider extends DataProviderClass {
 
-    @DataProvider(name = "validConsoleScanner")
-    public static Object[][] validConsoleScanner() {
-        Object[][] param = {
-                {1, 2, 3, 4, 5},
-                {123, 234, 345, 456, 567}
+    @DataProvider(name = "validReadDouble")
+    public static Object[][] validReadDouble() {
+        Object[][] testData = new Object[][]{
+                {"431,24", 431.24},
+                {"151,21", 151.21},
+                {"0,0", 0.0},
+                {"-152,14", -152.14},
         };
-        return combine(ConsoleScannerProvider(), param);
+        return testData;
     }
 
-    @DataProvider(name = "invalidConsoleScanner")
-    public static Object[][] invalidConsoleScanner() {
-        Object[][] param = {
-                {1, 2, 3, "qwe", 5, new String("Value qwe is not Double, please try again.")},
-                {123, "a", 345, 456, new String("Value a is not Double, please try again.")}
+    @DataProvider(name = "invalidReadDouble")
+    public static Object[][] invalidReadDouble() {
+        Object[][] testData = new Object[][]{
+                {"12525",new String("Value is not 'double', please try again")},
+                {"-125125124",new String("Value is not 'double', please try again")},
         };
-        return combine(ConsoleScannerProvider(), param);
+        return testData;
     }
 }
