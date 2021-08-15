@@ -4,8 +4,7 @@ import com.ss.ita.kata.ConsoleScannerDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.*;
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
 
@@ -27,7 +26,6 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
-        //Assert.assertEquals(expected,sc.readInt());
-        sc.onlyForStockSummaryMethod();
+        Assert.assertEquals(sc.onlyForStockSummaryMethod(),expected);
     }
 }
