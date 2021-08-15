@@ -4,8 +4,7 @@ import com.ss.ita.kata.ConsoleScannerDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.*;
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
 
@@ -22,13 +21,16 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         Assert.assertEquals(expected,sc.readInt());
     }
 
-    @Test(dataProvider = "invalidInputIntConsoleScanner",expectedExceptions = Exception.class)
+    @Test(dataProvider = "invalidInputIntConsoleScanner")
     public void invalidInputIntConsoleScanner(String input,String expected) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
-        //Assert.assertEquals(expected,sc.readInt());
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
         sc.readInt();
+        String actual = String.valueOf(output).replaceAll("\r","");
+        Assert.assertEquals(actual,expected);
     }
 
 }

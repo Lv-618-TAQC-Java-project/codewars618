@@ -36,8 +36,9 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
     @DataProvider(name = "invalidInputIntConsoleScanner")
     public static Object[][] invalidInputIntConsoleScanner() {
         Object[][] param = new Object[][]{
-                {"feef", new String("Value is not 'Integer', please try again.")},
-                {"2.42", new String("Value is not 'Integer', please try again.")},
+                {"ffw\n23", new String("Value is not 'Integer', please try again.\n")},
+                {"2.42\n1", new String("Value is not 'Integer', please try again.\n")},
+                {"*-=+\n1", new String("Value is not 'Integer', please try again.\n")},
         };
         return param;
     }
