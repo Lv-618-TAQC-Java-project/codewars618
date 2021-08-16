@@ -2,6 +2,8 @@ package com.ss.ita.kata.implementation.vovik4;
 
 import com.ss.ita.kata.Eight;
 
+import java.util.ArrayList;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -56,21 +58,50 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        if(n == 1){
+            return false;
+        }
+        else if (((factorial((n - 1)+1)/(n*n))%n) == 0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.round(number*100D)/100D;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < numbers.length; i++) {
+            if(numbers[i] % divider == 0){
+                list.add(numbers[i]);
+            }
+        }
+        int [] result = new int[list.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = list.get(i);
+        }
+        return result;
+    }
+
+    private static double factorial(double fact){
+        if (fact != 0){
+            int result = 1;
+            for (int i = 0; i < fact; i++) {
+                result *= fact;
+            }
+            return result;
+        }else {
+            return 1;
+        }
     }
 }

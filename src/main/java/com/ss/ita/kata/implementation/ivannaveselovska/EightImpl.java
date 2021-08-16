@@ -10,14 +10,14 @@ public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
         if (time < 0)
-            return -1;
+            return 0;
         return (int) time / 2;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
         if(length <= 0 || width <= 0 || height <=0)
-            return -1;
+            return 0;
         return length * width * height;
     }
 

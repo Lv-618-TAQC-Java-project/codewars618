@@ -20,7 +20,6 @@ public class SixImpl implements Six {
     @Override
     public String balance(String book) {
         String[] lines = getCleanStringArray(book);
-int j = 1;
         double balance = Double.parseDouble(lines[0]);
         double currentBalance = balance;
         StringBuilder sb = new StringBuilder();
@@ -47,6 +46,7 @@ int j = 1;
     @Override
     public double mean(String town, String strng) {
         double[] values = getDoubleArrayFromData(town,strng);
+
         if (values == null)
             return -1.0;
         return Arrays.stream(values).average().getAsDouble();
