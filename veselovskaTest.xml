@@ -15,10 +15,12 @@
                     <include name="negativeTestFindNb"/>
                 </methods>
             </class>
-<!--            <class name="com.ss.ita.kata.FiveTest">-->
-<!--                <methods>-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="com.ss.ita.kata.FiveTest">
+                <methods>
+                    <include name="positiveTestPerimeter"/>
+                    <include name="negativeTestPerimeter"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
