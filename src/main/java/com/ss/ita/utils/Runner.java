@@ -233,19 +233,13 @@ public class Runner {
         System.out.println("Result: " + Arrays.toString(five.gap(g, m, n)));
     }
 
-    public int TASK_5_3(){
+    public void TASK_5_3(){
         System.out.println("Please, input positive integer number 'n'.");
-        int inputNumber = sc.readInt();
-        while(true){
-            if(inputNumber > 0)
-                break;
-            System.out.println("You have to input positive integer. Please, try again!");
-            inputNumber = sc.readInt();
-        }
-        return five.zeros(inputNumber);
+        int inputNumber = intPositive(sc.readInt());
+        System.out.println("Result: " + five.zeros(inputNumber));
     }
 
-    public BigInteger TASK_5_4(){
+    public void TASK_5_4(){
         System.out.println("Please, input positive BigInteger 'n'.");
         BigInteger inputNumber = sc.readBigInteger();
         while(true){
@@ -254,31 +248,19 @@ public class Runner {
             System.out.println("You have to input positive BigInteger. Please, try again!");
             inputNumber = sc.readBigInteger();
         }
-        return five.perimeter(inputNumber);
+        System.out.println("Result: " + five.perimeter(inputNumber).intValue());
     }
 
-    public double TASK_5_5(){
+    public void TASK_5_5(){
         System.out.println("Please, input positive real 'n'.");
-        double inputNumber = sc.readDouble();
-        while(true){
-            if(inputNumber > 0.0)
-                break;
-            System.out.println("You have to input positive real number. Please, try again!");
-            inputNumber = sc.readDouble();
-        }
-        return five.solveSum(inputNumber);
+        double inputNumber = doublePositive(sc.readDouble());
+        System.out.println("Result: " + five.solveSum(inputNumber));
     }
 
-    public long[] TASK_5_6() {
+    public void TASK_5_6() {
         System.out.println("Please, input positive integer 'n'.");
-        long inputNumber = sc.readLong();
-        while (true) {
-            if (inputNumber > 0)
-                break;
-            System.out.println("You have to input positive integer number. Please, try again!");
-            inputNumber = sc.readLong();
-        }
-        return five.smallest(inputNumber);
+        long inputNumber = longPositive(sc.readLong());
+        System.out.println("Result: " + five.smallest(inputNumber));
     }
     private int intPositive(int num) {
         while (num <= 0) {
