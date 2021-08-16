@@ -7,8 +7,13 @@ import static org.testng.Assert.*;
 
 public class SixTest extends SixDataProvider{
 
-    @Test
-    public void testFindNb() {
+    @Test(dataProvider = "positiveFindNb")
+    public void positiveTestFindNb(Six impl, long actual, long expected) {
+        Assert.assertEquals(impl.findNb(actual),expected);
+    }
+    @Test(dataProvider = "negativeFindNb")
+    public void negativeTestFindNb(Six impl, long actual, long expected) {
+        Assert.assertEquals(impl.findNb(actual),expected);
     }
 
     @Test

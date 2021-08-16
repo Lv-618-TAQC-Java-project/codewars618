@@ -9,10 +9,12 @@
                     <include name="negativeTestSquareOrSquareRoot"/>
                 </methods>
             </class>
-<!--            <class name="com.ss.ita.kata.SixTest">-->
-<!--                <methods>-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="com.ss.ita.kata.SixTest">
+                <methods>
+                    <include name="positiveTestFindNb"/>
+                    <include name="negativeTestFindNb"/>
+                </methods>
+            </class>
 <!--            <class name="com.ss.ita.kata.FiveTest">-->
 <!--                <methods>-->
 <!--                </methods>-->
