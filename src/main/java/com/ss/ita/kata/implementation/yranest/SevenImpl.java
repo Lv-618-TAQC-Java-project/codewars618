@@ -8,7 +8,7 @@ public class SevenImpl implements Seven {
         double sum = 0;
         for (int i = 0; i < arr.length; i++) sum += arr[i];
         long ans = (long) Math.ceil((arr.length + 1) * navg - sum);
-        if (ans < 0) throw new IllegalArgumentException();
+        if (ans <= 0) throw new IllegalArgumentException();
         return ans;
     }
 
