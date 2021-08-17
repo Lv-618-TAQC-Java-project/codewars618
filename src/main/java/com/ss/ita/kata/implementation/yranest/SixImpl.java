@@ -9,6 +9,8 @@ import java.util.StringJoiner;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
+        if (m <= 0)
+            return -1L;
         long sum = 0;
         long n = 0;
         while(sum < m){
@@ -93,7 +95,11 @@ public class SixImpl implements Six {
         int sum = 0;
         boolean hasRunOnce = false;
         String stock = "";
-        if(lstOfArt.length !=0 && lstOf1stLetter.length!=0 ){
+        if(lstOfArt.length !=0 && lstOf1stLetter.length!=0){
+            stock="";
+        }
+
+        else{
             for(int i = 0; i < lstOf1stLetter.length; i++) {
                 for(int j = 0; j < lstOfArt.length; j++) {
                     if(lstOf1stLetter[i].charAt(0) == lstOfArt[j].charAt(0)) {
@@ -112,9 +118,6 @@ public class SixImpl implements Six {
                     }
                 }
             }
-        }
-        else{
-            stock="";
         }
         return stock;
     }
