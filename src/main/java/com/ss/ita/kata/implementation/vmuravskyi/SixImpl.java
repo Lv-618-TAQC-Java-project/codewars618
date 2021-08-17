@@ -5,7 +5,7 @@ import com.ss.ita.kata.Six;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        if (m == 0) {
+        if (m <= 0) {
             return -1L;
         }
         long count = 0;
