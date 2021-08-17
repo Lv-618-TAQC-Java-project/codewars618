@@ -18,8 +18,8 @@ public class EightDataProvider extends DataProviderClass {
     @DataProvider(name = "invalidVolumeOfCuboidDataProvider")
     public static Object[][] invalidVolumeOfCuboidDataProvider() {
         Object[][] param = new Object[][]{
-                {0, 0, 0, 0},
-                {-1, 5, 5, 0}
+                {0, 0, 0, -1},
+                {-1, 5, 5, -1}
         };
         return combine(eightImplPackageProvider(), param);
     }

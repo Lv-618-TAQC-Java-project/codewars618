@@ -8,7 +8,7 @@ public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
         if (time <= 0) {
-            return 0;
+            return -1;
         }
         return (int) (time * 0.5);
     }
@@ -17,7 +17,7 @@ public class EightImpl implements Eight {
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
         if (length <= 0 || width <= 0 || height <= 0) {
-            return 0;
+            return -1;
         }
         return length * width * height;
     }
@@ -33,6 +33,13 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
+        if (array == null) {
+            return new int[0];
+        } for (int k : array) {
+            if (k <= 0) {
+                return new int[0];
+            }
+        }
         int[] result = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j * j <= array[i]; j++) {

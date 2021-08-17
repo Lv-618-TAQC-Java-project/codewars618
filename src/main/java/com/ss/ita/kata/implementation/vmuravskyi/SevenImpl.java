@@ -5,6 +5,7 @@ import com.ss.ita.kata.Seven;
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
+
         double sumaVsixDonations = 0;
         for (double v : arr) {
             sumaVsixDonations += v;
