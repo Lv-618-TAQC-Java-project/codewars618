@@ -95,7 +95,7 @@ public class SixImpl implements Six {
         int sum = 0;
         boolean hasRunOnce = false;
         String stock = "";
-        if(lstOfArt.length !=0 && lstOf1stLetter.length!=0){
+        if(lstOfArt.length ==0 || lstOf1stLetter.length ==0){
             stock="";
         }
 
