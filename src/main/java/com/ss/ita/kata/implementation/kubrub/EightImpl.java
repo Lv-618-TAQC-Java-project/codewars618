@@ -35,6 +35,11 @@ public class EightImpl implements Eight {
         if(array == null || array.length == 0)
             return new int[0];
         for (int i = 0; i <  array.length; i++){
+            if (array[i] <= 0){
+                return new int[0];
+            }
+        }
+        for (int i = 0; i <  array.length; i++){
             double n = Math.floor(Math.sqrt(array[i]));
 
             if (n*n==array[i]){
