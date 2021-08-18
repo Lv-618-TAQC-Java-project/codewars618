@@ -2,6 +2,8 @@ package com.ss.ita.kata;
 
 import org.testng.annotations.DataProvider;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -60,13 +62,6 @@ public class DataProviderClass {
                 {new com.ss.ita.kata.implementation.vmuravskyi.FiveImpl()},
                 {new com.ss.ita.kata.implementation.vovik4.FiveImpl()},
                 {new com.ss.ita.kata.implementation.yranest.FiveImpl()}
-        };
-    }
-
-    @DataProvider(name = "ConsoleScannerProvider")
-    public static Object[][] ConsoleScannerProvider() {
-        return new Object[][]{
-                {new com.ss.ita.utils.ConsoleScanner()},
         };
     }
 
