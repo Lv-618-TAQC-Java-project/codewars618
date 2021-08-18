@@ -47,6 +47,6 @@ public class SixTest extends SixDataProvider{
     }
     @Test(dataProvider = "invalidHelpBooksellerDataProvider")
     public void testStockSummaryInvalid(Six imp,String[] lstOfArt, String[] lstOf1stLetter,String expected) {
-        Assert.assertNotEquals(imp.stockSummary(lstOfArt, lstOf1stLetter),expected);
+        Assert.assertEquals(imp.stockSummary(lstOfArt, lstOf1stLetter),expected);
     }
 }
