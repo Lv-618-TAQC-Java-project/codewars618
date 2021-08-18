@@ -21,6 +21,12 @@
                     <include name="invalidGap"/>
                 </methods>
             </class>
+            <class name="com.ss.ita.utils.ConsoleScannerTest">
+                <methods>
+                    <include name="validTestReadDoubleArray"/>
+                    <include name="invalidConsoleScanner"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

@@ -73,11 +73,39 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        if (m <= 0) {
+            return -1;
+        }
+        return (2 * m + 1 - Math.sqrt(Math.pow(2 * m + 1, 2) - 4 * m * m)) / (2 * m);
     }
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        if (n <= 0) {
+            return new long[0];
+        }
+        String s = Long.toString(n), tmp = s;
+        long[] mem = new long[]{-1, -1, -1};
+        int l = s.length();
+        for (int i = 0; i < l; i++) {
+            char c = s.charAt(i);
+            String str1 = s.substring(0, i) + s.substring(i + 1, l);
+            for (int j = 0; j < l; j++) {
+                String str2 = str1.substring(0, j) + c + str1.substring(j, str1.length());
+                int cmp = str2.compareTo(tmp);
+                if (cmp < 0) {
+                    tmp = str2;
+                    mem[0] = Long.parseLong(tmp);
+                    mem[1] = i;
+                    mem[2] = j;
+                }
+            }
+        }
+        if (mem[0] == -1) {
+            mem[0] = n;
+            mem[1] = 0;
+            mem[2] = 0;
+        }
+        return mem;
     }
 }

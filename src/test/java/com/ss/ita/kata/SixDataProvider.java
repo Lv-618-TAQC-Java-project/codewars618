@@ -92,4 +92,24 @@ public class SixDataProvider extends DataProviderClass {
         };
         return combine(sixImplPackageProvider(), param);
     }
+    @DataProvider
+    public static Object[][] positiveFindNb(){
+        Object[][] testData = new Object[][]{
+                {1071225L, 45},
+                {4183059834009L, 2022},
+                {135440716410000L, 4824},
+                {40539911473216L, 3568}
+        };
+        return combine(sixImplPackageProvider(), testData);
+    }
+    @DataProvider
+    public static Object[][] negativeFindNb(){
+        Object[][] testData = new Object[][]{
+                {24723578342962L, -1},
+                {-83059834009L, -1},
+                {0L, -1},
+                {91716553919377L, -1}
+        };
+        return combine(sixImplPackageProvider(), testData);
+    }
 }
