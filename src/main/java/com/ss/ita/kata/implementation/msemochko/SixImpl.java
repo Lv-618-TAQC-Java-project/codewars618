@@ -6,6 +6,9 @@ public class SixImpl implements Six {
 
     @Override
     public long findNb(long m) {
+        if (m<=0){
+            return -1L;
+        }
         long numOfCubes = 0;
         long sum = 0;
         while (sum < m){
@@ -45,6 +48,9 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
+        if (town.isEmpty() || strng.isEmpty()) {
+            return -1;
+        }
         String[] lines = strng.split("[\\n]");
         int counter = 0;
         double sumOfRain = 0;
@@ -65,6 +71,9 @@ public class SixImpl implements Six {
 
     @Override
     public double variance(String town, String strng) {
+        if (town.isEmpty() || strng.isEmpty()) {
+            return -1;
+        }
         double average = mean(town, strng);
         double variance = 0.0;
         String[] cities = strng.split("\\n");
@@ -102,7 +111,7 @@ public class SixImpl implements Six {
         int points = 0;
         boolean flag = false;
         if (toFind.equals("")) {
-            return "";
+            return ":This team didn't play!";
         }
         for (int i = 0; i < p.length; i++) {
             String[] match = p[i].split("-");
@@ -169,7 +178,7 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
+        if (lstOf1stLetter.length == 0 || lstOfArt.length == 0){
             return "";
         }
 
@@ -183,7 +192,10 @@ public class SixImpl implements Six {
                     sum += Integer.parseInt((j.replaceAll("[^0-9]", "")));
                 }
             }
-            result.append(" - (").append(i).append(" : ").append(sum).append(")");
+            result.append("(").append(i).append(" : ").append(sum).append(")");
+            if (i == "A"){
+                result.append(" - ");
+            }
         }
         return result.toString();
     }

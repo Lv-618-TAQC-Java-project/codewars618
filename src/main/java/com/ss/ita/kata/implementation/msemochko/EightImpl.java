@@ -12,7 +12,7 @@ public class EightImpl implements Eight {
         if (time > 0) {
             return (int) result;
         } else {
-            return 0;
+            return -1;
         }
     }
 
@@ -21,7 +21,7 @@ public class EightImpl implements Eight {
         if (length > 0 && width > 0 && height > 0) {
             return length * width * height;
         } else {
-            return 0;
+            return -1;
         }
     }
 
@@ -33,12 +33,15 @@ public class EightImpl implements Eight {
         if (mpg > 0) {
             return BigDecimal.valueOf(mpg * KM / LT).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
         } else {
-            return 0;
+            return -1;
         }
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
+        if (array.length == 0) {
+            return new int[0];
+        }
         for (int i = 0; i < array.length; i++) {
             if (Math.sqrt(array[i]) % 1 == 0) {
                 array[i] = (int) Math.sqrt(array[i]);
