@@ -9,10 +9,10 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
     @DataProvider(name = "validReadDouble")
     public static Object[][] validReadDouble() {
         Object[][] testData = new Object[][]{
-                {"431,24", 431.24},
-                {"151,21", 151.21},
-                {"0,0", 0.0},
-                {"-152,14", -152.14},
+                {"431.24", 431.24},
+                {"151.21", 151.21},
+                {"0.0", 0.0},
+                {"-152.14", -152.14},
         };
         return testData;
     }

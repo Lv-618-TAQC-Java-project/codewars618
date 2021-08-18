@@ -14,7 +14,7 @@ public class EightTest extends EightDataProvider {
     }
     @Test(dataProvider = "negativeLiters")
     public void negativeTestKeepLiters(Eight imp, double time, int expected) {
-        Assert.assertNotEquals(imp.liters(time), expected);
+        Assert.assertEquals(imp.liters(time), expected);
     }
 
     @Test(dataProvider = "validVolumeOfCuboidDataProvider")
@@ -28,12 +28,12 @@ public class EightTest extends EightDataProvider {
     }
 
 
-    @Test(dataProvider = "positiveMphToKph")
+    @Test(dataProvider = "positiveMpgToKPM")
     public void positiveTestMpgToKPM(Eight imp, float a, float expected) {
         Assert.assertEquals(imp.mpgToKPM(a), expected);
     }
 
-    @Test(dataProvider = "negativeMphToKph")
+    @Test(dataProvider = "negativeMpgToKPM")
     public void negativeTestMpgToKPM(Eight imp, float a, float expected) {
         Assert.assertEquals(imp.mpgToKPM(a), expected);
     }
