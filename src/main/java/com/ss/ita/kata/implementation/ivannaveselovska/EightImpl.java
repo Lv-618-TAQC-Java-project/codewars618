@@ -28,6 +28,12 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
+        if (array.length == 0)
+            return new int[0];
+        for (int i : array) {
+            if (i <= 0)
+                return new int[0];
+        }
         return Arrays.stream(array)
                 .map( x -> {
                     int sqr = isSquare(x);
@@ -83,7 +89,7 @@ public class EightImpl implements Eight {
 
     private int isSquare(int number){
         for( int i = 1; i <= number / 2; i ++)
-            if ( number / i == i)
+            if ( number / i == i && number % i == 0)
                 return i;
         return -1;
     }

@@ -12,7 +12,6 @@ public class SevenImpl implements Seven {
             arrSum += i;
         }
         long nextBenefactor = (long) Math.ceil(navg*(arr.length+1)-arrSum);
-
         if (nextBenefactor <= 0){
             throw new IllegalArgumentException();
         }
