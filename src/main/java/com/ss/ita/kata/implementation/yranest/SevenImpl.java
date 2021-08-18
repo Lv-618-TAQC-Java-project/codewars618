@@ -8,22 +8,22 @@ public class SevenImpl implements Seven {
         double sum = 0;
         for (int i = 0; i < arr.length; i++) sum += arr[i];
         long ans = (long) Math.ceil((arr.length + 1) * navg - sum);
-        if (ans < 0) throw new IllegalArgumentException();
+        if (ans <= 0) throw new IllegalArgumentException();
         return ans;
     }
 
     @Override
     public String seriesSum(int n) {
-            float result = 1.0f;
-            float baseNum = 1.0f;
-            if (n <= 0) result = 0;
+            double result = 1;
+            int baseNum = 1;
+            if (n <= 0) return "0.00";
             else {
                 for (int i = 1; i < n; i++) {
                     baseNum = baseNum + 3;
                     result += 1.0 / baseNum;
                 }
             }
-            return String.format("%.2f", result);
+            return Double.toString((double) (Math.round(result*100D)/100D));
     }
 
     @Override

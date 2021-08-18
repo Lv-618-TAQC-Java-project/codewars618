@@ -31,8 +31,7 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         System.setOut(new PrintStream(output));
         scanner.readDoubleArray();
         String actual = String.valueOf(output).replaceAll("\r", "");
-        Assert.assertEquals(actual, expected);
-    }
+        Assert.assertEquals(actual, expected);}
 
     @Test(dataProvider = "validReadDouble")
     public void validReadDouble( String number, double expected) {
@@ -69,6 +68,41 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         System.setIn(input);
         ConsoleScanner scanner = new ConsoleScanner();
         Assert.assertEquals(scanner.readBigInteger(), expected);
+    }
+    @Test(dataProvider = "validInputIntConsoleScanner")
+    public void validReadIntConsoleScanner(String input,int expected) {
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        ConsoleScanner sc = new ConsoleScanner();
+        Assert.assertEquals(expected,sc.readInt());
+    }
+
+    @Test(dataProvider = "invalidInputIntConsoleScanner")
+    public void invalidInputIntConsoleScanner(String input,String expected) {
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        ConsoleScanner sc = new ConsoleScanner();
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        sc.readInt();
+        String actual = String.valueOf(output).replaceAll("\r","");
+        Assert.assertEquals(actual,expected);
+    }
+
+    @Test(dataProvider = "validOnlyForStockSummaryMethodConsoleScannerDataProvider")
+    public void validOnlyForStockSummaryMethodConsoleScanner( String str, String[] expected) {
+        InputStream in = new ByteArrayInputStream(str.getBytes());
+        System.setIn(in);
+        ConsoleScanner sc = new ConsoleScanner();
+        Assert.assertEquals(sc.readStringArray(),expected);
+    }
+
+    @Test(dataProvider = "invalidOnlyForStockSummaryMethodConsoleScannerDataProvider",expectedExceptions = Exception.class)
+    public void onlyForStockSummaryMethodConsoleScanner(String input,String  expected) {
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        ConsoleScanner sc = new ConsoleScanner();
+        Assert.assertEquals(sc.onlyForStockSummaryMethod(),expected);
     }
 
     @Test(dataProvider = "negativeReadBigInteger", expectedExceptions = Exception.class)
