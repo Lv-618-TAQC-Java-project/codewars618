@@ -75,6 +75,9 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
+        if(n <= 0){
+            return new long[]{};
+        }
         String numberStr = Long.toString(n);
         long[] result = new long[3];
         result[0] = n;
