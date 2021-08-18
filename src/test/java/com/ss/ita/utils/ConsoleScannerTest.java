@@ -3,6 +3,9 @@ package com.ss.ita.utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import java.io.*;
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
@@ -26,4 +29,20 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         String actual = String.valueOf(output).replaceAll("\r", "");
         Assert.assertEquals(actual, expected);
     }
+    @Test(dataProvider = "positiveReadIntArray")
+    public void positiveTestReadIntArray(String input, int[] result){
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        ConsoleScanner sc = new ConsoleScanner();
+        Assert.assertEquals(result,sc.readIntArray());
+    }
+    @Test(dataProvider = "negativeReadIntArray", expectedExceptions = Exception.class)
+    public void negativeReadIntArray(String input){
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        ConsoleScanner sc = new ConsoleScanner();
+        sc.readIntArray();
+    }
+
+
 }
