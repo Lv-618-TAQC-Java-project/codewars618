@@ -73,7 +73,10 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        if (m <= 0) {
+            return -1;
+        }
+        return (2 * m + 1 - Math.sqrt(Math.pow(2 * m + 1, 2) - 4 * m * m)) / (2 * m);
     }
 
     @Override
