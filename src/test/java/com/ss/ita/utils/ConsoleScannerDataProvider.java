@@ -66,4 +66,44 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         };
         return testData;
     }
+
+    @DataProvider(name = "validInputIntConsoleScanner")
+    public static Object[][] validInputIntConsoleScanner() {
+        Object[][] param = new Object[][]{
+                {"3", 3},
+                {"0", 0},
+                {"-6",-6},
+                {"100",100},
+        };
+        return param;
+    }
+
+    @DataProvider(name = "invalidInputIntConsoleScanner")
+    public static Object[][] invalidInputIntConsoleScanner() {
+        Object[][] param = new Object[][]{
+                {"ffw\n23", new String("Value is not 'Integer', please try again.\n")},
+                {"2.42\n1", new String("Value is not 'Integer', please try again.\n")},
+                {"*-=+\n1", new String("Value is not 'Integer', please try again.\n")},
+        };
+        return param;
+    }
+
+    @DataProvider(name = "validOnlyForStockSummaryMethodConsoleScannerDataProvider")
+    public static Object[][] validOnlyForStockSummaryMethodConsoleScannerDataProvider() {
+        Object[][] param = {
+                {new String("ABAR 200 CDXE 500 BKWR 250 BTSQ 890 DRTY 600"),new String[]{"ABAR", "200", "CDXE" ,"500", "BKWR", "250", "BTSQ", "890", "DRTY", "600"}},
+                {new String("132 200 13 500 212 250 123 890 23 600"),new String[]{"132", "200", "13" ,"500", "212", "250", "123", "890", "23", "600"}},
+                {new String("ABAR CDXE BKWR BTSQ DRTY"),new String[]{"ABAR", "CDXE", "BKWR" ,"BTSQ", "DRTY"}},
+                {new String("ABAR"),new String[]{"ABAR"}},
+        };
+        return param;
+    }
+
+    @DataProvider(name = "invalidOnlyForStockSummaryMethodConsoleScannerDataProvider")
+    public static Object[][] invalidOnlyForStockSummaryMethodConsoleScannerDataProvider() {
+        Object[][] param = {
+                {"","No line found"},
+        };
+        return param;
+    }
 }

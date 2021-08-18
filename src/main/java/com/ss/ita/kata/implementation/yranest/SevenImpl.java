@@ -14,16 +14,16 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
-            float result = 1.0f;
-            float baseNum = 1.0f;
-            if (n <= 0) result = 0;
+            double result = 1;
+            int baseNum = 1;
+            if (n <= 0) return "0.00";
             else {
                 for (int i = 1; i < n; i++) {
                     baseNum = baseNum + 3;
                     result += 1.0 / baseNum;
                 }
             }
-            return String.format("%.2f", result);
+            return Double.toString((double) (Math.round(result*100D)/100D));
     }
 
     @Override
