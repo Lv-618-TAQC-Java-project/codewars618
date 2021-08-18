@@ -22,10 +22,10 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        int iterator = n.intValue();
-        if(iterator==0){
+        if(n.intValue() <= 0){
             return BigInteger.valueOf(0);
         }
+        int iterator = n.intValue();
         BigInteger firstElement = new BigInteger("1");
         BigInteger secondElement = new BigInteger("1");
         BigInteger tempSumElement = new BigInteger("2");
