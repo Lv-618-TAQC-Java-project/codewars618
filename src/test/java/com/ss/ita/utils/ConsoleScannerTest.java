@@ -8,6 +8,9 @@ import java.io.InputStream;
 
 import java.io.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
 
     @Test(dataProvider = "validConsoleScanner")
@@ -27,7 +30,21 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         System.setOut(new PrintStream(output));
         scanner.readDoubleArray();
         String actual = String.valueOf(output).replaceAll("\r", "");
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected);}
+
+    @Test(dataProvider = "validReadDouble")
+    public void validReadDouble( String number, double expected) {
+        InputStream input = new ByteArrayInputStream(number.getBytes());
+        System.setIn(input);
+        ConsoleScanner sc = new ConsoleScanner();
+        Assert.assertEquals(sc.readDouble(), expected);
+    }
+    @Test(dataProvider = "invalidReadDouble")
+    public void invalidReadDouble( String number, String expected) {
+        InputStream input = new ByteArrayInputStream(number.getBytes());
+        System.setIn(input);
+        ConsoleScanner sc = new ConsoleScanner();
+        sc.readDouble();
     }
     @Test(dataProvider = "positiveReadIntArray")
     public void positiveTestReadIntArray(String input, int[] result){
