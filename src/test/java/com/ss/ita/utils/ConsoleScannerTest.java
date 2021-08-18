@@ -10,6 +10,7 @@ import java.io.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.math.BigInteger;
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
 
@@ -30,7 +31,8 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         System.setOut(new PrintStream(output));
         scanner.readDoubleArray();
         String actual = String.valueOf(output).replaceAll("\r", "");
-        Assert.assertEquals(actual, expected);}
+        Assert.assertEquals(actual, expected);
+    }
 
     @Test(dataProvider = "validReadDouble")
     public void validReadDouble( String number, double expected) {
@@ -61,5 +63,19 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         sc.readIntArray();
     }
 
+    @Test(dataProvider = "positiveReadBigInteger")
+    public void positiveTestReadBigInteger(String actual, BigInteger expected){
+        InputStream input = new ByteArrayInputStream(actual.getBytes());
+        System.setIn(input);
+        ConsoleScanner scanner = new ConsoleScanner();
+        Assert.assertEquals(scanner.readBigInteger(), expected);
+    }
 
+    @Test(dataProvider = "negativeReadBigInteger", expectedExceptions = Exception.class)
+    public void negativeTestReadBigInteger(String actual, String expected){
+        InputStream input = new ByteArrayInputStream(actual.getBytes());
+        System.setIn(input);
+        ConsoleScanner scanner = new ConsoleScanner();
+        scanner.readBigInteger();
+    }
 }

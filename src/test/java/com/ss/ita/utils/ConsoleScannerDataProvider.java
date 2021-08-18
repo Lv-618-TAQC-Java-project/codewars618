@@ -3,6 +3,8 @@ package com.ss.ita.utils;
 import com.ss.ita.kata.DataProviderClass;
 import org.testng.annotations.DataProvider;
 
+import java.math.BigInteger;
+
 public class ConsoleScannerDataProvider extends DataProviderClass {
     @DataProvider(name = "validReadDouble")
     public static Object[][] validReadDouble() {
@@ -63,6 +65,28 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
                 {"1111111111111111111111111111111111222222222222"},
                 {"\"1 2 4 5 6\""},
                 {"\"1\", \"2\""}
+        };
+        return testData;
+    }
+
+    @DataProvider
+    public static Object[][] positiveReadBigInteger(){
+        Object[][] testData = new Object[][]{
+                {"1", BigInteger.valueOf(1)},
+                {"9223372036854775807", BigInteger.valueOf(9223372036854775807L)},
+                {"-9223372036854775808", BigInteger.valueOf(-9223372036854775808L)},
+                {"000000000", BigInteger.valueOf(0)}
+        };
+        return testData;
+    }
+
+    @DataProvider
+    public static Object[][] negativeReadBigInteger(){
+        Object[][] testData = new Object[][]{
+                {"adm", "Value is not 'BigInteger', please try again."},
+                {"922337203685.078", "Value is not 'BigInteger', please try again."},
+                {"-9,223,372,036,854,775,808", "Value is not 'BigInteger', please try again."},
+                {"1_$%+", "Value is not 'BigInteger', please try again."}
         };
         return testData;
     }
