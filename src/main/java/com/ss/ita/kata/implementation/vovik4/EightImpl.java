@@ -15,17 +15,30 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
+        if(length <= 0 || width <= 0 || height <= 0){
+            return -1;
+        }
         return length*width*height;
+
     }
 
     @Override
     public float mpgToKPM(float mpg) {
+        if(mpg <= 0 ){
+            return 0;
+        }
         float kmPerL = mpg * (1.609344f/ 4.54609188f);
         return (float)(Math.round(kmPerL*100)/100D);
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
+        if (array.length == 0)
+            return new int[0];
+        for (int i : array) {
+            if (i <= 0)
+                return new int[0];
+        }
         int[] outPut = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             if (((double)(Math.sqrt(array[i]) % 1) == 0)) {
@@ -66,7 +79,7 @@ public class EightImpl implements Eight {
         if(n == 1){
             return false;
         }
-        else if (((factorial((n - 1)+1)/(n*n))%n) == 0){
+        else if ((factorial(n - 1)+1)%n*n == 0){
             return true;
         }else {
             return false;
@@ -94,14 +107,11 @@ public class EightImpl implements Eight {
     }
 
     private static double factorial(double fact){
-        if (fact != 0){
-            int result = 1;
-            for (int i = 0; i < fact; i++) {
-                result *= fact;
-            }
-            return result;
-        }else {
+        if (fact <= 1) {
             return 1;
+        } else {
+            return fact * factorial(fact - 1);
+
         }
     }
 }
