@@ -62,13 +62,6 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         sc.readIntArray();
     }
 
-    @Test(dataProvider = "positiveReadBigInteger")
-    public void positiveTestReadBigInteger(String actual, BigInteger expected){
-        InputStream input = new ByteArrayInputStream(actual.getBytes());
-        System.setIn(input);
-        ConsoleScanner scanner = new ConsoleScanner();
-        Assert.assertEquals(scanner.readBigInteger(), expected);
-    }
     @Test(dataProvider = "validInputIntConsoleScanner")
     public void validReadIntConsoleScanner(String input,int expected) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -103,6 +96,14 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
         Assert.assertEquals(sc.onlyForStockSummaryMethod(),expected);
+    }
+
+    @Test(dataProvider = "positiveReadBigInteger")
+    public void positiveTestReadBigInteger(String actual, BigInteger expected){
+        InputStream input = new ByteArrayInputStream(actual.getBytes());
+        System.setIn(input);
+        ConsoleScanner scanner = new ConsoleScanner();
+        Assert.assertEquals(scanner.readBigInteger(), expected);
     }
 
     @Test(dataProvider = "negativeReadBigInteger", expectedExceptions = Exception.class)
