@@ -2,12 +2,10 @@ package com.ss.ita.utils;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import java.io.*;
+import java.math.BigInteger;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.math.BigInteger;
-
-import java.io.*;
 
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
@@ -29,31 +27,35 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         System.setOut(new PrintStream(output));
         scanner.readDoubleArray();
         String actual = String.valueOf(output).replaceAll("\r", "");
-        Assert.assertEquals(actual, expected);}
+        Assert.assertEquals(actual, expected);
+    }
 
     @Test(dataProvider = "validReadDouble")
-    public void validReadDouble( String number, double expected) {
+    public void validReadDouble(String number, double expected) {
         InputStream input = new ByteArrayInputStream(number.getBytes());
         System.setIn(input);
         ConsoleScanner sc = new ConsoleScanner();
         Assert.assertEquals(sc.readDouble(), expected);
     }
+
     @Test(dataProvider = "invalidReadDouble")
-    public void invalidReadDouble( String number, String expected) {
+    public void invalidReadDouble(String number, String expected) {
         InputStream input = new ByteArrayInputStream(number.getBytes());
         System.setIn(input);
         ConsoleScanner sc = new ConsoleScanner();
         sc.readDouble();
     }
+
     @Test(dataProvider = "positiveReadIntArray")
-    public void positiveTestReadIntArray(String input, int[] result){
+    public void positiveTestReadIntArray(String input, int[] result) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
-        Assert.assertEquals(result,sc.readIntArray());
+        Assert.assertEquals(result, sc.readIntArray());
     }
+
     @Test(dataProvider = "negativeReadIntArray", expectedExceptions = Exception.class)
-    public void negativeReadIntArray(String input){
+    public void negativeReadIntArray(String input) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
@@ -61,43 +63,43 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
     }
 
     @Test(dataProvider = "validInputIntConsoleScanner")
-    public void validReadIntConsoleScanner(String input,int expected) {
+    public void validReadIntConsoleScanner(String input, int expected) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
-        Assert.assertEquals(expected,sc.readInt());
+        Assert.assertEquals(expected, sc.readInt());
     }
 
     @Test(dataProvider = "invalidInputIntConsoleScanner")
-    public void invalidInputIntConsoleScanner(String input,String expected) {
+    public void invalidInputIntConsoleScanner(String input, String expected) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
         OutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         sc.readInt();
-        String actual = String.valueOf(output).replaceAll("\r","");
-        Assert.assertEquals(actual,expected);
+        String actual = String.valueOf(output).replaceAll("\r", "");
+        Assert.assertEquals(actual, expected);
     }
 
     @Test(dataProvider = "validOnlyForStockSummaryMethodConsoleScannerDataProvider")
-    public void validOnlyForStockSummaryMethodConsoleScanner( String str, String[] expected) {
+    public void validOnlyForStockSummaryMethodConsoleScanner(String str, String[] expected) {
         InputStream in = new ByteArrayInputStream(str.getBytes());
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
-        Assert.assertEquals(sc.readStringArray(),expected);
+        Assert.assertEquals(sc.readStringArray(), expected);
     }
 
-    @Test(dataProvider = "invalidOnlyForStockSummaryMethodConsoleScannerDataProvider",expectedExceptions = Exception.class)
-    public void onlyForStockSummaryMethodConsoleScanner(String input,String  expected) {
+    @Test(dataProvider = "invalidOnlyForStockSummaryMethodConsoleScannerDataProvider", expectedExceptions = Exception.class)
+    public void onlyForStockSummaryMethodConsoleScanner(String input, String expected) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
-        Assert.assertEquals(sc.onlyForStockSummaryMethod(),expected);
+        Assert.assertEquals(sc.onlyForStockSummaryMethod(), expected);
     }
 
     @Test(dataProvider = "positiveReadBigInteger")
-    public void positiveTestReadBigInteger(String actual, BigInteger expected){
+    public void positiveTestReadBigInteger(String actual, BigInteger expected) {
         InputStream input = new ByteArrayInputStream(actual.getBytes());
         System.setIn(input);
         ConsoleScanner scanner = new ConsoleScanner();
@@ -105,7 +107,7 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
     }
 
     @Test(dataProvider = "negativeReadBigInteger", expectedExceptions = Exception.class)
-    public void negativeTestReadBigInteger(String actual, String expected){
+    public void negativeTestReadBigInteger(String actual, String expected) {
         InputStream input = new ByteArrayInputStream(actual.getBytes());
         System.setIn(input);
         ConsoleScanner scanner = new ConsoleScanner();
@@ -117,7 +119,7 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         InputStream input = new ByteArrayInputStream(param.getBytes());
         System.setIn(input);
         ConsoleScanner sc = new ConsoleScanner();
-        Assert.assertEquals(sc.readFloat(),expected);
+        Assert.assertEquals(sc.readFloat(), expected);
     }
 
     @Test(dataProvider = "invalidReadFloat")
@@ -131,4 +133,5 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         String actual = String.valueOf(output).replaceAll("\r", "");
         Assert.assertEquals(actual, expected);
     }
+
 }
