@@ -21,11 +21,12 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
     @DataProvider(name = "invalidReadDouble")
     public static Object[][] invalidReadDouble() {
         Object[][] testData = new Object[][]{
-                {"12525",new String("Value is not 'double', please try again")},
-                {"-125125124",new String("Value is not 'double', please try again")},
+                {"12525", new String("Value is not 'double', please try again")},
+                {"-125125124", new String("Value is not 'double', please try again")},
         };
         return testData;
     }
+
     @DataProvider(name = "validConsoleScanner")
     public static Object[][] validConsoleScanner() {
         Object[][] param = {
@@ -44,8 +45,9 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         };
         return param;
     }
+
     @DataProvider(name = "positiveReadIntArray")
-    public static Object[][] positiveReadIntArray(){
+    public static Object[][] positiveReadIntArray() {
         Object[][] testData = new Object[][]{
                 {"1 3 5 6 6", new int[]{1, 3, 5, 6, 6}},
                 {"1 4343 2534 0000", new int[]{1, 4343, 2534, 0}},
@@ -55,8 +57,9 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         };
         return testData;
     }
+
     @DataProvider(name = "negativeReadIntArray")
-    public static Object[][] negativeReadIntArray(){
+    public static Object[][] negativeReadIntArray() {
         Object[][] testData = new Object[][]{
                 {"1  1  2  4  5"},
                 {"re1 433 t4353"},
@@ -75,8 +78,8 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         Object[][] param = new Object[][]{
                 {"3", 3},
                 {"0", 0},
-                {"-6",-6},
-                {"100",100},
+                {"-6", -6},
+                {"100", 100},
         };
         return param;
     }
@@ -94,10 +97,10 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
     @DataProvider(name = "validOnlyForStockSummaryMethodConsoleScannerDataProvider")
     public static Object[][] validOnlyForStockSummaryMethodConsoleScannerDataProvider() {
         Object[][] param = {
-                {new String("ABAR 200 CDXE 500 BKWR 250 BTSQ 890 DRTY 600"),new String[]{"ABAR", "200", "CDXE" ,"500", "BKWR", "250", "BTSQ", "890", "DRTY", "600"}},
-                {new String("132 200 13 500 212 250 123 890 23 600"),new String[]{"132", "200", "13" ,"500", "212", "250", "123", "890", "23", "600"}},
-                {new String("ABAR CDXE BKWR BTSQ DRTY"),new String[]{"ABAR", "CDXE", "BKWR" ,"BTSQ", "DRTY"}},
-                {new String("ABAR"),new String[]{"ABAR"}},
+                {new String("ABAR 200 CDXE 500 BKWR 250 BTSQ 890 DRTY 600"), new String[]{"ABAR", "200", "CDXE", "500", "BKWR", "250", "BTSQ", "890", "DRTY", "600"}},
+                {new String("132 200 13 500 212 250 123 890 23 600"), new String[]{"132", "200", "13", "500", "212", "250", "123", "890", "23", "600"}},
+                {new String("ABAR CDXE BKWR BTSQ DRTY"), new String[]{"ABAR", "CDXE", "BKWR", "BTSQ", "DRTY"}},
+                {new String("ABAR"), new String[]{"ABAR"}},
         };
         return param;
     }
@@ -105,13 +108,13 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
     @DataProvider(name = "invalidOnlyForStockSummaryMethodConsoleScannerDataProvider")
     public static Object[][] invalidOnlyForStockSummaryMethodConsoleScannerDataProvider() {
         Object[][] param = {
-                {"","No line found"},
+                {"", "No line found"},
         };
         return param;
     }
 
     @DataProvider
-    public static Object[][] positiveReadBigInteger(){
+    public static Object[][] positiveReadBigInteger() {
         Object[][] testData = new Object[][]{
                 {"1", BigInteger.valueOf(1)},
                 {"9223372036854775807", BigInteger.valueOf(9223372036854775807L)},
@@ -122,7 +125,7 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
     }
 
     @DataProvider
-    public static Object[][] negativeReadBigInteger(){
+    public static Object[][] negativeReadBigInteger() {
         Object[][] testData = new Object[][]{
                 {"adm", "Value is not 'BigInteger', please try again."},
                 {"922337203685.078", "Value is not 'BigInteger', please try again."},
@@ -139,5 +142,23 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
                 {"13.333333333333333333333", new BigDecimal("13.333333333333333333333")}
         };
         return testData;
+    }
+
+    @DataProvider(name = "validReadFloat")
+    public static Object[][] validReadFloat() {
+        Object[][] param = {
+                {"34.56", 34.56f},
+                {"0.6758", 0.6758f}
+        };
+        return param;
+    }
+
+    @DataProvider(name = "invalidReadFloat")
+    public static Object[][] invalidReadFloat() {
+        Object[][] param = {
+                {"23.g\n23.78", "Value is not 'float', please try again.\n"},
+                {"www\n3.567", "Value is not 'float', please try again.\n"}
+        };
+        return param;
     }
 }
