@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import java.io.*;
@@ -142,5 +143,13 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         System.setIn(in);
         ConsoleScanner sc = new ConsoleScanner();
         Assert.assertEquals(sc.readStringArray(),expected);
+    }
+
+    @Test(dataProvider = "validInputBigDecimalConsoleScanner")
+    public void validInputBigDecimalConsoleScannerTest(String input, BigDecimal result){
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        ConsoleScanner sc = new ConsoleScanner();
+        Assert.assertEquals(sc.readBigDecimal(), result);
     }
 }

@@ -12,9 +12,10 @@ public class SevenImpl implements Seven {
             sumOfNumbers += arr[i];
         }
         int unknown = ((int) ((navg * (arr.length+1)) - sumOfNumbers));
-        if (sumOfNumbers > navg){
+        double expected  = navg * (arr.length + 1);
+        long nextBenefactor = (long) (expected - sumOfNumbers);
+        if (nextBenefactor <= 0)
             throw new IllegalArgumentException();
-        }
         return unknown;
     }
 
