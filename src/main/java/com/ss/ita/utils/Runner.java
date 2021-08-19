@@ -67,6 +67,12 @@ public class Runner {
                 seven = new com.ss.ita.kata.implementation.vovik4.SevenImpl();
                 eight = new com.ss.ita.kata.implementation.vovik4.EightImpl();
                 break;
+            case MAKSYM_SEM:
+                five = new com.ss.ita.kata.implementation.msemochko.FiveImpl();
+                six = new com.ss.ita.kata.implementation.msemochko.SixImpl();
+                seven = new com.ss.ita.kata.implementation.msemochko.SevenImpl();
+                eight = new com.ss.ita.kata.implementation.msemochko.EightImpl();
+                break;
             case VIKTOR:
 //                five = new com.ss.ita.kata.implementation..FiveImpl();
 //                six = new com.ss.ita.kata.implementation..SixImpl();

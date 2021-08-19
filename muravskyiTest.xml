@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SuiteMuravskyi">
+    <test verbose="2" preserve-order="true" name="TestMuravskyi">
+        <classes>
+            <class name="com.ss.ita.kata.EightTest">
+                <methods>
+                    <include name="TestGetVolumeOfCuboid"/>
+                    <include name="NegativeTestGetVolumeOfCuboid"/>
+                </methods>
+            </class>
+            <class name="com.ss.ita.kata.SevenTest">
+                <methods>
+                    <include name="validTestSeriesSum"/>
+                    <include name="invalidTestSeriesSum"/>
+                </methods>
+            </class>
+            <class name="com.ss.ita.kata.FiveTest">
+                <methods>
+                    <include name="testValidGap"/>
+                    <include name="testInvalidGap"/>
+                </methods>
+            </class>
+            <class name="com.ss.ita.utils.ConsoleScannerTest">
+                <methods>
+                    <include name="validTestReadDoubleArray"/>
+                    <include name="invalidConsoleScanner"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
