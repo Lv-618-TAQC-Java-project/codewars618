@@ -2,10 +2,9 @@ package com.ss.ita.utils;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.io.*;
 import java.math.BigInteger;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
@@ -45,27 +44,6 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         ConsoleScanner sc = new ConsoleScanner();
         sc.readDouble();
     }
-
-    @Test(dataProvider = "validInputIntConsoleScanner")
-    public void validReadIntConsoleScanner(String input,int expected) {
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        ConsoleScanner sc = new ConsoleScanner();
-        Assert.assertEquals(expected,sc.readInt());
-    }
-
-    @Test(dataProvider = "invalidInputIntConsoleScanner")
-    public void invalidInputIntConsoleScanner(String input,String expected) {
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        ConsoleScanner sc = new ConsoleScanner();
-        OutputStream output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
-        sc.readInt();
-        String actual = String.valueOf(output).replaceAll("\r","");
-        Assert.assertEquals(actual,expected);
-    }
-
 
     @Test(dataProvider = "positiveReadIntArray")
     public void positiveTestReadIntArray(String input, int[] result) {
