@@ -51,8 +51,8 @@ public class FiveDataProvider extends DataProviderClass {
     @DataProvider(name = "negativeZeros")
     public static Object[][] negativeZeros(){
         Object[][] testData = new Object[][]{
-                {-1, 0},
-                {-999, 0}
+                {-1, -1},
+                {-999, -1}
         };
         return combine(fiveImplPackageProvider(), testData);
     }
