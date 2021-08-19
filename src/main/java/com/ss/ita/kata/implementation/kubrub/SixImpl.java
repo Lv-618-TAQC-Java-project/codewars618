@@ -56,12 +56,59 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        if (town == null || strng == null) {
+            return -1;
+        }
+        String[] splitStrng = strng.split("\n");
+        double sum =0;
+        String line="";
+        String temp = "";
+        for (String s: splitStrng){
+            temp = s;
+            if (town.equals(temp.split(":")[0])){
+                line = s;
+                System.out.println(line);
+                break;
+            }
+        }
+
+        if (line.length() == 0){
+            return -1;
+        }
+        String[] arrOfLine = line.replaceAll("[^0-9.0-9 ]", "").trim().split(" ");
+        for (String s: arrOfLine){
+            sum+= Double.parseDouble(s);
+        }
+        return sum/(arrOfLine.length);
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        if (town == null || strng == null) {
+            return -1;
+        }
+        String[] arr = strng.split("\n");
+        double sum = 0;
+        double mean = mean(town, strng);
+        String temp = "";
+        String line = "";
+        for (String s: arr){
+            temp = s;
+            if (town.equals(temp.split(":")[0])){
+                line = s;
+                break;
+            }
+        }
+
+        if (line.length() == 0 || line.length() == town.length()){
+            return -1;
+        }
+
+        String[] res = line.replaceAll("[^0-9.0-9 ]", "").trim().split(" ");
+        for (String s: res){
+            sum += Math.pow((Double.parseDouble(s) - mean), 2);
+        }
+        return sum/res.length;
     }
 
     @Override
