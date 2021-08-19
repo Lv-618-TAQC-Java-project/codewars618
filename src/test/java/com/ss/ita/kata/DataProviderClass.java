@@ -38,7 +38,7 @@ public class DataProviderClass {
     @DataProvider(name = "sixImplPackageProvider")
     public static Object[][] sixImplPackageProvider() {
         return new Object[][]{
-                {new com.ss.ita.kata.implementation.ivannaveselovska.SixImpl()}//,
+                {new com.ss.ita.kata.implementation.ivannaveselovska.SixImpl()},
                 {new com.ss.ita.kata.implementation.kubrub.SixImpl()},
                 {new com.ss.ita.kata.implementation.maxde1.SixImpl()},
                 {new com.ss.ita.kata.implementation.msemochko.SixImpl()},
