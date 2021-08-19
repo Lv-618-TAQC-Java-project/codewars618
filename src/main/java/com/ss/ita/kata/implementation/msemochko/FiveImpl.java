@@ -55,6 +55,8 @@ public class FiveImpl implements Five {
                 break;
             }
         }
+        if (result[0] == result[1])
+            return null;
         return result;
     }
 

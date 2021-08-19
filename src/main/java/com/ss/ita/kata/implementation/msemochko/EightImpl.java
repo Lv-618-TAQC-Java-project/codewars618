@@ -42,14 +42,26 @@ public class EightImpl implements Eight {
         if (array.length == 0) {
             return new int[0];
         }
-        for (int i = 0; i < array.length; i++) {
-            if (Math.sqrt(array[i]) % 1 == 0) {
-                array[i] = (int) Math.sqrt(array[i]);
-            } else {
+        for (int i : array) {
+            if (i <= 0) {
+                return new int[0];
+            }
+        }
+        int [] newArr = new int[array.length];
+        for(int i=0;i<array.length;i++){
+            newArr[i]=array[i];
+        }
+        for (int i = 0; i <  array.length; i++){
+            double n = Math.floor(Math.sqrt(array[i]));
+
+            if (n*n==array[i]){
+                array[i] = (int)n;
+            }
+            else{
                 array[i] *= array[i];
             }
         }
-        return array;
+        return newArr;
     }
 
     @Override
