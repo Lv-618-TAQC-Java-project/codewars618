@@ -5,6 +5,7 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
+        if (time < 0) { return -1;}
         return (int)(time * 0.5);
     }
 
@@ -19,6 +20,7 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
+        if(mpg<0) return -1.0f;
         return (float) Math.round(1.609344* mpg/4.54609188*100)/100;
     }
 
