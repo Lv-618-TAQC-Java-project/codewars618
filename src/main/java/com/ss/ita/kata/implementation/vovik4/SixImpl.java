@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.vovik4;
 import com.ss.ita.kata.Six;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -67,6 +68,9 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
+        if(x <= 0){
+            return -1;
+        }
         return x / (1.0 + Math.sqrt(1.0 + x));
     }
 
@@ -152,6 +156,31 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        if(lstOfArt.length == 0 || lstOf1stLetter.length == 0){
+            return "";
+        }
+
+        String result = "-";
+        HashMap<Character, Integer> data = new HashMap<Character, Integer>();
+
+        for(String letter:lstOf1stLetter) {
+            data.put(letter.charAt(0), 0);
+        }
+
+        for(String books:lstOfArt) {
+            char firstL = books.charAt(0);
+            int numberOfBooks = Integer.parseInt(books.split(" ")[1]);
+
+            if(data.containsKey(firstL)) {
+                data.replace(firstL, data.get(firstL) + numberOfBooks);
+            }
+        }
+
+        for(HashMap.Entry entry: data.entrySet()){
+            result += "- (" + entry.getKey() + " : " + entry.getValue() + ") ";
+        }
+
+
+        return result.substring(3, result.length() - 1);
     }
 }

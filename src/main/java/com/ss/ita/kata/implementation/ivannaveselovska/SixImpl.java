@@ -9,6 +9,8 @@ import java.util.List;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
+        if (m == 0)
+            return -1L;
         long cubeNumber = 0;
         for ( long i = 1; m > 0 ; i++){
             m -= i * i * i;
@@ -40,6 +42,8 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
+        if (x < 0.0 || x > 1.0)
+            return 0.0;
         return x/(1.0 + Math.sqrt(1.0 + x));
     }
 
@@ -69,7 +73,7 @@ public class SixImpl implements Six {
     @Override
     public String nbaCup(String resultSheet, String toFind) {
         String[] matchesOfTeam = getMatchesOfTeam(resultSheet, toFind + " ");
-        if (matchesOfTeam.length == 0)
+        if (matchesOfTeam.length == 0 || toFind.isEmpty())
             return toFind + ":This team didn't play!";
         int totalScore = 0;
         int totalOpponents = 0;
@@ -112,6 +116,8 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0)
+            return "";
         int[] quality = new int[lstOf1stLetter.length];
         for (int i = 0; i < lstOf1stLetter.length; i++) {
             for (int j = 0; j < lstOfArt.length; j++) {
