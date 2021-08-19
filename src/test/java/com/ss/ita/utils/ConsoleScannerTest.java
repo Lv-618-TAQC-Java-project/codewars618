@@ -3,8 +3,11 @@ package com.ss.ita.utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.math.BigInteger;
+
+import java.io.*;
 
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
@@ -133,4 +136,11 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         Assert.assertEquals(actual, expected);
     }
 
+    @Test(dataProvider = "validReadStringArray")
+    public void validReadStringArray( String str, String[] expected) {
+        InputStream in = new ByteArrayInputStream(str.getBytes());
+        System.setIn(in);
+        ConsoleScanner sc = new ConsoleScanner();
+        Assert.assertEquals(sc.readStringArray(),expected);
+    }
 }
