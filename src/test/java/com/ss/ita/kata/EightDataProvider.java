@@ -24,6 +24,26 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), param);
     }
 
+
+    @DataProvider(name = "wilsonPrimeDataProvider")
+    public static Object[][] wilsonPrimeDataProvider() {
+        Object[][] param = new Object[][]{
+                {5, true},
+                {9, false},
+                {6, false}
+        };
+        return combine(eightImplPackageProvider(), param);
+    }
+
+    @DataProvider(name = "invalidWilsonPrimeDataProvider")
+    public static Object[][] invalidWilsonPrimeDataProvider() {
+        Object[][] param = new Object[][]{
+                {-4, false},
+                {0, false}
+        };
+        return combine(eightImplPackageProvider(), param);
+    }
+
     @DataProvider(name = "positiveLiters")
     public static Object[][] positiveKeepHydrated() {
         Object[][] testData = new Object[][]{

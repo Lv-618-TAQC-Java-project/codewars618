@@ -5,7 +5,9 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class SixTest extends SixDataProvider{
+
+public class SixTest extends SixDataProvider {
+
 
     @Test(dataProvider = "positiveFindNb")
     public void positiveTestFindNb(Six impl, long actual, long expected) {
@@ -25,12 +27,24 @@ public class SixTest extends SixDataProvider{
         Assert.assertEquals(imp.f(x),expected);
     }
 
-    @Test
-    public void testMean() {
+    @Test(dataProvider = "meanDataProvider")
+    public void testMean(Six impl, String town, String data, double expected) {
+        Assert.assertEquals(impl.mean(town, data), expected);
     }
 
-    @Test
-    public void testVariance() {
+    @Test(dataProvider = "invalidMeanDataProvider")
+    public void invalidTestMean(Six impl, String town, String data, double expected) {
+        Assert.assertEquals(impl.mean(town, data), expected);
+    }
+
+    @Test(dataProvider = "varianceDataProvider")
+    public void testVariance(Six impl, String town, String data, double expected) {
+        Assert.assertEquals(impl.variance(town, data), expected);
+    }
+
+    @Test(dataProvider = "invalidVarianceDataProvider")
+    public void invalidTestVariance(Six impl, String town, String data, double expected) {
+        Assert.assertEquals(impl.variance(town, data), expected);
     }
 
     @Test(dataProvider = "validNbaCupDataProvider")

@@ -5,14 +5,10 @@ import org.testng.annotations.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-
-import java.io.*;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.math.BigInteger;
 
 import java.io.*;
+
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
 
