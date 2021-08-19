@@ -20,8 +20,9 @@ public class SixTest extends SixDataProvider{
     public void testBalance() {
     }
 
-    @Test
-    public void testF() {
+    @Test(dataProvider = "validFloatingPointApproximation")
+    public void testF(Six imp, double x, double expected) {
+        Assert.assertEquals(imp.f(x),expected);
     }
 
     @Test
