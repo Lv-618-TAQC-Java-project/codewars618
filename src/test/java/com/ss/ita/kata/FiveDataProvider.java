@@ -17,6 +17,15 @@ public class FiveDataProvider extends DataProviderClass {
         return combine(fiveImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "invalidGap")
+    public static Object[][] invalidGap() {
+        Object[][] param = {
+                {6, 100, 110, null},
+                {1, 110, 100, null},
+        };
+        return combine(fiveImplPackageProvider(), param);
+    }
+
     @DataProvider(name = "positiveArtificialRain")
     public static Object[][] positiveArtificialRain(){
         Object[][] testData = new Object[][]{
@@ -31,14 +40,6 @@ public class FiveDataProvider extends DataProviderClass {
         return combine(fiveImplPackageProvider(), testData);
     }
 
-
-    @DataProvider(name = "invalidGap")
-    public static Object[][] invalidGap() {
-        Object[][] param = {
-                {6, 100, 110, null},
-        };
-        return combine(fiveImplPackageProvider(), param);
-    }
 
     @DataProvider()
     public static Object[][] positivePerimeter() {

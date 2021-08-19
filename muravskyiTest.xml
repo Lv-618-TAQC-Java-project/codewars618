@@ -17,8 +17,14 @@
             </class>
             <class name="com.ss.ita.kata.FiveTest">
                 <methods>
-                    <include name="validGap"/>
-                    <include name="invalidGap"/>
+                    <include name="testValidGap"/>
+                    <include name="testInvalidGap"/>
+                </methods>
+            </class>
+            <class name="com.ss.ita.utils.ConsoleScannerTest">
+                <methods>
+                    <include name="validTestReadDoubleArray"/>
+                    <include name="invalidConsoleScanner"/>
                 </methods>
             </class>
         </classes>

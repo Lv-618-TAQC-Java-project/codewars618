@@ -24,7 +24,7 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), param);
     }
 
-    @DataProvider(name = "positiveKeepHydrated")
+    @DataProvider(name = "positiveLiters")
     public static Object[][] positiveKeepHydrated() {
         Object[][] testData = new Object[][]{
                 {4.0, 2},
@@ -39,11 +39,11 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), testData);
     }
 
-    @DataProvider(name = "negativeKeepHydrated")
+    @DataProvider(name = "negativeLiters")
     public static Object[][] negativeKeepHydrated() {
         Object[][] testData = new Object[][]{
-                {-50, -25},
-                {-400000, -200000}
+                {-50, -1},
+                {-400000, -1}
         };
         return combine(eightImplPackageProvider(), testData);
     }
@@ -105,8 +105,8 @@ public class EightDataProvider extends DataProviderClass {
     @DataProvider(name = "negativeMpgToKPM")
     public static Object[][] negativeMpgToKPM(){
         Object[][] testData = new Object[][]{
-                {-5f, 0},
-                {-9879.324f, 0}
+                {-5f, -1},
+                {-9879.324f, -1}
         };
         return combine(eightImplPackageProvider(), testData);
     }

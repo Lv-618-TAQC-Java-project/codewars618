@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.kubrub;
 
 import com.ss.ita.kata.Seven;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
@@ -19,18 +22,30 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        double res = 0.0;
-
-        for(int i = 0; i < n; i++){
-            res += 1.0/(1 + i*3);
+        if(n <= 0)
+            return "0.00";
+        double result = 0;
+        int denominator = 1;
+        while (n > 0){
+            result += 1.0 / denominator;
+            denominator += 3;
+            n--;
         }
-        String res1 = String.valueOf(res);
-        return res1;
+        return BigDecimal.valueOf(result).setScale(2, RoundingMode.HALF_UP).toString();
     }
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        int res = p - bef;
+        int res = 0;
+        int a = 0;
+        int b = 0;
+        for(int i = 1; i <= p; i++) {
+            a = i - 1;
+            b = p - i;
+            if(a >= bef && b <= aft) {
+                res++;
+            }
+        }
         return res;
     }
 }

@@ -96,7 +96,6 @@ public class ConsoleScanner implements Scanner {
                 sc.next();
             }
         }
-
     }
 
     @Override
@@ -111,11 +110,10 @@ public class ConsoleScanner implements Scanner {
                 result[size] = Double.parseDouble(resultList.get(size));
                 size++;
             } else {
-                System.out.println("Value " + resultList.get(size)+ " is not Double, please try again.");
+                System.out.println("Value " + resultList.get(size) + " is not Double, please try again.");
                 resultList.set(size, sc.next());
             }
         }
-
         return result;
     }
 
@@ -135,7 +133,6 @@ public class ConsoleScanner implements Scanner {
                 resultList.set(size, sc.next());
             }
         }
-
         return result;
     }
 

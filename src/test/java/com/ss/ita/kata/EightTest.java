@@ -1,5 +1,6 @@
 package com.ss.ita.kata;
 
+import com.ss.ita.kata.implementation.vmuravskyi.EightImpl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -7,13 +8,13 @@ import static org.testng.Assert.*;
 
 public class EightTest extends EightDataProvider {
 
-    @Test(dataProvider = "positiveKeepHydrated")
-    public void positiveTestKeepHydrated(Eight imp, double time, int expected) {
+    @Test(dataProvider = "positiveLiters")
+    public void positiveTestLiters(Eight imp, double time, int expected) {
         Assert.assertEquals(imp.liters(time), expected);
     }
-    @Test(dataProvider = "negativeKeepHydrated")
-    public void negativeTestKeepHydrated(Eight imp, double time, int expected) {
-        Assert.assertNotEquals(imp.liters(time), expected);
+    @Test(dataProvider = "negativeLiters")
+    public void negativeTestKeepLiters(Eight imp, double time, int expected) {
+        Assert.assertEquals(imp.liters(time), expected);
     }
 
     @Test(dataProvider = "validVolumeOfCuboidDataProvider")
@@ -27,12 +28,12 @@ public class EightTest extends EightDataProvider {
     }
 
 
-    @Test(dataProvider = "positiveMphToKph")
+    @Test(dataProvider = "positiveMpgToKPM")
     public void positiveTestMpgToKPM(Eight imp, float a, float expected) {
         Assert.assertEquals(imp.mpgToKPM(a), expected);
     }
 
-    @Test(dataProvider = "negativeMphToKph")
+    @Test(dataProvider = "negativeMpgToKPM")
     public void negativeTestMpgToKPM(Eight imp, float a, float expected) {
         Assert.assertEquals(imp.mpgToKPM(a), expected);
     }
