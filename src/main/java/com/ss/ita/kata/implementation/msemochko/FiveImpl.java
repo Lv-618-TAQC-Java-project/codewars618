@@ -38,6 +38,9 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
+        if (g<2 || m<2 || n<2){
+            return null;
+        }
         long[] result = new long[2];
         ArrayList<Integer> primeNumbers = new ArrayList<>();
         BigInteger number = new BigInteger(String.valueOf(m));
@@ -98,7 +101,7 @@ public class FiveImpl implements Five {
     @Override
     public BigInteger perimeter(BigInteger n) {
         if (n.intValue()<=0){
-            return BigInteger.valueOf(0);
+            return BigInteger.ZERO;
         }
         int[] fibNum = fibArr(n.intValue());
         int result = 0;

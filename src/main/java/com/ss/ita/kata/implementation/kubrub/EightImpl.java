@@ -1,6 +1,5 @@
 package com.ss.ita.kata.implementation.kubrub;
 
-import java.util.ArrayList;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
@@ -35,6 +34,11 @@ public class EightImpl implements Eight {
     public int[] squareOrSquareRoot(int[] array) {
         if(array == null || array.length == 0)
             return new int[0];
+        for (int i = 0; i <  array.length; i++){
+            if (array[i] <= 0){
+                return new int[0];
+            }
+        }
         for (int i = 0; i <  array.length; i++){
             double n = Math.floor(Math.sqrt(array[i]));
 
@@ -93,9 +97,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        String value  = String.format("%.2f",number);
-        double res = Double.parseDouble(value );
-        return res;
+        return Math.round(number*100D)/100D;
     }
 
     @Override
