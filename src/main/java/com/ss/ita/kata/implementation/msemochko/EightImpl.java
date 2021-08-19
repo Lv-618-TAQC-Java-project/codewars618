@@ -9,7 +9,7 @@ public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
         double result = time / 2;
-        if (time > 0) {
+        if (time >= 0) {
             return (int) result;
         } else {
             return -1;
@@ -30,7 +30,7 @@ public class EightImpl implements Eight {
         final float KM = 1.609344f;
         final float LT = 4.54609188f;
 
-        if (mpg > 0) {
+        if (mpg >= 0) {
             return BigDecimal.valueOf(mpg * KM / LT).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
         } else {
             return -1;

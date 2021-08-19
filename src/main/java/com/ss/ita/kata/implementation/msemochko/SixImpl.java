@@ -43,6 +43,9 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
+        if (x < 0){
+            return -1;
+        }
         return x / (1 + Math.sqrt(x + 1));
     }
 
@@ -51,22 +54,21 @@ public class SixImpl implements Six {
         if (town.isEmpty() || strng.isEmpty()) {
             return -1;
         }
-        String[] lines = strng.split("[\\n]");
+        String[] cities = strng.split("\\n");
+        double sum = 0.0;
         int counter = 0;
-        double sumOfRain = 0;
-        for (String city : lines) {
-            String[] data = city.split(",");
+        for (String city : cities) {
+            String[] data = city.split(":");
             if (data[0].equals(town)) {
                 String[] months = data[1].split(",");
                 for (String month : months) {
                     String[] values = month.split(" ");
-                    sumOfRain += Double.parseDouble(values[1]);
+                    sum += Double.parseDouble(values[1]);
                     counter++;
                 }
             }
-
         }
-        return (sumOfRain == 0) ? -1 : (sumOfRain / (double) counter);
+        return (sum == 0) ? -1 : (sum / (double) counter);
     }
 
     @Override
