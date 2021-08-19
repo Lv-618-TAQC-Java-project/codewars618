@@ -9,36 +9,32 @@ import java.util.BitSet;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
-        if (v == null) {
-            return 0;
-        } else if (v.length == 1) {
+        if (v.length == 1) {
             return 1;
         }
-        int maxNumber = 0;
-        int biggerThan;
+        int maxSize = 0;
+        int[] leftFall = new int[v.length];
+        int[] rightFall = new int[v.length];
+
+        for (int i = 1; i < v.length; i++)
+            if (v[i - 1] <= v[i])
+                leftFall[i] = leftFall[i - 1] + 1;
+
+        for (int i = v.length - 2; i >= 0; i--)
+            if (v[i + 1] <= v[i])
+                rightFall[i] = rightFall[i + 1] + 1;
 
         for (int i = 0; i < v.length; i++) {
-            biggerThan = 1;
-            for (int j = i - 1; j >= 0; j--) {
-                if (v[j]>=v[j+1]){
-                    biggerThan++;
-                }
-            }
-            for (int j = i; j < v.length-1;j++){
-                if (v[j+1]>=v[j]){
-                    biggerThan++;
-                }
-            }
-            if (maxNumber < biggerThan) {
-                maxNumber = biggerThan;
-            }
+            int currentSize = leftFall[i] + rightFall[i] + 1;
+            if (currentSize > maxSize)
+                maxSize = currentSize;
         }
-        return maxNumber;
+        return maxSize;
     }
 
     @Override
     public long[] gap(int g, long m, long n) {
-        if (g<2 || m<2 || n<2){
+        if (m >= n) {
             return null;
         }
         long[] result = new long[2];
@@ -62,8 +58,8 @@ public class FiveImpl implements Five {
         return result;
     }
 
-    public static int factorial(int num) {
-        int fact = 1;
+    public static long factorial(int num) {
+        long fact = 1;
 
         for (int i = 1; i <= num; i++) {
             fact *= i;
@@ -73,15 +69,18 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
+        if (n<0){
+            return -1;
+        }
         int count = 0;
 
-        n = factorial(n);
-        int numLength = String.valueOf(Math.abs(n)).length();
+        long number = factorial(n);
+        int numLength = String.valueOf(Math.abs(number)).length();
 
         for (int i = 0; i < numLength; i++) {
-            if (n % 10 == 0) {
+            if (number % 10 == 0) {
                 count++;
-                n = n / 10;
+                number = number / 10;
             } else {
                 break;
             }
@@ -118,6 +117,9 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
+        if (n <= 0) {
+            return new long[0];
+        }
         long minNum = n;
         long numberToCompare;
         int indexOfTakenNum = 0;

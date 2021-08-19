@@ -3,6 +3,7 @@ package com.ss.ita.utils;
 import com.ss.ita.kata.DataProviderClass;
 import org.testng.annotations.DataProvider;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class ConsoleScannerDataProvider extends DataProviderClass {
@@ -127,6 +128,15 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
                 {"922337203685.078", "Value is not 'BigInteger', please try again."},
                 {"-9,223,372,036,854,775,808", "Value is not 'BigInteger', please try again."},
                 {"1_$%+", "Value is not 'BigInteger', please try again."}
+        };
+        return testData;
+    }
+
+    @DataProvider(name = "validInputBigDecimalConsoleScanner")
+    public static Object[][] validInputBigDecimalConsoleScanner() {
+        Object[][] testData = {
+                {"32", new BigDecimal("32")},
+                {"13.333333333333333333333", new BigDecimal("13.333333333333333333333")}
         };
         return testData;
     }

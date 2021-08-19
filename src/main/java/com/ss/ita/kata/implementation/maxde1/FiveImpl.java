@@ -73,6 +73,7 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
+        if (n < 0 ) return -1;
         double findKmax= Math.floor(Math.log10(n)/Math.log10(5));
         System.out.println(findKmax);
         int sum =0;
@@ -85,6 +86,8 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
+        int checkForNegativeOrZero = n.compareTo(BigInteger.valueOf(0));
+        if (checkForNegativeOrZero == 0 || checkForNegativeOrZero == -1) return BigInteger.valueOf(0);
         BigInteger last = BigInteger.valueOf(0);
         BigInteger curr = BigInteger.valueOf(1);
         BigInteger sum = BigInteger.valueOf(1);
@@ -106,8 +109,8 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
+        if (n < 0) return new long[]{};
 
-        assert n >= 0;
         String str = "" + n;
         final int numberDigits = str.length();
 

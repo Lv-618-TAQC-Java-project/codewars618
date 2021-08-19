@@ -6,6 +6,7 @@ public class SixImpl implements Six {
 
     @Override
     public long findNb(long m) {
+        if (m <= 0) return -1;
         long n=0;
         long sum = 0;
         while(sum < m){
@@ -52,6 +53,9 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
+        if (x <= 0){
+            return -1;
+        }
         return x / (1.0 + Math.sqrt(1.0 + x));
     }
 
@@ -114,7 +118,69 @@ public class SixImpl implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return "";
+        String[] splitSheet = resultSheet.split(",");
+        if (toFind.isEmpty()){
+            return ":This team didn't play!";
+        }
+        //rename this variable(pleas-))
+        int scoreOfFindTeam;
+        boolean check = false;
+        int scoreOfOpponent;
+        int numberOfWinMatches = 0;
+        int numberOfDraws = 0;
+        int numberOflostMatches = 0;
+        int totalScore =0;
+        int totalConcededPoint = 0;
+        int rank = 0;
+        String[] gettingScore;
+        for(String s: splitSheet){
+
+            if(s.split("[0-9]+[\\s]+")[0].trim().equals(toFind)){
+                check= true;
+                gettingScore = s.replaceAll("[0-9]+[A-Za-z]+ | [A-Za-z]+[0-9]+","").replaceAll("[A-Za-z]", "").
+                        replaceAll("\\s{1,}", " ").
+                        trim().
+                        split(" ");
+                if(s.indexOf(toFind)==0){
+                    try {
+                        scoreOfFindTeam = Integer.parseInt(gettingScore[0]);
+                        scoreOfOpponent = Integer.parseInt(gettingScore[1]);
+                    }catch (Exception e){
+                        return "Error(float number):"+s;
+                    }
+                }
+                else {
+                    try {
+                        scoreOfFindTeam = Integer.parseInt(gettingScore[1]);
+                        scoreOfOpponent = Integer.parseInt(gettingScore[0]);
+                    }catch (Exception e){
+                        return "Error(float number):"+s;
+                    }
+                }
+                totalScore += scoreOfFindTeam;
+                totalConcededPoint += scoreOfOpponent;
+                if(scoreOfFindTeam > scoreOfOpponent){
+                    numberOfWinMatches+=1;
+                    rank +=3;
+                }
+                else if (scoreOfFindTeam == scoreOfOpponent){
+                    numberOfDraws +=1;
+                    rank+=1;
+                }
+                else {
+                    numberOflostMatches += 1;
+                }
+            }
+        }
+        if (check==false){
+            return ""+toFind+":This team didn't play!";
+        }
+        return ""+toFind+":W="+numberOfWinMatches+";D="+numberOfDraws+
+                ";L="+numberOflostMatches+";Scored="
+                +totalScore+";Conceded="+totalConcededPoint+";Points="+rank;
+
+
+
 
     }
 
