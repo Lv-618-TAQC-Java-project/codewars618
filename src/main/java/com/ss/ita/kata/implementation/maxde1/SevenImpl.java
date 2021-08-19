@@ -12,7 +12,6 @@ public class SevenImpl implements Seven {
             arrSum += i;
         }
         long nextBenefactor = (long) Math.ceil(navg*(arr.length+1)-arrSum);
-
         if (nextBenefactor <= 0){
             throw new IllegalArgumentException();
         }
@@ -36,6 +35,11 @@ public class SevenImpl implements Seven {
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return 0;
+        if((p-bef)<= aft){
+            return p-bef;
+        }
+        else {
+            return aft+1;
+        }
     }
 }
