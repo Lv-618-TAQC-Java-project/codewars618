@@ -29,12 +29,14 @@ public class SevenImpl implements Seven {
             sum +=(double) 1/divider;
             divider +=3;
         }
-        String result = String.format("%.2f",sum);
+        String result = String.format("%.2f",sum).replaceAll(",", ".");
         return result;
     }
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
+        if (p <= 0 || bef < 0 || aft < 0 || p <= bef)
+            return 0;
         if((p-bef)<= aft){
             return p-bef;
         }
