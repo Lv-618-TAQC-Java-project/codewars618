@@ -2,6 +2,8 @@ package com.ss.ita.kata;
 
 import org.testng.annotations.DataProvider;
 
+import java.math.BigInteger;
+
 public class FiveDataProvider extends DataProviderClass {
 
     @DataProvider(name = "validGap")
@@ -36,5 +38,23 @@ public class FiveDataProvider extends DataProviderClass {
                 {6, 100, 110, null},
         };
         return combine(fiveImplPackageProvider(), param);
+    }
+
+    @DataProvider()
+    public static Object[][] positivePerimeter() {
+        Object[][] testData = {
+                {BigInteger.valueOf(5), BigInteger.valueOf(80)},
+                {BigInteger.valueOf(7), BigInteger.valueOf(216)},
+                {BigInteger.valueOf(30), BigInteger.valueOf(14098308)}
+        };
+        return combine(fiveImplPackageProvider(), testData);
+    }
+    @DataProvider()
+    public static Object[][] negativePerimeter() {
+        Object[][] testData = {
+                {BigInteger.valueOf(0), BigInteger.valueOf(0)},
+                {BigInteger.valueOf(-15), BigInteger.valueOf(0)}
+        };
+        return combine(fiveImplPackageProvider(), testData);
     }
 }

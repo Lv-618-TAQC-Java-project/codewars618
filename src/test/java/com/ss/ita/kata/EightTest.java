@@ -37,8 +37,14 @@ public class EightTest extends EightDataProvider {
         Assert.assertEquals(imp.mpgToKPM(a), expected);
     }
 
-    @Test
-    public void testSquareOrSquareRoot() {
+    @Test(dataProvider = "positiveSquareOrSquareRoot")
+    public void positiveTestSquareOrSquareRoot(Eight imp, int[] actual, int[] expected) {
+        Assert.assertEquals(imp.squareOrSquareRoot(actual),expected);
+    }
+
+    @Test(dataProvider = "negativeSquareOrSquareRoot")
+    public void negativeTestSquareOrSquareRoot(Eight imp, int[] actual, int[] expected) {
+        Assert.assertEquals(imp.squareOrSquareRoot(actual),expected);
     }
 
     @Test

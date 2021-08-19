@@ -9,6 +9,8 @@ import java.util.List;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
+        if (m == 0)
+            return -1L;
         long cubeNumber = 0;
         for ( long i = 1; m > 0 ; i++){
             m -= i * i * i;
