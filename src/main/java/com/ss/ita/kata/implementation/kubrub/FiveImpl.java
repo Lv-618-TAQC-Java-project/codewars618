@@ -87,12 +87,15 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        int q = n;
+        if (n <= 0){
+            return -1;
+        }
+        int temp = n;
         int zeros = 0;
 
-        while (q != 0){
-            q /= 5;
-            zeros += q;
+        while (temp != 0){
+            temp /= 5;
+            zeros += temp;
         }
         return zeros;
     }
