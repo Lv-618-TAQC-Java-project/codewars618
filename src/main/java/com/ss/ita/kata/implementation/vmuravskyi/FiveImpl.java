@@ -63,6 +63,9 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
+        if (n <= 0) {
+            return -1;
+        }
         BigInteger sum = new BigInteger(String.valueOf(1));
         BigInteger multiply = new BigInteger(String.valueOf(1));
         BigInteger one = new BigInteger(String.valueOf(1));

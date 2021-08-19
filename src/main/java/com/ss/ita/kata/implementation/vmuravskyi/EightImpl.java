@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        if (time <= 0) {
+        if (time < 0) {
             return -1;
         }
         return (int) (time * 0.5);
@@ -24,8 +24,8 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        if (mpg <= 0) {
-            return 0;
+        if (mpg < 0) {
+            return -1;
         }
         float temp = Math.round(((mpg * 1.609344 / 4.54609188) * 100));
         return temp / 100;
@@ -70,7 +70,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return Math.max(Integer.parseInt(str), 0);
+        return Integer.parseInt(str);
     }
 
     @Override

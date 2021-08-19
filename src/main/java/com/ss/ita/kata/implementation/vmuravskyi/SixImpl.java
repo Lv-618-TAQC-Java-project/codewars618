@@ -6,7 +6,7 @@ public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
         if (m <= 0) {
-            return -1L;
+            return -1;
         }
         long count = 0;
         long sumOfVolume = 0L;
@@ -16,7 +16,7 @@ public class SixImpl implements Six {
         }
         if (sumOfVolume == m) {
             return count;
-        } else return 0;
+        } else return -1;
     }
 
     @Override
@@ -60,11 +60,16 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return x / (1.0 + Math.sqrt(1.0 + x));
+        if (x < 0) {
+            return -1;
+        } else return x / (1.0 + Math.sqrt(1.0 + x));
     }
 
     @Override
     public double mean(String town, String strng) {
+        if (town == null || town.isEmpty()) {
+            return -1;
+        }
 
         String[] split = strng.split("\n");
 
@@ -95,6 +100,9 @@ public class SixImpl implements Six {
 
     @Override
     public double variance(String town, String strng) {
+        if (town == null || town.isEmpty()) {
+            return -1;
+        }
         String[] split = strng.split("\n");
         String[] cities = new String[split.length];
         String[] temp;
@@ -137,6 +145,9 @@ public class SixImpl implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
+        if (toFind == null || toFind.equals("")) {
+            return ":This team didn't play!";
+        }
         String split = resultSheet.replaceAll("([0-9.]) ", "$1-");
         split = split.replaceAll(" ([0-9.]*)(-)", "_$1$2");
         String s2 = split.replaceAll(" ([0-9.]*)(,)", "_$1$2");

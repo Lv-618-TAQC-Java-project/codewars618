@@ -39,7 +39,7 @@ public class SixDataProvider extends DataProviderClass {
     @DataProvider(name = "varianceDataProvider")
     public static Object[][] varianceDataProvider() {
         Object[][] param = new Object[][]{
-                {"London", data, 57.42833333333374},
+                {"London", data, 57.428333333333335},
                 {"Beijing", data, 4808.37138888889}
         };
 
