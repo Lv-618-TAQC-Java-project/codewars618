@@ -58,4 +58,23 @@ public class FiveDataProvider extends DataProviderClass {
         };
         return combine(fiveImplPackageProvider(), testData);
     }
+
+    @DataProvider(name = "positiveZeros")
+    public static Object[][] positiveZeros(){
+        Object[][] testData = new Object[][]{
+                {6, 1},
+                {12, 2},
+                {20, 4}
+        };
+        return combine(fiveImplPackageProvider(), testData);
+    }
+
+    @DataProvider(name = "negativeZeros")
+    public static Object[][] negativeZeros(){
+        Object[][] testData = new Object[][]{
+                {-1, -1},
+                {-999, -1}
+        };
+        return combine(fiveImplPackageProvider(), testData);
+    }
 }
