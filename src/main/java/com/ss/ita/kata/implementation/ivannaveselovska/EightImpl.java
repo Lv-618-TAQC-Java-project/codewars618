@@ -9,22 +9,22 @@ import java.util.Arrays;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        if (time < 0)
-            return 0;
+        if (time < 0.0)
+            return -1;
         return (int) time / 2;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
         if(length <= 0 || width <= 0 || height <=0)
-            return 0;
+            return -1.0;
         return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        if (mpg <= 0.0f)
-            return 0.0f;
+        if (mpg < 0.0f)
+            return -1.0f;
         return BigDecimal.valueOf(mpg * 1.609344 / 4.54609188).setScale(2, RoundingMode.HALF_UP).floatValue();
     }
 
@@ -109,7 +109,7 @@ public class EightImpl implements Eight {
     private double factorial(double number){
         double result = 1;
         while(number > 0){
-            result += number--;
+            result *= number--;
         }
         return result;
     }

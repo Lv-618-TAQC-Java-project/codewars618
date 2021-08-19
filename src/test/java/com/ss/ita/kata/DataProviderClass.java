@@ -2,8 +2,6 @@ package com.ss.ita.kata;
 
 import org.testng.annotations.DataProvider;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
