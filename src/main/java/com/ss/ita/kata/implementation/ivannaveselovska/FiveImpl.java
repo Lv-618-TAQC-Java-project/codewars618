@@ -51,7 +51,9 @@ public class FiveImpl implements Five {
                 return primePair;
             primePair[0] = primePair[1];
         }
-        return null;
+        if (primePair[0] == 0)
+            return null;
+        return primePair;
     }
 
     @Override
@@ -83,10 +85,11 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        double x = (2 * m + 1 - Math.sqrt((2 * m + 1) * (2 * m + 1) - 4 * m * m)) / (2 * m);
+        double sqrtD = Math.sqrt((2 * m + 1) * (2 * m + 1) - 4 * m * m);
+        double x = (2 * m + 1 - sqrtD) / (2 * m);
         if(x > 0 && x < 1)
             return x;
-        x = (2 * m + 1 + Math.sqrt((2 * m + 1) * (2 * m + 1) - 4 * m * m)) / (2 * m);
+        x = (2 * m + 1 + sqrtD) / (2 * m);
         if(x > 0 && x < 1)
             return x;
         return 0;
@@ -94,6 +97,8 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
+        if (n <= 0)
+            return new long[0];
         String number = Long.toString(n);
         long minValue = n;
         long first = 0;

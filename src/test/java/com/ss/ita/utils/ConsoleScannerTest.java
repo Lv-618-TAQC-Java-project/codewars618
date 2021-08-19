@@ -12,6 +12,8 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigInteger;
 
+import java.io.*;
+
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
 
     @Test(dataProvider = "validConsoleScanner")
@@ -112,5 +114,25 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         System.setIn(input);
         ConsoleScanner scanner = new ConsoleScanner();
         scanner.readBigInteger();
+    }
+
+    @Test(dataProvider = "validReadFloat")
+    public void testReadFloat(String param, float expected) {
+        InputStream input = new ByteArrayInputStream(param.getBytes());
+        System.setIn(input);
+        ConsoleScanner sc = new ConsoleScanner();
+        Assert.assertEquals(sc.readFloat(),expected);
+    }
+
+    @Test(dataProvider = "invalidReadFloat")
+    public void invalidTestReadFloat(String param, String expected) {
+        InputStream input = new ByteArrayInputStream(param.getBytes());
+        System.setIn(input);
+        ConsoleScanner cs = new ConsoleScanner();
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        cs.readFloat();
+        String actual = String.valueOf(output).replaceAll("\r", "");
+        Assert.assertEquals(actual, expected);
     }
 }
