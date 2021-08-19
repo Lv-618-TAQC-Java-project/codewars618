@@ -27,6 +27,11 @@ public class SixTest extends SixDataProvider {
         Assert.assertEquals(imp.f(x),expected);
     }
 
+    @Test(dataProvider = "invalidFloatingPointApproximation")
+    public void invalidTestF(Six imp, double x, double expected) {
+        Assert.assertEquals(imp.f(x),expected);
+    }
+
     @Test(dataProvider = "meanDataProvider")
     public void testMean(Six impl, String town, String data, double expected) {
         Assert.assertEquals(impl.mean(town, data), expected);

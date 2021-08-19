@@ -24,6 +24,16 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), param);
     }
 
+    @DataProvider(name = "convertAStringToaNumber")
+    public static Object[][]convertAStringToANumber(){
+        Object[][] param = new Object[][]{
+                {"1234", 1234},
+                {"605", 605},
+                {"1405", 1405},
+                {"-7", -7}
+        };
+        return combine(eightImplPackageProvider(), param);
+    }
 
     @DataProvider(name = "wilsonPrimeDataProvider")
     public static Object[][] wilsonPrimeDataProvider() {
