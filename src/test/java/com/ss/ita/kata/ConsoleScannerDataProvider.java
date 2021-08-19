@@ -21,4 +21,22 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         };
         return combine(ConsoleScannerProvider(), param);
     }
+
+    @DataProvider(name = "validReadFloat")
+    public static Object[][] validReadFloat() {
+        Object[][] param = {
+                {"34.56", 34.56f},
+                {"0.6758", 0.6758f}
+        };
+        return param;
+    }
+
+    @DataProvider(name = "invalidReadFloat")
+    public static Object[][] invalidReadFloat() {
+        Object[][] param = {
+                {"23.g\n23.78", "Value is not 'float', please try again.\n"},
+                {"www\n3.567", "Value is not 'float', please try again.\n"}
+        };
+        return param;
+    }
 }
