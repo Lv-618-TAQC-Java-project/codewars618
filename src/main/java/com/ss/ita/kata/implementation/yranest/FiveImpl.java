@@ -7,6 +7,9 @@ import java.math.BigInteger;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
+        if(v.length==0){
+            return 0;
+        }
         int left = 0, area = 0, record = 1;
         for(int i = 1; i < v.length; i++){
             if(v[i] < v[i - 1]) left = i;
@@ -64,6 +67,8 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
+        if (n.intValue() <= 0)
+            return BigInteger.valueOf(0);
         BigInteger sum = BigInteger.valueOf(0);
         int k = n.intValue()+1;
         BigInteger [] array = new BigInteger[k];
@@ -81,12 +86,95 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        return -(-2*m + Math.sqrt(4*m + 1) - 1)/(2*m);
     }
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        long variable2 = 0;
+        long variable = 0;
+        long position = 0;
+        long secondPosition = 0;
+        long [] mas = new long[3];
+        String str = Integer.toString((int)n);
+        long []array = new long[str.length()];
+        for (int i = array.length- 1; i >= 0; i--){
+            array[i]=n%10;
+            n/=10;
+        }
+        long min = array[0];
+        long min1 = array[0];
+        for(int i=0;i<array.length;i++){
+            if(min>=array[i]) {
+                min = array[i];
+                position = i;
+                min1 = array[i];
+            }
+        }
+        if(min==array[0]&&position==0){
+            min = array[1];
+            for(int i=1;i<array.length;i++){
+                if(min>=array[i]) {
+                    min = array[i];
+                    position = i;
+                    System.out.println(min);
+                }
+            }
+        }
+        long first = array[0];
+        long pos = array[(int)position];
+        for (int i=(int)position;i>=0;i--) {
+            if (min>min1) {
+                System.out.println("1'");
+                if (i == 1) {
+                    array[i] = min;
+                    secondPosition =i;
+                    variable2=secondPosition;
+
+                }
+
+                else if(i==0)
+                    continue;
+                else
+                    array[i] = array[i - 1];
+
+            }
+            else if(array[1]==0){
+                variable = array[0];
+                array[0]=array[1];
+                array[1]=variable;
+                position = 0;
+                secondPosition = 1;
+                variable2=secondPosition;
+            }
+            else if(min<=min1 && array[0]!=0){
+                if (i == 0) {
+                    array[i] = min1;
+                    secondPosition =i;
+                    variable2=secondPosition;
+                }
+                else if (i == 1)
+                    array[i] = first;
+                else
+                    array[i] = array[i - 1];
+            }
+        }
+
+        String str1 = "";
+        int k=0;
+        Integer g =0;
+        for (int i=0;i<array.length;i++){
+            k = (int)array[i];
+            g=Integer.valueOf(k);
+            str1+= g.toString();
+
+        }
+        long answer = Long.valueOf(str1);
+        mas[0]=answer;
+        mas[1]=position;
+        mas[2]=variable2;
+        return mas;
+
     }
 
     private  boolean primeNumber(long number) {
