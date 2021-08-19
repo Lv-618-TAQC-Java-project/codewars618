@@ -2,7 +2,7 @@ package com.ss.ita.kata;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import java.util.Arrays;
 import java.math.BigInteger;
 
 public class FiveTest extends FiveDataProvider {
@@ -45,7 +45,14 @@ public class FiveTest extends FiveDataProvider {
     public void testSolveSum() {
     }
 
-    @Test
-    public void testSmallest() {
+    @Test(dataProvider = "findTheSmallest")
+    public void testSmallest(Five imp, long n, String res) {
+        Assert.assertEquals(Arrays.toString(imp.smallest(n)), res);
     }
+
+    @Test(dataProvider = "invalidFindTheSmallest")
+    public void negativeTestSmallest(Five imp, long n, String res){
+        Assert.assertEquals(Arrays.toString(imp.smallest(n)), res);
+    }
+
 }
