@@ -9,7 +9,7 @@ import java.util.List;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        if (m == 0)
+        if (m <= 0)
             return -1L;
         long cubeNumber = 0;
         for ( long i = 1; m > 0 ; i++){
@@ -43,14 +43,15 @@ public class SixImpl implements Six {
     @Override
     public double f(double x) {
         if (x < 0.0 || x > 1.0)
-            return 0.0;
+            return -1.0;
         return x/(1.0 + Math.sqrt(1.0 + x));
     }
 
     @Override
     public double mean(String town, String strng) {
+        if (town.isEmpty() || strng.isEmpty())
+            return -1.0;
         double[] values = getDoubleArrayFromData(town,strng);
-
         if (values == null)
             return -1.0;
         return Arrays.stream(values).average().getAsDouble();
@@ -60,6 +61,8 @@ public class SixImpl implements Six {
 
     @Override
     public double variance(String town, String strng) {
+        if (town.isEmpty() || strng.isEmpty())
+            return -1.0;
         double[] values = getDoubleArrayFromData(town,strng);
         if (values == null)
             return -1.0;

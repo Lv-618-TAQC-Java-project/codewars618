@@ -51,13 +51,15 @@ public class FiveImpl implements Five {
                 return primePair;
             primePair[0] = primePair[1];
         }
-        if (primePair[0] == 0)
+        if (primePair[0] == primePair[1])
             return null;
         return primePair;
     }
 
     @Override
     public int zeros(int n) {
+        if (n <= 0)
+            return -1;
         List<Integer> multipliers = new LinkedList<>();
         for(int i = 1; i <= n; i++)
             multipliers.add(i);
