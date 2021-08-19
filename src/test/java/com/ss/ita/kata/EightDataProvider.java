@@ -24,7 +24,27 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), param);
     }
 
-    @DataProvider(name = "positiveKeepHydrated")
+
+    @DataProvider(name = "wilsonPrimeDataProvider")
+    public static Object[][] wilsonPrimeDataProvider() {
+        Object[][] param = new Object[][]{
+                {5, true},
+                {9, false},
+                {6, false}
+        };
+        return combine(eightImplPackageProvider(), param);
+    }
+
+    @DataProvider(name = "invalidWilsonPrimeDataProvider")
+    public static Object[][] invalidWilsonPrimeDataProvider() {
+        Object[][] param = new Object[][]{
+                {-4, false},
+                {0, false}
+        };
+        return combine(eightImplPackageProvider(), param);
+    }
+
+    @DataProvider(name = "positiveLiters")
     public static Object[][] positiveKeepHydrated() {
         Object[][] testData = new Object[][]{
                 {4.0, 2},
@@ -39,11 +59,11 @@ public class EightDataProvider extends DataProviderClass {
         return combine(eightImplPackageProvider(), testData);
     }
 
-    @DataProvider(name = "negativeKeepHydrated")
+    @DataProvider(name = "negativeLiters")
     public static Object[][] negativeKeepHydrated() {
         Object[][] testData = new Object[][]{
-                {-50, -25},
-                {-400000, -200000}
+                {-50, -1},
+                {-400000, -1}
         };
         return combine(eightImplPackageProvider(), testData);
     }
@@ -105,8 +125,28 @@ public class EightDataProvider extends DataProviderClass {
     @DataProvider(name = "negativeMpgToKPM")
     public static Object[][] negativeMpgToKPM(){
         Object[][] testData = new Object[][]{
-                {-5f, 0},
-                {-9879.324f, 0}
+                {-5f, -1},
+                {-9879.324f, -1}
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
+
+    @DataProvider()
+    public static Object[][] positiveSquareOrSquareRoot(){
+        Object[][] testData = new Object[][]{
+                {new int[]{4, 3, 9, 7, 2, 1}, new int[]{2, 9, 3, 49, 4, 1}},
+                {new int[]{100, 101, 5, 5, 1, 1}, new int[]{10, 10201, 25, 25, 1, 1}},
+                {new int[]{1, 2, 3, 4, 5, 6}, new int[]{1, 4, 9, 2, 25, 36}}
+        };
+        return combine(eightImplPackageProvider(), testData);
+    }
+
+    @DataProvider()
+    public static Object[][] negativeSquareOrSquareRoot(){
+        Object[][] testData = new Object[][]{
+                {new int[]{-1, -2, -3, -4, -5, -6}, new int[0]},
+                {new int[0], new int[0]},
+                {new int[]{1, 2, 3, 4, 0, 6}, new int[0]}
         };
         return combine(eightImplPackageProvider(), testData);
     }

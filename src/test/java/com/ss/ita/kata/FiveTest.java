@@ -3,6 +3,8 @@ package com.ss.ita.kata;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.math.BigInteger;
+
 public class FiveTest extends FiveDataProvider {
 
     @Test(dataProvider = "positiveArtificialRain")
@@ -20,12 +22,23 @@ public class FiveTest extends FiveDataProvider {
         Assert.assertEquals(imp.gap(g, m, n), expected);
     }
 
-    @Test
-    public void testZeros() {
+    @Test(dataProvider = "positiveZeros")
+    public void positiveTestZeros(Five imp, int a, int expected) {
+        Assert.assertEquals(imp.zeros(a), expected);
     }
 
-    @Test
-    public void testPerimeter() {
+    @Test(dataProvider = "negativeZeros")
+    public void negativeTestZeros(Five imp, int a, int expected) {
+        Assert.assertEquals(imp.zeros(a), expected);
+    }
+
+    @Test(dataProvider = "positivePerimeter")
+    public void positiveTestPerimeter(Five impl, BigInteger actual, BigInteger expected) {
+        Assert.assertEquals(impl.perimeter(actual), expected);
+    }
+    @Test(dataProvider = "negativePerimeter")
+    public void negativeTestPerimeter(Five impl, BigInteger actual, BigInteger expected) {
+        Assert.assertEquals(impl.perimeter(actual), expected);
     }
 
     @Test
