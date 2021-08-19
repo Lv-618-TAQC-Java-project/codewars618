@@ -34,6 +34,6 @@ public class SevenImpl implements Seven {
     public int whereIsHe(int p, int bef, int aft) {
         if (p <= 0 || bef < 0 || aft < 0)
             return 0;
-        return p - bef;
+        return (p - (aft + 1) >= bef) ? (aft + 1) : (p - bef);
     }
 }
