@@ -12,12 +12,12 @@ public class SevenImpl implements Seven {
         for(int i = 0; i < arr.length; i++){
             temp += arr[i];
         }
-        double res = 0;
+        int res = ((int) ((navg * (arr.length+1)) - temp));
+        if (temp > navg){
+            throw new IllegalArgumentException();
+        }
 
-        res = (arr.length + 1) * navg;
-        res -= temp;
-
-        return (long)res;
+        return res;
     }
 
     @Override
