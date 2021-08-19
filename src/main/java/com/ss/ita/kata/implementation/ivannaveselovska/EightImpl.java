@@ -10,24 +10,32 @@ public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
         if (time < 0)
-            return -1;
+            return 0;
         return (int) time / 2;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
         if(length <= 0 || width <= 0 || height <=0)
-            return -1;
+            return 0;
         return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
+        if (mpg <= 0.0f)
+            return 0.0f;
         return BigDecimal.valueOf(mpg * 1.609344 / 4.54609188).setScale(2, RoundingMode.HALF_UP).floatValue();
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
+        if (array.length == 0)
+            return new int[0];
+        for (int i : array) {
+            if (i <= 0)
+                return new int[0];
+        }
         return Arrays.stream(array)
                 .map( x -> {
                     int sqr = isSquare(x);
@@ -83,7 +91,7 @@ public class EightImpl implements Eight {
 
     private int isSquare(int number){
         for( int i = 1; i <= number / 2; i ++)
-            if ( number / i == i)
+            if ( number / i == i && number % i == 0)
                 return i;
         return -1;
     }

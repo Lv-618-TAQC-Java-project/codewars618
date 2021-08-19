@@ -96,7 +96,6 @@ public class ConsoleScanner implements Scanner {
                 sc.next();
             }
         }
-
     }
 
     @Override
@@ -115,7 +114,6 @@ public class ConsoleScanner implements Scanner {
                 resultList.set(size, sc.next());
             }
         }
-
         return result;
     }
 
@@ -135,7 +133,6 @@ public class ConsoleScanner implements Scanner {
                 resultList.set(size, sc.next());
             }
         }
-
         return result;
     }
 

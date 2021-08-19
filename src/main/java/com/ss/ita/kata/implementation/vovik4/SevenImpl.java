@@ -9,7 +9,7 @@ public class SevenImpl implements Seven {
     public long newAvg(double[] arr, double navg) {
         double sum = Arrays.stream(arr).sum();
         double result = navg * (arr.length + 1) - sum;
-        if(result > 0){
+        if(result >= 0){
             return Math.round(Math.ceil(result));
         }else {
             throw new IllegalArgumentException();
@@ -33,6 +33,9 @@ public class SevenImpl implements Seven {
     @Override
     public int whereIsHe(int p, int bef, int aft) {
         if(p<=0 || bef == 0 || aft ==0){
+            return 0;
+        }
+        if(p - bef < 0){
             return 0;
         }
         return Math.min(p - bef, aft + 1);

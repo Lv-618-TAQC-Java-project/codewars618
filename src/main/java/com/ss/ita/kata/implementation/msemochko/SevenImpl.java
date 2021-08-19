@@ -12,24 +12,30 @@ public class SevenImpl implements Seven {
             sumOfNumbers += arr[i];
         }
         int unknown = ((int) ((navg * (arr.length+1)) - sumOfNumbers));
+        if (sumOfNumbers > navg){
+            throw new IllegalArgumentException();
+        }
         return unknown;
     }
 
     @Override
     public String seriesSum(int n) {
-        if (n == 0) {
+        if (n <= 0) {
             return "0.00";
         } else {
             double seriesSum = 0.0;
             for (int i = 0; i < n; i++) {
                 seriesSum += 1.0 / (1 + 3 * i);
             }
-            return String.format("%.2f", seriesSum);
+            return Double.toString((double) (Math.round(seriesSum*100D)/100D));
         }
     }
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
+        if (p<=2 || bef < 0 || aft < 0){
+            return 0;
+        }
         return Math.min(p-bef, ++aft);
     }
 }
