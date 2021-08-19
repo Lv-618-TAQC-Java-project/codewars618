@@ -2,10 +2,9 @@ package com.ss.ita.utils;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.io.*;
 import java.math.BigInteger;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 
 
 public class ConsoleScannerTest extends ConsoleScannerDataProvider {
