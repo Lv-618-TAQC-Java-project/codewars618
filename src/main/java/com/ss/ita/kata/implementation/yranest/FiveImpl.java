@@ -174,6 +174,7 @@ public class FiveImpl implements Five {
         mas[1]=position;
         mas[2]=variable2;
         return mas;
+
     }
 
     private  boolean primeNumber(long number) {

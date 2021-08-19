@@ -1,10 +1,31 @@
 package com.ss.ita.kata;
 
 import org.testng.annotations.DataProvider;
-
 import java.math.BigInteger;
 
+
 public class FiveDataProvider extends DataProviderClass {
+
+    @DataProvider(name = "findTheSmallest")
+    public static Object[][] findTheSmallest(){
+        Object[][] param = new Object[][]{
+                {261235, "[126235, 2, 0]"},
+                {285365, "[238565, 3, 1]"},
+                {269045, "[26945, 3, 0]"},
+                {296837, "[239687, 4, 1]"}
+        };
+        return combine(fiveImplPackageProvider(), param);
+    }
+    @DataProvider(name = "invalidFindTheSmallest")
+    public static Object[][] invalidFindTheSmallest(){
+        Object[][] param = new Object[][]{
+                {-261235, "[]"},
+                {-285365, "[]"},
+                {-269045, "[]"},
+                {-296837, "[]"}
+        };
+        return combine(fiveImplPackageProvider(), param);
+    }
 
     @DataProvider(name = "validGap")
     public static Object[][] validGap() {
@@ -13,6 +34,15 @@ public class FiveDataProvider extends DataProviderClass {
                 {4, 100, 110, new long[]{103, 107}},
                 {8, 300, 400, new long[]{359, 367}},
                 {10, 300, 400, new long[]{337, 347}}
+        };
+        return combine(fiveImplPackageProvider(), param);
+    }
+
+    @DataProvider(name = "invalidGap")
+    public static Object[][] invalidGap() {
+        Object[][] param = {
+                {6, 100, 110, null},
+                {1, 110, 100, null},
         };
         return combine(fiveImplPackageProvider(), param);
     }
@@ -32,14 +62,6 @@ public class FiveDataProvider extends DataProviderClass {
     }
 
 
-    @DataProvider(name = "invalidGap")
-    public static Object[][] invalidGap() {
-        Object[][] param = {
-                {6, 100, 110, null},
-        };
-        return combine(fiveImplPackageProvider(), param);
-    }
-
     @DataProvider()
     public static Object[][] positivePerimeter() {
         Object[][] testData = {
@@ -54,6 +76,25 @@ public class FiveDataProvider extends DataProviderClass {
         Object[][] testData = {
                 {BigInteger.valueOf(0), BigInteger.valueOf(0)},
                 {BigInteger.valueOf(-15), BigInteger.valueOf(0)}
+        };
+        return combine(fiveImplPackageProvider(), testData);
+    }
+
+    @DataProvider(name = "positiveZeros")
+    public static Object[][] positiveZeros(){
+        Object[][] testData = new Object[][]{
+                {6, 1},
+                {12, 2},
+                {20, 4}
+        };
+        return combine(fiveImplPackageProvider(), testData);
+    }
+
+    @DataProvider(name = "negativeZeros")
+    public static Object[][] negativeZeros(){
+        Object[][] testData = new Object[][]{
+                {-1, -1},
+                {-999, -1}
         };
         return combine(fiveImplPackageProvider(), testData);
     }

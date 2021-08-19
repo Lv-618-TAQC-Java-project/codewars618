@@ -21,6 +21,12 @@
                     <include name="negativeTestPerimeter"/>
                 </methods>
             </class>
+            <class name="com.ss.ita.utils.ConsoleScannerTest">
+                <methods>
+                    <include name="positiveTestReadBigInteger"/>
+                    <include name="negativeTestReadBigInteger"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

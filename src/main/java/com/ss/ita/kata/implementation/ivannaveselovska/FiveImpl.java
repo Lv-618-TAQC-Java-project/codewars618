@@ -34,10 +34,13 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
+        if (m >= n)
+            return null;
         long[] primePair = new long[2];
         for (long i = m; i <= n; i++) {
             if(isPrime(i)) {
                 primePair[0] = i;
+                primePair[1] = i;
                 break;
             }
         }
@@ -64,7 +67,7 @@ public class FiveImpl implements Five {
     @Override
     public BigInteger perimeter(BigInteger n) {
         if (n.intValue() <= 0)
-            return BigInteger.valueOf(0);
+            return BigInteger.ZERO;
         BigInteger[] fibonacciPair = new BigInteger[2];
         fibonacciPair[0] = BigInteger.valueOf(1);
         fibonacciPair[1] = BigInteger.valueOf(1);
