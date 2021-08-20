@@ -13,19 +13,14 @@ import java.math.RoundingMode;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        long n = 1;
-        long sum = 1;
-
-        while (sum != m) {
-            n++;
-            sum += Math.pow(n, 3);
-            if ((m - sum) < sum) {
-                System.out.println("Maximum available Cubes: " + n);
-                return -1;
-            }
+        if (m == 0)
+            return -1L;
+        long cubeNumber = 0;
+        for ( long i = 1; m > 0 ; i++){
+            m -= i * i * i;
+            cubeNumber++;
         }
-
-        return n;
+        return m == 0 ? cubeNumber : -1L;
     }
 
     @Override
@@ -69,6 +64,9 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
+        if (x <= 0){
+            return -1;
+        }
         return x/(1.0 + Math.sqrt(1.0 + x));
     }
 
@@ -105,10 +103,7 @@ public class SixImpl implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        if (toFind.equals("")) {
-            return "";
-        }
-        if (!isTeamExist(toFind))  {
+        if (!isTeamExist(toFind) || toFind.equals(""))  {
             return toFind + ":This team didn't play!";
         }
 
@@ -165,7 +160,7 @@ public class SixImpl implements Six {
                 .collect(Collectors
                         .joining()));
 
-        return sb.delete(sb.length() - 3, sb.length() - 1).toString();
+        return sb.delete(sb.length() - 3, sb.length()).toString();
     }
 
     private String[] getArrayOfValues(String town, String strng) {
@@ -225,7 +220,11 @@ public class SixImpl implements Six {
 
             if (el.indexOf(toFind) < el.indexOf(scores[0])) {
                 scored += Integer.parseInt(scores[0]);
-                conceded += Integer.parseInt(scores[1]);
+                if (scores.length == 3) {
+                    conceded += Integer.parseInt(scores[2]);
+                } else {
+                    conceded += Integer.parseInt(scores[1]);
+                }
                 if (Integer.parseInt(scores[0]) > Integer.parseInt(scores[1])) {
                     win ++;
                 } else if (Integer.parseInt(scores[0]) < Integer.parseInt(scores[1])) {
