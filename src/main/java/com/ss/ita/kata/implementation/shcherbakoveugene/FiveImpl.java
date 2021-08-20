@@ -13,6 +13,9 @@ import java.util.stream.Collectors;
 public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
+        if (v.length == 0) {
+            return 0;
+        }
         int count = 1;
         List<Integer> list = new ArrayList<>();
 
@@ -68,6 +71,9 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
+        if (n < 0) {
+            return -1;
+        }
         long f = factorial(n);
         String[] str = String.valueOf(f).split("");
         int count = 0;
@@ -85,6 +91,9 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
+        if (n.intValue() <= 0) {
+            return BigInteger.valueOf(0);
+        }
         int a = n.intValue();
         BigInteger num1 = BigInteger.valueOf(0);
         BigInteger num2 = BigInteger.valueOf(1);
@@ -106,6 +115,10 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
+        if (n <= 0) {
+            return new long[0];
+        }
+
         String[] inputToStringArr = Long
                 .toString(n)
                 .split("");
