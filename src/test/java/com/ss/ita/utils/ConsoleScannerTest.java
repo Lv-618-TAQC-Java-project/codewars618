@@ -152,4 +152,18 @@ public class ConsoleScannerTest extends ConsoleScannerDataProvider {
         ConsoleScanner sc = new ConsoleScanner();
         Assert.assertEquals(sc.readBigDecimal(), result);
     }
+    @Test(dataProvider = "validReadLong")
+    public void testValidReadLong(String param, long expected) {
+        InputStream input = new ByteArrayInputStream(param.getBytes());
+        System.setIn(input);
+        ConsoleScanner sc = new ConsoleScanner();
+        Assert.assertEquals(sc.readLong(), expected);
+    }
+    @Test(dataProvider = "invalidReadLong")
+    public void invalidReadLong(String number, String expected) {
+        InputStream input = new ByteArrayInputStream(number.getBytes());
+        System.setIn(input);
+        ConsoleScanner sc = new ConsoleScanner();
+        sc.readLong();
+    }
 }

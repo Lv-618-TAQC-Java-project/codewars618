@@ -84,6 +84,15 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         return param;
     }
 
+    @DataProvider(name = "validReadStringArray")
+    public static Object[][] validReadStringArray() {
+        Object[][] testData = new Object[][]{
+                {"something", new String[]{"something"}},
+                {"one two three four five", new String[]{"one", "two", "three", "four", "five"}},
+        };
+        return testData;
+    }
+
     @DataProvider(name = "invalidInputIntConsoleScanner")
     public static Object[][] invalidInputIntConsoleScanner() {
         Object[][] param = new Object[][]{
@@ -158,6 +167,24 @@ public class ConsoleScannerDataProvider extends DataProviderClass {
         Object[][] param = {
                 {"23.g\n23.78", "Value is not 'float', please try again.\n"},
                 {"www\n3.567", "Value is not 'float', please try again.\n"}
+        };
+        return param;
+    }
+    @DataProvider(name = "validReadLong")
+    public static Object[][] validReadLong() {
+        Object[][] param = {
+                {"515112123451", 515112123451L},
+                {"14567091421", 14567091421L}
+        };
+        return param;
+    }
+
+    @DataProvider(name = "invalidReadLong")
+    public static Object[][] invalidReadLong() {
+        Object[][] param = {
+                {"ffw\n23", new String("Value is not 'long', please try again.\n")},
+                {"2.42\n1", new String("Value is not 'long', please try again.\n")},
+                {"*-=+\n1", new String("Value is not 'long', please try again.\n")}
         };
         return param;
     }
