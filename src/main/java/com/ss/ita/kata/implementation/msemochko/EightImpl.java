@@ -55,10 +55,10 @@ public class EightImpl implements Eight {
             double n = Math.floor(Math.sqrt(array[i]));
 
             if (n*n==array[i]){
-                array[i] = (int)n;
+                newArr[i] = (int)n;
             }
             else{
-                array[i] *= array[i];
+                newArr[i] *= array[i];
             }
         }
         return newArr;
