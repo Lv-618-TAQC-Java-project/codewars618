@@ -4,20 +4,32 @@ import com.ss.ita.kata.Seven;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Arrays;
 
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
-        double temp = 0.0;
+        /*double temp = 0.0;
         for(int i = 0; i < arr.length; i++){
             temp += arr[i];
         }
-        double res = 0;
+        int res = ((int) ((navg * (arr.length+1)) - temp));
+        if (temp > navg){
+            throw new IllegalArgumentException();
+        }
 
-        res = (arr.length + 1) * navg;
-        res -= temp;
-
-        return (long)res;
+        return res;*/
+        if (arr.length == 0 || navg <= 0)
+            throw new IllegalArgumentException();
+        double temp  = 0;
+        for(int i = 0; i < arr.length; i++){
+            temp += arr[i];
+        }
+        double expectedResult  = navg * (arr.length + 1);
+        long res = (long) (expectedResult - temp);
+        if (res <= 0)
+            throw new IllegalArgumentException();
+        return res;
     }
 
     @Override

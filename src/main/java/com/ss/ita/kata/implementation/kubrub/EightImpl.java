@@ -24,9 +24,8 @@ public class EightImpl implements Eight {
         if (mpg < 0){
             return -1;
         }
-        double kilometersPerLiter = mpg * 1.609344 / 4.54609188;
-        String value = String.format("%.2f", kilometersPerLiter);
-        float res = Float.parseFloat(value);
+        float kilometersPerLiter = (mpg * 1.609344f) / 4.54609188f;
+        float res = (float)(Math.round(kilometersPerLiter * 100) / 100D);
         return res;
     }
 

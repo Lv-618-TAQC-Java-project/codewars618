@@ -87,33 +87,36 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        int q = n;
+        if (n <= 0){
+            return -1;
+        }
+        int temp = n;
         int zeros = 0;
 
-        while (q != 0){
-            q /= 5;
-            zeros += q;
+        while (temp != 0){
+            temp /= 5;
+            zeros += temp;
         }
         return zeros;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        int temp = 0;
-        int m = n.intValue();
-        int[] f = new int[m];
-        f[0] = 1;
-        f[1] = 1;
-        for (int i = 2; i < m; ++i) {
-            f[i] = f[i - 1] + f[i - 2];
+        if (n.intValue() <= 0){
+            return BigInteger.ZERO;
         }
-
-        for(int i = 0; i < f.length; i++){
-            temp += f[i];
+        BigInteger[] f = new BigInteger[2];
+        f[0] = BigInteger.valueOf(1);
+        f[1] = BigInteger.valueOf(1);
+        BigInteger res = BigInteger.valueOf(0);
+        for (int i = 1; i <= n.intValue() + 1; i++) {
+            res = res.add(BigInteger.valueOf(
+                            f[0].intValue())
+                    .multiply(BigInteger.valueOf(4)));
+            BigInteger buff = BigInteger.valueOf(f[1].intValue());
+            f[1] = f[1].add(f[0]);
+            f[0] = buff;
         }
-
-        temp *= 4;
-        BigInteger res = BigInteger.valueOf(temp);
         return res;
     }
 
