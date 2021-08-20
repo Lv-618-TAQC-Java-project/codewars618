@@ -30,29 +30,18 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        long max = 0;
-        long[] array = new long[2];
-        for (long i = m; i < n; i++) {
+        long[] arrOfPrime = new long[2];
+        for (long i = m; i <= n; i++) {
             if (primeNumber(i)) {
-                array[0] = i;
-            }
-
-            for (long j = array[0] + 1; j < n; j++) {
-                if (primeNumber(j)) {
-                    array[1] = j;
+                if (arrOfPrime[0] != 0 && g == i - arrOfPrime[0]) {
+                    arrOfPrime[1] = i;
+                    return arrOfPrime;
+                } else {
+                    arrOfPrime[0] = i;
                 }
-                if (array[1] - array[0] == g && max == 0) {
-                    max = array[0];
-                }
-
             }
         }
-        array[0] = max;
-        array[1] = array[0] + g;
-        if (max != 0)
-            return array;
-        else
-            return null;
+        return null;
     }
 
     @Override
@@ -92,99 +81,35 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
-        long variable2 = 0;
-        long variable = 0;
-        long position = 0;
-        long secondPosition = 0;
-        long [] mas = new long[3];
-        String str = Integer.toString((int)n);
-        long []array = new long[str.length()];
-        for (int i = array.length- 1; i >= 0; i--){
-            array[i]=n%10;
-            n/=10;
+        if(n <= 0){
+            return new long[]{};
         }
-        long min = array[0];
-        long min1 = array[0];
-        for(int i=0;i<array.length;i++){
-            if(min>=array[i]) {
-                min = array[i];
-                position = i;
-                min1 = array[i];
-            }
-        }
-        if(min==array[0]&&position==0){
-            min = array[1];
-            for(int i=1;i<array.length;i++){
-                if(min>=array[i]) {
-                    min = array[i];
-                    position = i;
-                    System.out.println(min);
+        String numberStr = Long.toString(n);
+        long[] result = new long[3];
+        result[0] = n;
+
+        for (int i=0; i<numberStr.length();i++){
+            for (int j=0; j<numberStr.length(); j++){
+                String digitStr = numberStr.substring(i,i+1);
+                String tempStr = numberStr.substring(0,i) + numberStr.substring(i+1);
+                String tempStr2 = tempStr.substring(0,j) + digitStr + tempStr.substring(j);
+
+                if (Long.parseLong(tempStr2)<result[0]){
+                    result[0] = Long.parseLong(tempStr2);
+                    result[1] =i;
+                    result[2] = j;
                 }
             }
         }
-        long first = array[0];
-        long pos = array[(int)position];
-        for (int i=(int)position;i>=0;i--) {
-            if (min>min1) {
-                System.out.println("1'");
-                if (i == 1) {
-                    array[i] = min;
-                    secondPosition =i;
-                    variable2=secondPosition;
-
-                }
-
-                else if(i==0)
-                    continue;
-                else
-                    array[i] = array[i - 1];
-
-            }
-            else if(array[1]==0){
-                variable = array[0];
-                array[0]=array[1];
-                array[1]=variable;
-                position = 0;
-                secondPosition = 1;
-                variable2=secondPosition;
-            }
-            else if(min<=min1 && array[0]!=0){
-                if (i == 0) {
-                    array[i] = min1;
-                    secondPosition =i;
-                    variable2=secondPosition;
-                }
-                else if (i == 1)
-                    array[i] = first;
-                else
-                    array[i] = array[i - 1];
-            }
-        }
-
-        String str1 = "";
-        int k=0;
-        Integer g =0;
-        for (int i=0;i<array.length;i++){
-            k = (int)array[i];
-            g=Integer.valueOf(k);
-            str1+= g.toString();
-
-        }
-        long answer = Long.valueOf(str1);
-        mas[0]=answer;
-        mas[1]=position;
-        mas[2]=variable2;
-        return mas;
-
+        return result;
     }
 
     private  boolean primeNumber(long number) {
-        for (int mod = 2; mod < Math.sqrt(number); ++mod) {
-            if (number % mod == 0) {
+        for (long i = 2; i <= number / 2; i++) {
+            if (number % i == 0) {
                 return false;
             }
         }
-
         return true;
     }
 }
