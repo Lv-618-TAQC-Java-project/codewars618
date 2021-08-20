@@ -8,6 +8,9 @@ import java.math.RoundingMode;
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
+        if (arr.length == 0 || navg <= 0)
+            throw new IllegalArgumentException();
+
         int sum = 0;
 
         for (double el: arr) {
@@ -40,6 +43,8 @@ public class SevenImpl implements Seven {
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
+        if (bef < 0 || aft < 0 || p <= bef)
+            return 0;
         return p - bef;
     }
 }
