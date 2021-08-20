@@ -12,23 +12,26 @@ import java.math.RoundingMode;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return time < 0 ? 0 : (int)(time * 0.5);
+        return time < 0 ? -1 : (int)(time * 0.5);
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
         if (length <= 0 || width <= 0 || height <= 0) {
-            return 0;
+            return -1;
         }
         return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        if (mpg <= 0) {
+        if (mpg < 0) {
+            return -1;
+        }
+        if (mpg == 0) {
             return 0;
         }
-        float resInKPM = mpg/2.356F;
+        float resInKPM = (float)(mpg * 1.609344 / 4.54609188);
         BigDecimal result = new BigDecimal(resInKPM);
         result = result.setScale(2, RoundingMode.DOWN);
 
@@ -39,6 +42,12 @@ public class EightImpl implements Eight {
     public int[] squareOrSquareRoot(int[] array) {
         if (array == null) {
             return new int[0];
+        }
+        if (array.length == 0)
+            return new int[0];
+        for (int i : array) {
+            if (i <= 0)
+                return new int[0];
         }
         int[] resultArr = Arrays.copyOf(array, array.length);
 
