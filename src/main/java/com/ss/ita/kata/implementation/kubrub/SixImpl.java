@@ -56,12 +56,59 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        if (town == null || strng == null) {
+            return -1;
+        }
+        String[] splitStrng = strng.split("\n");
+        double sum =0;
+        String line="";
+        String temp = "";
+        for (String s: splitStrng){
+            temp = s;
+            if (town.equals(temp.split(":")[0])){
+                line = s;
+                System.out.println(line);
+                break;
+            }
+        }
+
+        if (line.length() == 0){
+            return -1;
+        }
+        String[] arrOfLine = line.replaceAll("[^0-9.0-9 ]", "").trim().split(" ");
+        for (String s: arrOfLine){
+            sum+= Double.parseDouble(s);
+        }
+        return sum/(arrOfLine.length);
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        if (town == null || strng == null) {
+            return -1;
+        }
+        String[] arr = strng.split("\n");
+        double sum = 0;
+        double mean = mean(town, strng);
+        String temp = "";
+        String line = "";
+        for (String s: arr){
+            temp = s;
+            if (town.equals(temp.split(":")[0])){
+                line = s;
+                break;
+            }
+        }
+
+        if (line.length() == 0 || line.length() == town.length()){
+            return -1;
+        }
+
+        String[] res = line.replaceAll("[^0-9.0-9 ]", "").trim().split(" ");
+        for (String s: res){
+            sum += Math.pow((Double.parseDouble(s) - mean), 2);
+        }
+        return sum/res.length;
     }
 
     @Override
@@ -71,6 +118,21 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        if (lstOfArt.length == 0 | lstOf1stLetter.length == 0){
+            return "";
+        }
+        StringBuilder res = new StringBuilder();
+        int sum =0;
+
+        for (String s: lstOf1stLetter){
+            for (String j: lstOfArt){
+                if (j.startsWith(s)){
+                    sum +=  Integer.parseInt(j.split(" ")[1]);
+                }
+            }
+            res.append("("+s+" : "+sum+") - ");
+            sum = 0;
+        }
+        return res.toString().substring(0, res.toString().length()-3);
     }
 }
