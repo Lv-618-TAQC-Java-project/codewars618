@@ -71,18 +71,30 @@ public class FiveImpl implements Five {
     }
     @Override
     public long[] gap(int g, long m, long n) {
-        long previousPrimeNumber = -1;
-        for(long i = m; i <= n; i++) {
-            if(isPrime((int) i)) {
-                if((i - previousPrimeNumber) == g) {
-                    System.out.println(i - previousPrimeNumber);
-                    long[] pairOfPrime = {previousPrimeNumber, i};
-                    return pairOfPrime;
-                }
-                previousPrimeNumber = i;
+        if (m >= n) {
+            return null;
+        }
+        long[] result = new long[2];
+        ArrayList<Integer> primeNumbers = new ArrayList<>();
+        BigInteger number = new BigInteger(String.valueOf(m));
+
+        while (m <= n) {
+            number = BigInteger.valueOf(m);
+            if (number.isProbablePrime((int) m)) {
+                primeNumbers.add((int) m);
+            }
+            m++;
+        }
+        for (int i = 0; i < (primeNumbers.size() - 1); i++) {
+            if (primeNumbers.get(i + 1) - primeNumbers.get(i) == g) {
+                result[0] = primeNumbers.get(i);
+                result[1] = primeNumbers.get(i + 1);
+                break;
             }
         }
-        return null;
+        if (result[0] == result[1])
+            return null;
+        return result;
     }
 
     @Override
