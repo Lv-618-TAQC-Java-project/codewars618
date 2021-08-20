@@ -75,6 +75,7 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
+        if(n<=0) return -1;
         int countOfNumbers = 0;
         while (n > 0) {
             n = n / 5;

@@ -9,7 +9,7 @@ public class SevenImpl implements Seven {
     public long newAvg(double[] arr, double navg) {
         double sum = Arrays.stream(arr).sum();
         double result = navg * (arr.length + 1) - sum;
-        if(result >= 0){
+        if(result > 0){
             return Math.round(Math.ceil(result));
         }else {
             throw new IllegalArgumentException();

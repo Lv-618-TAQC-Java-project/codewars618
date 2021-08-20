@@ -10,6 +10,8 @@ import java.util.regex.Pattern;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
+        if (m <= 0)
+            return -1L;
         double n = (double) ((-1 + Math.sqrt(1+8*Math.sqrt(m)))/2);
         if(n % 1 != 0){
             return -1;
