@@ -4,7 +4,9 @@ import com.ss.ita.kata.Six;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.StringJoiner;
 
 public class SixImpl implements Six {
@@ -14,14 +16,13 @@ public class SixImpl implements Six {
             return -1L;
         long sum = 0;
         long n = 0;
-        while(sum < m){
+        while (sum < m) {
             n = n + 1;
-            sum +=  n * n * n;
+            sum += n * n * n;
         }
-        if(sum == m){
+        if (sum == m) {
             return n;
-        }
-        else
+        } else
             return -1;
     }
 
@@ -38,7 +39,7 @@ public class SixImpl implements Six {
         for (int i = 0; i < lines.length; i++) {
 
             if (!"".equals(lines[i])) {
-                String line = lines[i].replaceAll("[^0-9a-zA-Z\\s\\.]","");
+                String line = lines[i].replaceAll("[^0-9a-zA-Z\\s\\.]", "");
 
                 if (leftOver == -1) {
                     leftOver = Double.valueOf(line.trim());
@@ -73,7 +74,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        if(x <= 0){
+        if (x <= 0) {
             return -1;
         }
         return x / (1.0 + Math.sqrt(1.0 + x));
@@ -81,12 +82,34 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        String[] values = getArrayOfValues(town, strng);
+        if (values.length == 0) {
+            return -1;
+        }
+        double sum = 0;
+
+        for (String el: values) {
+            sum += Double.parseDouble(el);
+        }
+
+        return sum/12;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        String[] values = getArrayOfValues(town, strng);
+        double mean = mean(town, strng);
+        if (values.length == 0) {
+            return -1;
+        }
+        double squareSum = 0;
+
+        for (String el: values) {
+            squareSum += Math.pow((Double.parseDouble(el) - mean), 2);
+        }
+
+        return squareSum/12;
+
     }
 
     @Override
@@ -164,23 +187,20 @@ public class SixImpl implements Six {
         int sum = 0;
         boolean hasRunOnce = false;
         String stock = "";
-        if(lstOfArt.length ==0 || lstOf1stLetter.length ==0){
-            stock="";
-        }
-
-        else{
-            for(int i = 0; i < lstOf1stLetter.length; i++) {
-                for(int j = 0; j < lstOfArt.length; j++) {
-                    if(lstOf1stLetter[i].charAt(0) == lstOfArt[j].charAt(0)) {
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
+            stock = "";
+        } else {
+            for (int i = 0; i < lstOf1stLetter.length; i++) {
+                for (int j = 0; j < lstOfArt.length; j++) {
+                    if (lstOf1stLetter[i].charAt(0) == lstOfArt[j].charAt(0)) {
                         sum += Integer.parseInt(lstOfArt[j].substring(lstOfArt[j].indexOf(" ") + 1));
                     }
-                    if(j == lstOfArt.length - 1) {
-                        if(!hasRunOnce) {
+                    if (j == lstOfArt.length - 1) {
+                        if (!hasRunOnce) {
                             stock += "(" + lstOf1stLetter[i] + " : " + sum + ")";
                             sum = 0;
                             hasRunOnce = true;
-                        }
-                        else {
+                        } else {
                             stock += " - (" + lstOf1stLetter[i] + " : " + sum + ")";
                             sum = 0;
                         }
@@ -189,5 +209,24 @@ public class SixImpl implements Six {
             }
         }
         return stock;
+    }
+
+    private String[] getArrayOfValues(String town, String strng) {
+        String[] arrayOfValues = new String[12];
+        String[] arrayOfTowns = strng.split("\n");
+
+        for (int i = 0; i < arrayOfTowns.length; i++) {
+            if (arrayOfTowns[i].substring(0, arrayOfTowns[i].indexOf(":")).equals(town)) {
+                arrayOfValues = arrayOfTowns[i]
+                        .replaceAll("[^\\d.]", " ")
+                        .trim()
+                        .replaceAll(" +", " ")
+                        .split(" ");
+                break;
+            } else if (i == arrayOfTowns.length - 1) {
+                return new String[0];
+            }
+        }
+        return arrayOfValues;
     }
 }
