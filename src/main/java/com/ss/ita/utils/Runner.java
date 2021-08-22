@@ -136,7 +136,7 @@ public class Runner {
     }
 
     public void TASK_8_9() {
-        System.out.println("Enter the size of array: ");
+        System.out.println("Enter array: ");
         int[] array = intArrayPositive(sc.readIntArray());
         System.out.println("Enter the divisor: ");
         int divider = intNotZero(sc.readInt());
