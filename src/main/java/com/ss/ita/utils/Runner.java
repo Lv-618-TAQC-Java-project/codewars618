@@ -232,7 +232,35 @@ public class Runner {
         }
         System.out.println("Result: " + Arrays.toString(five.gap(g, m, n)));
     }
+    public void TASK_5_3(){
+        System.out.println("Please, input positive integer number 'n'.");
+        int inputNumber = intPositive(sc.readInt());
+        System.out.println("Result: " + five.zeros(inputNumber));
+    }
 
+    public void TASK_5_4(){
+        System.out.println("Please, input positive BigInteger 'n'.");
+        BigInteger inputNumber = sc.readBigInteger();
+        while(true){
+            if(inputNumber.intValue() > 0)
+                break;
+            System.out.println("You have to input positive BigInteger. Please, try again!");
+            inputNumber = sc.readBigInteger();
+        }
+        System.out.println("Result: " + five.perimeter(inputNumber).intValue());
+    }
+
+    public void TASK_5_5(){
+        System.out.println("Please, input positive real 'n'.");
+        double inputNumber = doublePositive(sc.readDouble());
+        System.out.println("Result: " + five.solveSum(inputNumber));
+    }
+
+    public void TASK_5_6() {
+        System.out.println("Please, input positive integer 'n'.");
+        long inputNumber = longPositive(sc.readLong());
+        System.out.println("Result: " + five.smallest(inputNumber));
+    }
     private int intPositive(int num) {
         while (num <= 0) {
             System.out.println("Please enter number > 0");
@@ -365,19 +393,17 @@ public class Runner {
                 TASK_5_2();
                 break;
             case 21:
-
+                TASK_5_3();
                 break;
             case 22:
-
+                TASK_5_4();
                 break;
             case 23:
-
+                TASK_5_5();
                 break;
             case 24:
-
+                TASK_5_6();
                 break;
-
-
         }
     }
 }
