@@ -112,7 +112,7 @@ public class Runner {
     }
 
     public void TASK_8_5() {
-        System.out.println("Enter the size of array: ");
+        System.out.println("Enter array: ");
         int[] array = sc.readIntArray();
         System.out.println("Result: " + Arrays.toString(eight.countPositivesSumNegatives(array)));
     }
