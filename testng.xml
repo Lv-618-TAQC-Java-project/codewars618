@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/vladi/IdeaProjects/codewars618">
+        <classes>
+            <class name="com.ss.ita.kata.EightTest">
+                <methods>
+                    <include name="positiveTestLiters"/>
+                    <include name="negativeTestKeepLiters"/>
+                    <include name="TestGetVolumeOfCuboid"/>
+                    <include name="NegativeTestGetVolumeOfCuboid"/>
+                    <include name="positiveTestMpgToKPM"/>
+                    <include name="negativeTestMpgToKPM"/>
+                    <include name="positiveTestSquareOrSquareRoot"/>
+                    <include name="negativeTestSquareOrSquareRoot"/>
+                    <include name="testCountPositivesSumNegatives"/>
+                    <include name="testStringToNumber"/>
+                    <include name="testAmIWilson"/>
+                    <include name="invalidTestAmIWilson"/>
+                    <include name="positiveTestTwoDecimalPlaces"/>
+                    <include name="negativeTestTwoDecimalPlaces"/>
+                    <include name="testDivisibleBy"/>
+                    <include name="testDivisibleByInvalid"/>
+                    <include name="testDivisibleByNegative"/>
+                </methods>
+            </class>
+            <class name="com.ss.ita.kata.FiveTest">
+                <methods>
+                    <include name="positiveTestArtificialRain"/>
+                    <include name="testValidGap"/>
+                    <include name="testInvalidGap"/>
+                    <include name="positiveTestZeros"/>
+                    <include name="negativeTestZeros"/>
+                    <include name="positiveTestPerimeter"/>
+                    <include name="negativeTestPerimeter"/>
+                    <include name="testSolveSum"/>
+                    <include name="testSmallest"/>
+                    <include name="negativeTestSmallest"/>
+                </methods>
+            </class>
+            <class name="com.ss.ita.kata.SevenTest">
+                <methods>
+                    <include name="positiveTestLookingForABenefactor"/>
+                    <include name="validTestSeriesSum"/>
+                    <include name="invalidTestSeriesSum"/>
+                    <include name="negativeTestLookingForABenefactor"/>
+                    <include name="testSeriesSum"/>
+                    <include name="positiveTestWhereIsHe"/>
+                    <include name="negativeTestWhereIsHe"/>
+                </methods>
+            </class>
+            <class name="com.ss.ita.kata.SixTest">
+                <methods>
+                    <include name="positiveTestFindNb"/>
+                    <include name="negativeTestFindNb"/>
+                    <include name="testBalance"/>
+                    <include name="testF"/>
+                    <include name="invalidTestF"/>
+                    <include name="testMean"/>
+                    <include name="invalidTestMean"/>
+                    <include name="testVariance"/>
+                    <include name="invalidTestVariance"/>
+                    <include name="testNbaCup"/>
+                    <include name="NegativeTestNbaCup"/>
+                    <include name="testStockSummary"/>
+                    <include name="testStockSummaryInvalid"/>
+                </methods>
+            </class>
+            <class name="com.ss.ita.utils.ConsoleScannerTest">
+                <methods>
+                    <include name="validTestReadDoubleArray"/>
+                    <include name="invalidTestReadDoubleArray"/>
+                    <include name="validReadDouble"/>
+                    <include name="invalidReadDouble"/>
+                    <include name="positiveTestReadIntArray"/>
+                    <include name="negativeReadIntArray"/>
+                    <include name="validReadIntConsoleScanner"/>
+                    <include name="invalidInputIntConsoleScanner"/>
+                    <include name="validOnlyForStockSummaryMethodConsoleScanner"/>
+                    <include name="onlyForStockSummaryMethodConsoleScanner"/>
+                    <include name="positiveTestReadBigInteger"/>
+                    <include name="negativeTestReadBigInteger"/>
+                    <include name="testReadFloat"/>
+                    <include name="invalidTestReadFloat"/>
+                    <include name="validReadStringArray"/>
+                    <include name="validInputBigDecimalConsoleScannerTest"/>
+                    <include name="testValidReadLong"/>
+                    <include name="invalidReadLong"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
